@@ -1282,5 +1282,40 @@
         <item>2</item>
     </string-array>
 
+    <!--- Nav buttons height -->
+    <string-array name="nav_buttons_height_entries" translatable="false">
+        <item>@string/navigation_bar_height_48</item>
+        <item>@string/navigation_bar_height_47</item>
+        <item>@string/navigation_bar_height_46</item>
+        <item>@string/navigation_bar_height_45</item>
+        <item>@string/navigation_bar_height_44</item>
+        <item>@string/navigation_bar_height_43</item>
+        <item>@string/navigation_bar_height_42</item>
+        <item>@string/navigation_bar_height_41</item>
+        <item>@string/navigation_bar_height_40</item>
+        <item>@string/navigation_bar_height_39</item>
+        <item>@string/navigation_bar_height_38</item>
+        <item>@string/navigation_bar_height_37</item>
+        <item>@string/navigation_bar_height_36</item>
+        <item>@string/navigation_bar_height_35</item>
+    </string-array>
+
+    <string-array name="nav_buttons_height_values" translatable="false">
+        <item>48</item>
+        <item>47</item>
+        <item>46</item>
+        <item>45</item>
+        <item>44</item>
+        <item>43</item>
+        <item>42</item>
+        <item>41</item>
+        <item>40</item>
+        <item>39</item>
+        <item>38</item>
+        <item>37</item>
+        <item>36</item>
+        <item>35</item>
+    </string-array>
+
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 </resources>
