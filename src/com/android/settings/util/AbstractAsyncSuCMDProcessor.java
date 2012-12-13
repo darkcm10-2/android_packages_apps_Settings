@@ -45,49 +45,6 @@ public abstract class AbstractAsyncSuCMDProcessor extends AsyncTask<String, Void
     }
 
     /**
-     * DO NOT override this method you should simply send your commands off
-     * as params and expect to handle results in {@link #onPostExecute}
-     *
-     * if you find a need to @Override this method then you should
-     * consider using a new AsyncTask implentation instead
-     *
-     * @param params The parameters of the task.
-     *
-     * @return A result, defined by the subclass of this task.
-     */
-    @Override
-    protected String doInBackground(String... params) {
-        // don't bother if we don't get a command
-        if (params[0] == null || params[0].trim().equals(""))
-            return FAILURE;
-
-        String stdout = null;
-
-        // conditionally enforce mounting
-        if (mMountSystem) {
-            Helpers.getMount("rw");
-        }
-        try {
-            // process all commands ***DO NOT SEND null OR ""; you have been warned***
-            for (int i = 0; params.length > i; i++) {
-                // always watch for null and empty strings, lazy devs :/
-                if (params[i] != null && !params[i].trim().equals("")) {
-                    stdout = CMDProcessor.runSuCommand(params[i]).getStdout();
-                } else {
-                    // bail because of careless devs
-                    return FAILURE;
-                }
-            }
-        // always unmount
-        } finally {
-            if (mMountSystem)
-                Helpers.getMount("ro");
-        }
-        // return the stdout from the command
-        return stdout;
-    }
-
-    /**
      * <p>Runs on the UI thread after {@link #doInBackground}. The
      * specified result is the value returned by {@link #doInBackground}.</p>
      *

@@ -21,10 +21,14 @@ import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen; 
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.util.Log;
@@ -32,6 +36,8 @@ import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.util.CMDProcessor;
+import com.android.settings.util.Helpers; 
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -60,6 +66,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
     private INotificationManager mNotificationManager;
+
+    Preference mLcdDensity;
+    int newDensityValue;
+    DensityChanger densityFragment; 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -137,6 +147,16 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mUseAltResolver.setChecked(Settings.System.getBoolean(getActivity().getContentResolver(),
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
 
+        mLcdDensity = findPreference("lcd_density_setup");
+        String currentProperty = SystemProperties.get("ro.sf.lcd_density");
+        try {
+            newDensityValue = Integer.parseInt(currentProperty);
+        } catch (Exception e) {
+            getPreferenceScreen().removePreference(mLcdDensity);
+        }
+
+        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
+
     }
 
     @Override
@@ -189,6 +209,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             Settings.System.putBoolean(getActivity().getContentResolver(),
                     Settings.System.ACTIVITY_RESOLVER_USE_ALT,
                     mUseAltResolver.isChecked());
+            return true;
+        } else if (preference == mLcdDensity) {
+            ((PreferenceActivity) getActivity())
+            .startPreferenceFragment(new DensityChanger(), true);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

@@ -40,26 +40,6 @@ public class Helpers {
      * @return If SU was granted or denied
      */
     @SuppressWarnings("MethodWithMultipleReturnPoints")
-    public static boolean checkSu() {
-        if (!new File("/system/bin/su").exists()
-                && !new File("/system/xbin/su").exists()) {
-            Log.e(TAG, "su binary does not exist!!!");
-            return false; // tell caller to bail...
-        }
-        try {
-            if (CMDProcessor.runSuCommand("ls /data/app-private").success()) {
-                Log.i(TAG, " SU exists and we have permission");
-                return true;
-            } else {
-                Log.i(TAG, " SU exists but we don't have permission");
-                return false;
-            }
-        } catch (NullPointerException e) {
-            Log.e(TAG, "NullPointer throw while looking for su binary", e);
-            return false;
-        }
-    }
-
     /**
      * Checks device for network connectivity
      *
@@ -80,29 +60,6 @@ public class Helpers {
             }
         }
         return state;
-    }
-
-    /**
-     * Checks to see if Busybox is installed in "/system/"
-     *
-     * @return If busybox exists
-     */
-    public static boolean checkBusybox() {
-        if (!new File("/system/bin/busybox").exists()
-                && !new File("/system/xbin/busybox").exists()) {
-            Log.e(TAG, "Busybox not in xbin or bin!");
-            return false;
-        }
-        try {
-            if (!CMDProcessor.runSuCommand("busybox mount").success()) {
-                Log.e(TAG, "Busybox is there but it is borked! ");
-                return false;
-            }
-        } catch (NullPointerException e) {
-            Log.e(TAG, "NullpointerException thrown while testing busybox", e);
-            return false;
-        }
-        return true;
     }
 
     public static String[] getMounts(CharSequence path) {
@@ -131,21 +88,6 @@ public class Helpers {
         return null;
     }
 
-    public static boolean getMount(String mount) {
-        String[] mounts = getMounts("/system");
-        if (mounts != null && mounts.length >= 3) {
-            String device = mounts[0];
-            String path = mounts[1];
-            String point = mounts[2];
-            String preferredMountCmd = new String("mount -o " + mount + ",remount -t " + point + ' ' + device + ' ' + path);
-            if (CMDProcessor.runSuCommand(preferredMountCmd).success()) {
-                return true;
-            }
-        }
-        String fallbackMountCmd = new String("busybox mount -o remount," + mount + " /system");
-        return CMDProcessor.runSuCommand(fallbackMountCmd).success();
-    }
-
     public static String readOneLine(String fname) {
         BufferedReader br = null;
         String line = null;
@@ -154,10 +96,8 @@ public class Helpers {
             line = br.readLine();
         } catch (FileNotFoundException ignored) {
             Log.d(TAG, "File was not found! trying via shell...");
-            return readFileViaShell(fname, true);
         } catch (IOException e) {
             Log.d(TAG, "IOException while reading system file", e);
-            return readFileViaShell(fname, true);
         } finally {
             if (br != null) {
                 try {
@@ -168,12 +108,6 @@ public class Helpers {
             }
         }
         return line;
-    }
-
-    public static String readFileViaShell(String filePath, boolean useSu) {
-        String command = new String("cat " + filePath);
-        return useSu ? CMDProcessor.runSuCommand(command).getStdout()
-                : CMDProcessor.runShellCommand(command).getStdout();
     }
 
     public static boolean writeOneLine(String filename, String value) {
@@ -300,11 +234,11 @@ public class Helpers {
     }
 
     public static void restartSystemUI() {
-        CMDProcessor.startSuCommand("pkill -TERM -f com.android.systemui");
+        new CMDProcessor().su.runWaitFor("pkill -TERM -f com.android.systemui");
     }
 
     public static void setSystemProp(String prop, String val) {
-        CMDProcessor.startSuCommand("setprop " + prop + " " + val);
+        new CMDProcessor().su.runWaitFor("setprop " + prop + " " + val);
     }
 
     public static String getSystemProp(String prop, String def) {

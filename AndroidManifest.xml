@@ -1608,6 +1608,14 @@
         <activity android:name=".cyanogenmod.StatusBarStyle" />
         <activity android:name=".cyanogenmod.NavBarStyle" />
 
+        <activity
+            android:name=".cyanogenmod.DensityChanger"
+            android:label="@string/lcd_density_wizard" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <!-- CyanogenMod activities Start -->
         <activity android:name=".cyanogenmod.SystemUiSettings"/>
         <activity android:name="Settings$SystemSettingsActivity"

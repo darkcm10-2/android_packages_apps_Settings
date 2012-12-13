@@ -269,4 +269,38 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <string name="quick_settings_enabled">Aktiviert</string>
     <string name="quick_settings_disabled">Deaktiviert</string>
 
+    <!-- LCD Density -->
+    <string name="dpi">DPI</string>
+    <string name="su_dialog_error_title">Warnung</string>
+    <string name="su_dialog_error_message">Es ist ein Fehler aufgetreten. Bitte prüfe die Root-Einstellungen.</string>
+    <string name="lcd_density_title">LCD Pixeldichte</string>
+    <string name="lcd_density_summary">unbekannt</string>
+    <string name="current_lcd_density">"Aktuelle LCD Pixeldichte: "</string>
+    <string name="lcd_density_wizard">LCD Density Wizard</string>
+    <string name="follow_through_title">Punkt-für-Punkt-Anleitung!</string>
+    <string name="follow_through_summary">Stelle sicher, ALLE Schritte, einen nach dem anderen zu befolgen!</string>
+    <string name="stock_density_title">1. Originale Pixeldichte wählen</string>
+    <string name="stock_density_summary">Wähle hier die original Pixeldichte deines Geräts. Ältere Geräte nutzen 160, die meißten neueren 240. Das Galaxy Nexus und Nexus 4 nutzen 320.</string>
+    <string name="stock_density_changed_summary">"Pixeldichte gesetzt auf: "</string>
+    <string name="reboot_title">2. Neustarten!</string>
+    <string name="reboot_summary">Mache nach dem Neustart hier weiter und folge den restlichen Schritten.</string>
+    <string name="clear_market_data_title">3. Market-Daten löschen</string>
+    <string name="clear_market_data_cleared">Market-Daten wurden gelöscht!</string>
+    <string name="clear_market_data_donot_cleared">"Market-Daten konnten nicht gelöscht werden, bitte erledige das manuell!"</string>
+    <string name="open_market_title">4. Market öffnen und akzeptieren wählen</string>
+    <string name="open_market_summary">Drücke danach die Zurück-Taste um hierher zurückzukehren.</string>
+    <string name="open_market_summary_could_not_open">"Konnte Market nicht öffnen, falls er wirklich installiert ist, bitte öffne ihn manuell."</string>
+    <string name="custom_density_title">5. Wähle eine beliebige Pixeldichte!</string>
+    <string name="custom_density_summary">Falls Du irgendwann Kompatiblitätsprobleme mit dem Markert haben solltest, wiederhole diese Anleitung von Anfang an.</string>
+    <string name="custom_density_summary_invalid">"UNGÜLTIGE PIXELDICHTE!"</string>
+    <string name="custom_density">benutzerdefiniert</string>
+    <string name="set_custom_density_title">Benutzerdefinierte Pixeldichte wählen</string>
+    <string name="set_custom_density_set">Setzen</string>
+    <string name="custom_density_dialog_title">"WARNUNG!"</string>
+    <string name="custom_density_dialog_summary">"Die LCD-Pixeldichte zu ändern, kann unerwartetes Verhalten von Apps bewirken. Falls Du irgendwann Kompatiblitätsprobleme mit dem Markert haben 
+solltest, wiederhole diese Anleitung von Anfang an."</string>
+    <string name="custom_density_dialog_button_got">habs kappiert!</string>
+    <string name="custom_density_dialog_button_reboot">Jetzt neustarten</string>
+    <string name="select_custom_app_title">Eigene App wählen</string>
+
 </resources>
