@@ -246,4 +246,11 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <string name="status_bar_alpha_mode_always">immer</string>
     <string name="status_bar_style_reset">Reset</string>
 
+    <string name="power_widget_behavior">Verhalten der Energiesteuerung</string>
+    <string name="power_widget_additional_options_cat">Zusätzliche Optionen</string>
+    <string name="brightness_location_title">Ort des Helligkeits-Reglers</string>
+    <string name="brightness_slider_top">oben</string>
+    <string name="brightness_slider_bottom">unten</string>
+    <string name="brightness_slider_none">nicht anzeigen</string>
+
 </resources>
