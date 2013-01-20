@@ -2652,4 +2652,29 @@
     <string name="navring_choose_action_title">Aktion auswählen</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+    <!-- finnqBuilds ADDITIONS START -->
+
+    <!-- Statusbar | Battery -->
+    <string name="battery_icon">Batterie-Symbol Stil</string>
+    <string name="battery_not_title">Batterie-Symbol in Benachrichtigungen</string>
+    <string name="battery_not_summary">Batterie-Symbol ernscheint, wenn der "Alle löschen" Button angezeigt wird</string>
+    <string name="battery_bar">Batteriebar Position</string>
+    <string name="battery_bar_color">Batteriebar Farbe</string>
+    <string name="battery_bar_cat">Batteriebar Optionen</string>
+    <string name="battery_bar_style_title">Batteriebar Stil</string>
+    <string name="battery_bar_thickness_title">Batteriebar Dicke</string>
+    <string name="battery_bar_animate_title">Lade-Animation</string>
+    <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string>
+        
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Farbauswahl</string>
+    <string name="press_color_to_apply">Drücke auf eine Farbe um sie anzuwenden</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Setzen</string>
+    <string name="ics_color">!!!</string>
+
+    <!-- finnqBuilds ADDITIONS END -->
 </resources>

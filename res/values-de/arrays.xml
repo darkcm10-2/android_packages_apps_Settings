@@ -373,4 +373,19 @@
     </string-array>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+    <!-- **** finnqBuilds ADDITIONS START **** -->
+
+    <string-array name="battery_bar_entries">
+        <item>Ausgeblendet</item>
+        <item>Statusbar</item>
+        <item>Über der NavBar</item>
+        <item>Unter der NavBar</item>
+    </string-array>
+
+    <string-array name="battery_bar_style_entries">
+        <item>Normal</item>
+        <item>Mittig-gespiegelt</item>
+    </string-array>
+
+    <!-- **** finnqBuilds ADDITIONS END **** -->
 </resources>
