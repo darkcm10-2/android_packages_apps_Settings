@@ -386,4 +386,8 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="trigger_bottom_title">Höhe des Auslösers</string>
     <string name="trigger_bottom_summary">Die Höhe des Auslöser-Bereichs festlegen</string>
 
+    <!-- Force dual panel -->
+    <string name="force_dualpanel_title">Zweiteilige Ansicht</string>
+    <string name="force_dualpanel_summary">Die zweiteilige Ansicht der Einstellungen (Tablet-Ansicht) erzwingen</string>
+
 </resources>

@@ -149,6 +149,12 @@
             android:summary="@string/alt_resolver_summary"
             android:defaultValue="false" />
 
+        <CheckBoxPreference
+            android:key="force_dualpanel"
+            android:title="@string/force_dualpanel_title"
+            android:summary="@string/force_dualpanel_summary"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="listview_animation"
             android:dialogTitle="@string/listview_animation_title"

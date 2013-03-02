@@ -59,6 +59,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
+    private static final String KEY_DUAL_PANEL = "force_dualpanel";
 
     private ListPreference mNavigationBarHeight;
     private PreferenceScreen mPieControl;
@@ -70,6 +71,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
+    private CheckBoxPreference mDualPanel;
 
     private INotificationManager mNotificationManager;
 
@@ -183,6 +185,9 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
 
         mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
 
+        mDualPanel = (CheckBoxPreference) findPreference(KEY_DUAL_PANEL);
+        mDualPanel.setChecked(Settings.System.getBoolean(getContentResolver(), Settings.System.FORCE_DUAL_PANEL, false));
+
     }
 
     @Override
@@ -255,6 +260,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         } else if (preference == mLcdDensity) {
             ((PreferenceActivity) getActivity())
             .startPreferenceFragment(new DensityChanger(), true);
+            return true;
+        } else if (preference == mDualPanel) {
+            Settings.System.putBoolean(getContentResolver(),
+                    Settings.System.FORCE_DUAL_PANEL, ((CheckBoxPreference) preference).isChecked());
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);

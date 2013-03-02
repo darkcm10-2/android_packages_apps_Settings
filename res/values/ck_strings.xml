@@ -409,4 +409,8 @@ step 1."</string>
     <string name="trigger_bottom_title">Trigger height</string>
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
 
+    <!-- Force dual panel -->
+    <string name="force_dualpanel_title">Force dual panel in settings</string>
+    <string name="force_dualpanel_summary">This will enable/disable dual panel in settings"</string>
+
 </resources>
