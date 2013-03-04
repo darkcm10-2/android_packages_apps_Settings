@@ -62,4 +62,9 @@
     <string name="battery_bar_animate_title">Lade-Animation</string>
     <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string>
 
+    <!-- Custom Carrier Text -->
+    <string name="custom_carrier_label_title">eigener Netzbetreiber-Text</string>
+    <string name="custom_carrier_label_explain">Bitte trage einen neuen Text ein. Lasse das Feld leer, um den original Netzbetreiber-Text anzuzeigen.</string>
+    <string name="custom_carrier_label_notset">kein eigener Text gesetzt</string>
+
 </resources>

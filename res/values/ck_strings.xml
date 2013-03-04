@@ -66,4 +66,9 @@
     <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
 
+    <!-- Custom Carrier Text -->
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+
 </resources>
