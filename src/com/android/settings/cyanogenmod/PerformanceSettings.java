@@ -63,7 +63,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment {
                 getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.ENABLE_FAST_POWERON, 0) == 1);
 
-        /* Display the warning dialog */
+        /* DON'T Display the warning dialog
         alertDialog = new AlertDialog.Builder(getActivity()).create();
         alertDialog.setTitle(R.string.performance_settings_warning_title);
         alertDialog.setMessage(getResources().getString(R.string.performance_settings_warning));
@@ -80,6 +80,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment {
             }
         });
         alertDialog.show();
+        */
     }
 
     @Override
