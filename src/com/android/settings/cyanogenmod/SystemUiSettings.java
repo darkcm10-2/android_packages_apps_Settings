@@ -49,6 +49,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_HALO_HIDE = "halo_hide";
     private static final String KEY_HALO_REVERSED = "halo_reversed";
     private static final String KEY_WE_WANT_POPUPS = "show_popup";
+    private static final String KEY_MMS_BREATH = "mms_breath";
+    private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
 
     private ListPreference mNavigationBarHeight;
     private PreferenceScreen mPieControl;
@@ -56,6 +58,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private CheckBoxPreference mHaloHide;
     private CheckBoxPreference mHaloReversed;
     private CheckBoxPreference mWeWantPopups;
+    private CheckBoxPreference mMMSBreath;
+    private CheckBoxPreference mMissedCallBreath;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
@@ -132,6 +136,18 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mWeWantPopups.setOnPreferenceChangeListener(this);
         mWeWantPopups.setChecked(showPopups > 0);
 
+        int statusMMSBreath = Settings.System.getInt(getContentResolver(), Settings.System.MMS_BREATH, 1);
+
+        mMMSBreath = (CheckBoxPreference) findPreference(KEY_MMS_BREATH);
+        mMMSBreath.setOnPreferenceChangeListener(this);
+        mMMSBreath.setChecked(statusMMSBreath > 0);
+
+        int statusMissedCallBreath = Settings.System.getInt(getContentResolver(), Settings.System.MISSED_CALL_BREATH, 1);
+
+        mMissedCallBreath = (CheckBoxPreference) findPreference(KEY_MISSED_CALL_BREATH);
+        mMissedCallBreath.setOnPreferenceChangeListener(this);
+        mMissedCallBreath.setChecked(statusMissedCallBreath > 0);
+
     }
 
     private boolean isHaloPolicyBlack() {
@@ -172,6 +188,16 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             } catch (android.os.RemoteException ex) {
                 // System dead
             }          
+            return true;
+        } else if (preference == mMMSBreath) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putBoolean(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.MMS_BREATH, value);
+            return true;
+        } else if (preference == mMissedCallBreath) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putBoolean(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.MISSED_CALL_BREATH, value);
             return true;
         } else if (preference == mWeWantPopups) {
             boolean checked = (Boolean) objValue;
