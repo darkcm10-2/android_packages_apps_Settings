@@ -207,4 +207,7 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <string name="flip_qs_tiles_title">Kacheln wenden</string>
     <string name="flip_qs_tiles_summary">Wenden der Schnelleinstellungs-Kacheln beim Umschalten</string>
 
+    <!-- TRDS Settings -->
+    <string name="trds_settings_title">Dark UI (TRDS)</string>
+
 </resources>

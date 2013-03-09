@@ -218,4 +218,7 @@ your apps faster.</string>
     <string name="flip_qs_tiles_title">Flip tiles</string>
     <string name="flip_qs_tiles_summary">Flips the tiles on touch</string>
 
+    <!-- TRDS Settings -->
+    <string name="trds_settings_title">Dark UI (TRDS)</string>
+
 </resources>
