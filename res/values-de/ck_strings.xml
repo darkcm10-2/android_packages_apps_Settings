@@ -67,4 +67,27 @@
     <string name="custom_carrier_label_explain">Bitte trage einen neuen Text ein. Lasse das Feld leer, um den original Netzbetreiber-Text anzuzeigen.</string>
     <string name="custom_carrier_label_notset">kein eigener Text gesetzt</string>
 
+    <!-- Status bar | Clock -->
+    <string name="status_bar_style_title">Stil</string>
+    <string name="status_bar_clock">Datum und Uhr</string>
+    <string name="status_bar_clock_title">Stil von Uhr und Datum</string>
+    <string name="clock_title_enable">Ausrichtung der Uhr</string>
+    <string name="clock_enabled">An</string>
+    <string name="clock_disabled">Aus</string>
+    <string name="clock_color_title">Farbe der Uhr</string>
+    <string name="status_bar_show_clock_title">Uhr anzeigen</string>
+    <string name="status_bar_am_pm_title">AM/PM Stil</string>
+    <string name="status_bar_am_pm_info">24-Uhr ist aktiviert</string>
+    <string name="enable_clock_weekday">Wochentag</string>
+    <string name="enable_clock_weekday_summary">Abkekürzter Wochentag vor der Uhrzeit</string>
+    <string name="right_clock">rechts</string>
+    <string name="center_clock">mittig</string>
+    <string name="dont_show">Nicht zeigen</string>
+    <string name="clock_date_display">Datum</string>
+    <string name="clock_date_display_summary">Datum vor der Uhr anzeigen</string>
+    <string name="clock_date_style">Stil des Datums</string>
+    <string name="clock_date_format">Datumsformat</string>
+    <string name="clock_date_string_edittext_title">Muss im Format eines Datums sein. z.B.: dd.MM.yy</string>
+    <string name="clock_date_string_edittext_summary">Format eingeben</string>
+
 </resources>

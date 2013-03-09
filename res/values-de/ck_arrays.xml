@@ -27,6 +27,18 @@
         <item>Mittig</item>
     </string-array>
 
+    <string-array name="clock_date_display_entries">
+        <item>nicht anzeigen</item>
+        <item>kleines Datum</item>
+        <item>normal großes Datum</item>
+    </string-array>
+
+    <string-array name="clock_date_style_entries">
+        <item>Normal</item>
+        <item>Kleinbuchstaben</item>
+        <item>Großbuchstaben</item>
+    </string-array>
+
 </resources>
 
 
