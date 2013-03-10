@@ -94,4 +94,16 @@
     <string name="clock_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="clock_date_string_edittext_summary">Enter string</string>
 
+    <!-- Battery Colors -->
+    <string name="circle_mod_cat">Circle battery options</string>
+    <string name="circle_battery_color">Circle color</string>
+    <string name="circle_battery_text_color">Circle text color</string>
+    <string name="circle_battery_animation_speed">Circle animation speed</string>
+    <string name="circle_battery_animation_speed_none">None</string>
+    <string name="circle_battery_animation_speed_slow">Slow</string>
+    <string name="circle_battery_animation_speed_stock">Normal</string>
+    <string name="circle_battery_animation_speed_fast">Fast</string>
+    <string name="circle_battery_reset_title">Reset circle colors</string>
+    <string name="circle_battery_reset_summary">Reset circle colors to apply installed theme engine colors</string>
+
 </resources>

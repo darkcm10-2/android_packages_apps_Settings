@@ -90,4 +90,16 @@
     <string name="clock_date_string_edittext_title">Muss im Format eines Datums sein. z.B.: dd.MM.yy</string>
     <string name="clock_date_string_edittext_summary">Format eingeben</string>
 
+    <!-- Battery Colors -->
+    <string name="circle_mod_cat">Batteriekreis-Optionen</string>
+    <string name="circle_battery_color">Kreis-Farbe</string>
+    <string name="circle_battery_text_color">Text-Farbe</string>
+    <string name="circle_battery_animation_speed">Animationsgeschwindigkeit</string>
+    <string name="circle_battery_animation_speed_none">keine</string>
+    <string name="circle_battery_animation_speed_slow">langsam</string>
+    <string name="circle_battery_animation_speed_stock">normal</string>
+    <string name="circle_battery_animation_speed_fast">schnell</string>
+    <string name="circle_battery_reset_title">Farben zurücksetzen</string>
+    <string name="circle_battery_reset_summary">Farben zurücksetzen um die des installierten Themes wiederherzustellen</string>
+
 </resources>
