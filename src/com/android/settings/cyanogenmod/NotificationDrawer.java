@@ -16,6 +16,7 @@
 
 package com.android.settings.cyanogenmod;
 
+import java.io.File; 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -65,6 +66,9 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
 
     private ListPreference mCollapseOnDismiss;
     private ListPreference mPowerWidgetHapticFeedback;
+
+    public static final String FAST_CHARGE_DIR = "/sys/kernel/fast_charge";
+    public static final String FAST_CHARGE_FILE = "force_fast_charge"; 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -224,6 +228,13 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
                 PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_WIFIAP);
                 prefButtonsModes.removePreference(mNetworkMode);
             }
+
+            // Dont show fast charge option if not supported
+            File fastcharge = new File(FAST_CHARGE_DIR, FAST_CHARGE_FILE);
+            if (!fastcharge.exists()) {
+                PowerWidgetUtil.BUTTONS.remove(PowerWidgetUtil.BUTTON_FCHARGE);
+            }
+
 
             // fill that checkbox map!
             for (PowerWidgetUtil.ButtonInfo button : PowerWidgetUtil.BUTTONS.values()) {
