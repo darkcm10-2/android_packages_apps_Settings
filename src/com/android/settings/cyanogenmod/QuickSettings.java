@@ -24,6 +24,7 @@ import static com.android.internal.util.cm.QSConstants.TILE_PROFILE;
 import static com.android.internal.util.cm.QSConstants.TILE_WIFIAP;
 import static com.android.internal.util.cm.QSConstants.TILE_LTE;
 import static com.android.internal.util.cm.QSConstants.TILE_TORCH;
+import static com.android.internal.util.cm.QSConstants.TILE_FCHARGE;
 import static com.android.internal.util.cm.QSUtils.deviceSupportsBluetooth;
 import static com.android.internal.util.cm.QSUtils.deviceSupportsImeSwitcher;
 import static com.android.internal.util.cm.QSUtils.deviceSupportsLte;
@@ -52,6 +53,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -76,6 +78,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     private static final String GENERAL_SETTINGS = "pref_general_settings";
     private static final String STATIC_TILES = "static_tiles";
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
+
+    public static final String FAST_CHARGE_DIR = "/sys/kernel/fast_charge";
+    public static final String FAST_CHARGE_FILE = "force_fast_charge"; 
 
     MultiSelectListPreference mRingMode;
     ListPreference mNetworkMode;
@@ -234,6 +239,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         // Dont show the torch tile if not supported
         if (!getResources().getBoolean(R.bool.has_led_flash)) {
             QuickSettingsUtil.TILES.remove(TILE_TORCH);
+        }
+
+        // Dont show fast charge tile if not supported
+        File fastcharge = new File(FAST_CHARGE_DIR, FAST_CHARGE_FILE);
+        if (!fastcharge.exists()) {
+            QuickSettingsUtil.TILES.remove(TILE_FCHARGE);
         }
 
     }

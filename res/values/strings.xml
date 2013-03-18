@@ -4938,6 +4938,7 @@
     <string name="title_toggle_media_next">Media: Skip to Next</string>
     <string name="title_toggle_lte">Toggle LTE</string>
     <string name="title_toggle_wimax">Toggle WiMAX</string>
+    <string name="title_toggle_fcharge">Toggle Fast Charge</string> 
     <string name="title_button_modes">Button modes</string>
     <string name="pref_brightness_mode_title">Brightness modes</string>
     <string name="pref_brightness_mode_summary">View or change the Brightness button modes</string>
@@ -5075,6 +5076,7 @@
     <string name="title_tile_user">User switcher</string>
     <string name="title_tile_networkmode">Network mode</string>
     <string name="title_tile_nfc">NFC</string>
+    <string name="title_tile_fcharge">Fast charge</string> 
     <string name="title_tile_screen_timeout">Screen timeout</string>
     <string name="title_tile_usb_tether">USB Tether</string>
     <string name="title_tile_quiet_hours">Quiet hours</string>
