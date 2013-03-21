@@ -199,4 +199,8 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <string name="clear_recents_position_left">links</string>
     <string name="clear_recents_position_right">rechts</string>
 
+    <!-- Alternate default app picker -->
+    <string name="alt_resolver_title">Alternativer App Picker</string>
+    <string name="alt_resolver_summary">Alternativen App Picker verwenden</string>
+
 </resources>

@@ -125,6 +125,12 @@
             android:entryValues="@array/clear_recents_position_values"
             android:defaultValue="0" />
 
+        <CheckBoxPreference
+            android:key="use_alt_resolver"
+            android:title="@string/alt_resolver_title"
+            android:summary="@string/alt_resolver_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

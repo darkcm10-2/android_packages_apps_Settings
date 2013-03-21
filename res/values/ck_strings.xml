@@ -210,4 +210,8 @@ your apps faster.</string>
     <string name="clear_recents_position_left">Left</string>
     <string name="clear_recents_position_right">Right</string>
 
+    <!-- Alternate default app picker -->
+    <string name="alt_resolver_title">Use Alt Default App Picker</string>
+    <string name="alt_resolver_summary">Use Alternate Default App Picker</string>
+
 </resources>

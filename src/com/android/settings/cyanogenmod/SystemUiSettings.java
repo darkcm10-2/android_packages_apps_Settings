@@ -48,12 +48,14 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_MMS_BREATH = "mms_breath";
     private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
     private static final String KEY_CLEAR_RECENTS_POSITION = "clear_recents_position";
+    private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
 
     private ListPreference mNavigationBarHeight;
     private PreferenceScreen mPieControl;
     private CheckBoxPreference mMMSBreath;
     private CheckBoxPreference mMissedCallBreath;
     private ListPreference mClearPosition;
+    private CheckBoxPreference mUseAltResolver;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
@@ -131,6 +133,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mClearPosition.setSummary(mClearPosition.getEntry());
         mClearPosition.setOnPreferenceChangeListener(this);
 
+        mUseAltResolver = (CheckBoxPreference) findPreference(KEY_USE_ALT_RESOLVER);
+        mUseAltResolver.setChecked(Settings.System.getBoolean(getActivity().getContentResolver(),
+                Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
+
     }
 
     @Override
@@ -175,6 +181,17 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         }
 
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mUseAltResolver) {
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.ACTIVITY_RESOLVER_USE_ALT,
+                    mUseAltResolver.isChecked());
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void updatePieControlSummary() {
