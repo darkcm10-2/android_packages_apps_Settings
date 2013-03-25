@@ -90,8 +90,8 @@ public class QuickSettingsUtil {
                 TILE_EXPANDEDDESKTOP, R.string.title_tile_expanded_desktop,
                 "com.android.systemui:drawable/ic_qs_expanded_desktop_off"));
         registerTile(new QuickSettingsUtil.TileInfo(
-                TILE_SLEEP, R.string.title_tile_sleep,
-                "com.android.systemui:drawable/ic_qs_sleep"));
+                TILE_SLEEP, R.string.title_tile_power,
+                "com.android.systemui:drawable/ic_qs_power"));
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_GPS, R.string.title_tile_gps,
                 "com.android.systemui:drawable/ic_qs_gps_neutral"));
