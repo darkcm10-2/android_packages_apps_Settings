@@ -343,6 +343,13 @@
         <item>Deaktiviert</item>
     </string-array>
 
+    <!-- Clock style -->
+    <string-array name="clock_style_entries">
+        <item>Rechts</item>
+        <item>Mittig</item>
+        <item>Ausgeblendet</item>
+    </string-array>
+
     <!-- Status bar clock options (AM/PM) -->
     <string-array name="entries_status_bar_am_pm">
         <item>Normal</item>
