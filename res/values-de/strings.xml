@@ -2524,6 +2524,9 @@
 
     <!-- Navigation bar -->
     <string name="navigation_bar_title">Schaltflächen</string>
+    <string name="navigation_bar_edit_title">Anpassen</string>
+    <string name="navigation_bar_edit_summary">Buttons anpassen</string>
+    <string name="navigation_bar_height">Höhe</string>
     <string name="navigation_bar_help_text">1 - Schloss-Icon berühren, um zu beginnen\n\n2 - Eine Schaltfläche berühren, um ihr eine Funktion zuzuweisen oder diese zu ändern\n\n3 - Eine Schaltfläche gedrückt halten, um sie zu verschieben\n\n4 - Schloss-Icon erneut berühren, um die Änderungen zu speichern\n\n5 - Reset-Icon berühren, um die Vorgaben wiederherzustellen\n\n</string>
     <string name="navigation_bar_tips">\u2022 Eine Funktion kann nur einer Schaltfläche gleichzeitig zugewiesen werden\n\n\u2022 Die Funktion der Home-Schaltfläche kann nicht verändert werden\n\n\u2022 Die seitlichen Schaltflächen können nicht verschoben werden</string>
     <string name="navigation_bar_tips_title">Schnellhilfe</string>
@@ -2532,6 +2535,20 @@
     <string name="navigation_bar_reset_toast">Die Vorgaben der Navigationsleiste wurden wiederhergestellt</string>
     <string name="navigation_bar_menu_editable">Änderbar</string>
     <string name="navigation_bar_menu_locked">Gesperrt</string>
+    <string name="navigation_bar_height_48">48dp (Standard)</string>
+    <string name="navigation_bar_height_47">47dp</string>
+    <string name="navigation_bar_height_46">46dp</string>
+    <string name="navigation_bar_height_45">45dp</string>
+    <string name="navigation_bar_height_44">44dp</string>
+    <string name="navigation_bar_height_43">43dp</string>
+    <string name="navigation_bar_height_42">42dp</string>
+    <string name="navigation_bar_height_41">41dp</string>
+    <string name="navigation_bar_height_40">40dp</string>
+    <string name="navigation_bar_height_39">39dp</string>
+    <string name="navigation_bar_height_38">38dp</string>
+    <string name="navigation_bar_height_37">37dp</string>
+    <string name="navigation_bar_height_36">36dp</string>
+    <string name="navigation_bar_height_35">35dp</string>
 
     <!-- Maximize lock screen widgets -->
     <string name="lockscreen_maximize_widgets_title">Widgets maximieren</string>
@@ -2614,4 +2631,29 @@
     <string name="navring_choose_action_title">Aktion auswählen</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+    <!-- finnqBuilds ADDITIONS START -->
+
+    <!-- Statusbar | Battery -->
+    <string name="battery_icon">Batterie-Symbol Stil</string>
+    <string name="battery_not_title">Batterie-Symbol in Benachrichtigungen</string>
+    <string name="battery_not_summary">Batterie-Symbol ernscheint, wenn der "Alle löschen" Button angezeigt wird</string>
+    <string name="battery_bar">Batteriebar Position</string>
+    <string name="battery_bar_color">Batteriebar Farbe</string>
+    <string name="battery_bar_cat">Batteriebar Optionen</string>
+    <string name="battery_bar_style_title">Batteriebar Stil</string>
+    <string name="battery_bar_thickness_title">Batteriebar Dicke</string>
+    <string name="battery_bar_animate_title">Lade-Animation</string>
+    <string name="battery_bar_animate_summary">Die Lade-Animation kann zu trägem Verhalten des Gerätes führen. Aktiviere sie, nach deinem eigenen Ermessen.</string>
+        
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Farbauswahl</string>
+    <string name="press_color_to_apply">Drücke auf eine Farbe um sie anzuwenden</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Setzen</string>
+    <string name="ics_color">!!!</string>
+
+    <!-- finnqBuilds ADDITIONS END -->
 </resources>

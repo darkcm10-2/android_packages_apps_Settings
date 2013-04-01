@@ -4888,6 +4888,23 @@
     <string name="navigation_bar_reset_toast">Navigation bar reset to default</string>
     <string name="navigation_bar_menu_editable">Editable</string>
     <string name="navigation_bar_menu_locked">Locked</string>
+    <string name="navigation_bar_edit_title">Button customization</string>
+    <string name="navigation_bar_edit_summary">Edit button layout</string>
+    <string name="navigation_bar_height">Button height</string>
+    <string name="navigation_bar_height_48">48dp (default)</string>
+    <string name="navigation_bar_height_47">47dp</string>
+    <string name="navigation_bar_height_46">46dp</string>
+    <string name="navigation_bar_height_45">45dp</string>
+    <string name="navigation_bar_height_44">44dp</string>
+    <string name="navigation_bar_height_43">43dp</string>
+    <string name="navigation_bar_height_42">42dp</string>
+    <string name="navigation_bar_height_41">41dp</string>
+    <string name="navigation_bar_height_40">40dp</string>
+    <string name="navigation_bar_height_39">39dp</string>
+    <string name="navigation_bar_height_38">38dp</string>
+    <string name="navigation_bar_height_37">37dp</string>
+    <string name="navigation_bar_height_36">36dp</string>
+    <string name="navigation_bar_height_35">35dp</string>
 
     <!-- Power Widget  -->
     <string name="power_widget_title">Power widget</string>
@@ -5074,12 +5091,14 @@
 
     <string name="title_general">General</string>
     <string name="title_quick_pulldown">Quick pulldown</string>
-    <string name="summary_quick_pulldown">%1$s edge of the status bar pulls down Quick Settings</string>
+    <string name="summary_quick_pulldown">%1$s corner of the status bar pulls down Quick Settings</string>
     <string name="quick_pulldown_summary_left">Left</string>
     <string name="quick_pulldown_summary_right">Right</string>
     <string name="quick_pulldown_off">Off</string>
     <string name="quick_pulldown_left">Left</string>
     <string name="quick_pulldown_right">Right</string>
+    <string name="quick_pulldown_always">Always</string>
+    <string name="quick_pulldown_summary_always">Always pull down Quick Settings unless there are dismissible notifications</string>
     <string name="title_collapse_panel">Auto close panel</string>
     <string name="summary_collapse_panel">Close the Quick Settings panel upon toggle</string>
 
@@ -5192,4 +5211,29 @@
     <string name="pie_control_trigger_top_summary">Only navigation will be displayed at top</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+    <!-- finnqBuilds ADDITIONS START -->
+
+    <!-- Statusbar | Battery -->
+    <string name="battery_icon">Battery icon style</string>
+    <string name="battery_not_title">Battery icon in notifications</string>
+    <string name="battery_not_summary">Battery icon will show up where the clear all button shows up</string>
+    <string name="battery_bar">Battery bar location</string>
+    <string name="battery_bar_color">Battery bar color</string>
+    <string name="battery_bar_cat">Battery bar options</string>
+    <string name="battery_bar_style_title">Battery bar style</string>
+    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_animate_summary">The charging animation may result in a poor user experience. Enable at your own discretion.</string>
+        
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on Color to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Set</string>
+    <string name="ics_color">!!!</string>
+
+    <!-- finnqBuilds ADDITIONS END -->
 </resources>
