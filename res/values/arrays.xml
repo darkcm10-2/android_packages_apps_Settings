@@ -1296,8 +1296,8 @@
         <item>2</item>
     </string-array>
 
-    <!--- Nav buttons height -->
-    <string-array name="nav_buttons_height_entries" translatable="false">
+    <!--- Navigation bar height -->
+    <string-array name="navigation_bar_height_entries" translatable="false">
         <item>@string/navigation_bar_height_48</item>
         <item>@string/navigation_bar_height_47</item>
         <item>@string/navigation_bar_height_46</item>
@@ -1314,7 +1314,7 @@
         <item>@string/navigation_bar_height_35</item>
     </string-array>
 
-    <string-array name="nav_buttons_height_values" translatable="false">
+    <string-array name="navigation_bar_height_values" translatable="false">
         <item>48</item>
         <item>47</item>
         <item>46</item>
