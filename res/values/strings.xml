@@ -5211,7 +5211,16 @@
     <string name="pie_control_trigger_top_summary">Only navigation will be displayed at top</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
-    <!-- finnqBuilds ADDITIONS START -->
+    <!-- CyanKang ADDITIONS START -->
+
+    <!-- Settings Group: NavigationBar -->
+    <string name="navigation_bar_category">NavigationBar</string>
+
+    <!-- Settings Group: StatusBar -->
+    <string name="status_bar_category">StatusBar</string>
+
+    <!-- Settings Group: LEDs -->
+    <string name="led_settings_title">Notification LED</string>
 
     <!-- Statusbar | Battery -->
     <string name="battery_icon">Battery icon style</string>
@@ -5235,5 +5244,5 @@
     <string name="set">Set</string>
     <string name="ics_color">!!!</string>
 
-    <!-- finnqBuilds ADDITIONS END -->
+    <!-- CyanKang ADDITIONS END -->
 </resources>

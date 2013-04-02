@@ -2631,7 +2631,16 @@
     <string name="navring_choose_action_title">Aktion auswählen</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
-    <!-- finnqBuilds ADDITIONS START -->
+    <!-- CyanKang ADDITIONS START -->
+
+    <!-- Settings Group: NavigationBar -->
+    <string name="navigation_bar_category">Navigationsleiste</string>
+
+    <!-- Settings Group: StatusBar -->
+    <string name="status_bar_category">Statusleiste</string>
+
+    <!-- Settings Group: LEDs -->
+    <string name="led_settings_title">Benachrichtigungs-LED</string>
 
     <!-- Statusbar | Battery -->
     <string name="battery_icon">Batterie-Symbol Stil</string>
@@ -2655,5 +2664,5 @@
     <string name="set">Setzen</string>
     <string name="ics_color">!!!</string>
 
-    <!-- finnqBuilds ADDITIONS END -->
+    <!-- CyanKang ADDITIONS END -->
 </resources>
