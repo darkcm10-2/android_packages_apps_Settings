@@ -476,4 +476,10 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="ckupdate_settings_title">CyanKang-Updates</string>
     <string name="ckupdate_settings_summary">Auf neue Versionen prüfen und diese installieren</string>
 
+    <!-- MediaScanner behavior on boot -->
+    <string name="media_scanner_on_boot_title">Startverhalten des MediaScanners</string>
+    <string name="media_scanner_on_boot_enabled">Medien scannen</string>
+    <string name="media_scanner_on_boot_ask">Nachfragen (Benachrichtigung)</string>
+    <string name="media_scanner_on_boot_disabled">Medien nicht scannen</string>
+
 </resources>
