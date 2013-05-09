@@ -187,7 +187,7 @@
     <string name="ram_bar_summaty">Shows a RAM usage bar in recent apps view</string>
     <string name="ram_bar_note_title">Note</string>
     <string name="ram_bar_note_summary">This rambar shows how android is really using your available ram. Please note that having apps open in the background and cached helps for your device to open 
-+your apps faster.</string>
+your apps faster.</string>
     <string name="ram_bar_mode_title">Recents RAM bar mode</string>
     <string name="ram_bar_mode_dialog_title">Show on recents RAM bar</string>
     <string name="ram_bar_none">None</string>
@@ -201,5 +201,10 @@
     <string name="ram_bar_color_enabled">Enabled</string>
     <string name="ram_bar_color_disabled">Disabled</string>
     <string name="ram_bar_button_reset">Reset colors</string>
+
+    <!-- Clear Recents position -->
+    <string name="clear_recents_position_title">Clear recents position</string>
+    <string name="clear_recents_position_left">Left</string>
+    <string name="clear_recents_position_right">Right</string>
 
 </resources>

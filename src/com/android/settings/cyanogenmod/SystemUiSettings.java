@@ -47,11 +47,13 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_PIE_CONTROL = "pie_control";
     private static final String KEY_MMS_BREATH = "mms_breath";
     private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String KEY_CLEAR_RECENTS_POSITION = "clear_recents_position";
 
     private ListPreference mNavigationBarHeight;
     private PreferenceScreen mPieControl;
     private CheckBoxPreference mMMSBreath;
     private CheckBoxPreference mMissedCallBreath;
+    private ListPreference mClearPosition;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
 
@@ -122,6 +124,13 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mMissedCallBreath.setOnPreferenceChangeListener(this);
         mMissedCallBreath.setChecked(statusMissedCallBreath > 0);
 
+        mClearPosition = (ListPreference) findPreference(KEY_CLEAR_RECENTS_POSITION);
+        int ClearSide = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.CLEAR_RECENTS_POSITION, 0);
+        mClearPosition.setValue(String.valueOf(ClearSide));
+        mClearPosition.setSummary(mClearPosition.getEntry());
+        mClearPosition.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -155,6 +164,13 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             boolean value = (Boolean) objValue;
             Settings.System.putBoolean(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.MISSED_CALL_BREATH, value);
+            return true;
+        } else if (preference == mClearPosition) {
+            int side = Integer.valueOf((String) objValue);
+            int index = mClearPosition.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.CLEAR_RECENTS_POSITION, side);
+            mClearPosition.setSummary(mClearPosition.getEntries()[index]);
             return true;
         }
 
