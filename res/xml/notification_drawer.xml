@@ -39,6 +39,11 @@
         android:title="@string/notification_style_title"
         android:summary="@string/notification_style_summary" />
 
+    <CheckBoxPreference
+       android:key="notification_settings_btn"
+       android:title="@string/notification_settings_btn_title"
+       android:defaultValue="false" />
+
     <PreferenceCategory
         android:title="@string/category_quick_access" >
 

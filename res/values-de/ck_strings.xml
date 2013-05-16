@@ -320,4 +320,7 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="notif_wallpaper_alpha_title">Hintergrund-Transparenz</string> 
     <string name="notif_alpha_title">Zeilen-Transparenz</string>
 
+    <!-- Always show notification drawer settings button -->
+    <string name="notification_settings_btn_title">Einstellungsbutton immer zeigen</string>
+
 </resources>

@@ -40,6 +40,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment  implements
 
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
     private static final String KEY_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
+    private static final String PREF_NOTIFICATION_SETTINGS_BTN = "notification_settings_btn";
 
     private ListPreference mCollapseOnDismiss;
 
@@ -47,6 +48,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment  implements
     public static final String FAST_CHARGE_FILE = "force_fast_charge"; 
 
     private ListPreference mNotificationsBehavior;
+    private CheckBoxPreference mSettingsBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,10 @@ public class NotificationDrawer extends SettingsPreferenceFragment  implements
         mNotificationsBehavior.setValue(String.valueOf(CurrentBehavior));
         mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntry());
         mNotificationsBehavior.setOnPreferenceChangeListener(this); 
+
+        mSettingsBtn = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SETTINGS_BTN);
+        mSettingsBtn.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.NOTIFICATION_SETTINGS_BUTTON, 0) == 1);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -89,6 +95,18 @@ public class NotificationDrawer extends SettingsPreferenceFragment  implements
         }
 
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
+            Preference preference) {
+        if (preference == mSettingsBtn) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.NOTIFICATION_SETTINGS_BUTTON,
+                    mSettingsBtn.isChecked() ? 1 : 0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void updateCollapseBehaviourSummary(int setting) {
