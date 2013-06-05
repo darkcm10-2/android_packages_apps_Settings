@@ -17,6 +17,12 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <ListPreference
+        android:key="notifications_behaviour"
+        android:title="@string/notification_behaviour_title"
+        android:entries="@array/notifs_beh_entries"
+        android:entryValues="@array/notifs_beh_values" /> 
+
     <!-- Notification drawer behaviour -->
     <ListPreference
         android:key="notification_drawer_collapse_on_dismiss"

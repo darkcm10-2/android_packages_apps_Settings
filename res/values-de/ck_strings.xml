@@ -123,4 +123,11 @@
     <string name="low_battery_warning_policy_sound">nur Warnton</string>
     <string name="low_battery_warning_policy_disabled">keine Warnung</string>
 
+    <!-- Notification Behavior Preferences -->
+    <string name="notification_behaviour_title">Verhalten von Benachrichtigungen</string>
+    <string name="nb_normal">normal</string>
+    <string name="nb_never_expand">nie erweitern</string>
+    <string name="nb_always_expand">immer erweitern</string>
+    <string name="nb_old_style">altes Verhalten</string>
+
 </resources>

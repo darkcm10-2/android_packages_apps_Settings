@@ -130,4 +130,11 @@
     <string name="low_battery_warning_policy_sound">Sound only</string>
     <string name="low_battery_warning_policy_disabled">Disabled</string>
 
+    <!-- Notification Behavior Preferences -->
+    <string name="notification_behaviour_title">Notification behavior</string>
+    <string name="nb_normal">Normal</string>
+    <string name="nb_never_expand">Never expand</string>
+    <string name="nb_always_expand">Always expand</string>
+    <string name="nb_old_style">Old style</string>
+
 </resources>

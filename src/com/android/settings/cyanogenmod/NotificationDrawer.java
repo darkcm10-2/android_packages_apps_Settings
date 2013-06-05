@@ -38,6 +38,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -63,12 +64,15 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
+    private static final String KEY_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
 
     private ListPreference mCollapseOnDismiss;
     private ListPreference mPowerWidgetHapticFeedback;
 
     public static final String FAST_CHARGE_DIR = "/sys/kernel/fast_charge";
     public static final String FAST_CHARGE_FILE = "force_fast_charge"; 
+
+    ListPreference mNotificationsBehavior;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,6 +97,13 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mPowerWidgetHapticFeedback.setSummary(mPowerWidgetHapticFeedback.getEntry());
         mPowerWidgetHapticFeedback.setValue(Integer.toString(Settings.System.getInt(
                 resolver, Settings.System.EXPANDED_HAPTIC_FEEDBACK, 2)));
+
+        int CurrentBehavior = Settings.System.getInt(resolver,
+                Settings.System.NOTIFICATIONS_BEHAVIOUR, 0);
+        mNotificationsBehavior = (ListPreference) findPreference(KEY_NOTIFICATION_BEHAVIOUR);
+        mNotificationsBehavior.setValue(String.valueOf(CurrentBehavior));
+        mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntry());
+        mNotificationsBehavior.setOnPreferenceChangeListener(this); 
     }
 
     private void updateCollapseBehaviourSummary(int setting) {
@@ -117,6 +128,13 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver,
                     Settings.System.EXPANDED_HAPTIC_FEEDBACK, intValue);
             mPowerWidgetHapticFeedback.setSummary(mPowerWidgetHapticFeedback.getEntries()[index]);
+            return true;
+        } else if (preference == mNotificationsBehavior) {
+            String val = (String) newValue;
+            Settings.System.putInt(resolver, Settings.System.NOTIFICATIONS_BEHAVIOUR,
+            Integer.valueOf(val));
+            int index = mNotificationsBehavior.findIndexOfValue(val);
+            mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntries()[index]);
             return true;
         }
 
