@@ -107,4 +107,9 @@
     <string name="fullscreen_keyboard">Deaktivieren der Vollbild-Tastatur</string>
     <string name="fullscreen_keyboard_summary">Erlaubt es, bei querliegendem Gerät alle Eingabefelder wie im Porträtmodus sehen zu können, statt nur dem aktuell gewählten.</string>
 
+    <string name="nfc_polling_mode_title">NFC-Abfrage-Modus</string>
+    <string name="nfc_polling_mode_screen_off">Bildschirm aus</string>
+    <string name="nfc_polling_mode_screen_locked">Bildschirm an, gesperrt, locked</string>
+    <string name="nfc_polling_mode_screen_unlocked">Bildschirm an, entsperrt (standard)</string>
+
 </resources>
