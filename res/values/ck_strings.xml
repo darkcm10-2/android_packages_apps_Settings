@@ -21,6 +21,9 @@
     <!-- Settings Group: Tweaks -->
     <string name="tweaks_category">Tweaks</string>
 
+    <!-- Settings Group: Halo -->
+    <string name="halo_category">HALO</string>
+
     <!--- Nav buttons height -->
     <string name="navigation_bar_height">NavigationBar height</string>
     <string name="navigation_bar_height_48">48dp (default)</string>
@@ -136,5 +139,15 @@
     <string name="nb_never_expand">Never expand</string>
     <string name="nb_always_expand">Always expand</string>
     <string name="nb_old_style">Old style</string>
+
+    <!-- HALO -->
+    <string name="halo_hide_title">Hide HALO after activity</string>
+    <string name="halo_hide_summary">HALO will appear for incoming tasks and scroll out of sight after a while</string>
+    <string name="halo_reversed_title">Reverse HALO gestures</string>
+    <string name="halo_reversed_summary">Applies tasking or dragging to the double-tap-swipe gesture</string>
+    <string name="halo_state_title">HALO policy</string>
+    <string name="halo_state_summary">For black/white-listing notifications pinging through HALO</string>
+    <string name="halo_state_black">Black list</string>
+    <string name="halo_state_white">White list</string>
 
 </resources>
