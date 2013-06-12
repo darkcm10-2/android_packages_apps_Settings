@@ -143,6 +143,9 @@
     <string name="halo_state_summary">Vorgehen nach Black-List bzw. White-List Verfahren?</string>
     <string name="halo_state_black">Black-List</string>
     <string name="halo_state_white">White-List</string>
+    <string name="halo_pause_title">aktive Applikation pausieren</string>
+    <string name="halo_pause_summary">Wenn mithilfe von HALO eine Applikation gestartet wird, wird das dann im Hintergrund befindliche Programm automatisch angehalten (standardmäßig aktiviert auf Geräten
+mit wenig Speicher)</string>
 
     <!-- We want popups -->
     <string name="popups_title">überlagenrnde Fenster ermöglichen</string>

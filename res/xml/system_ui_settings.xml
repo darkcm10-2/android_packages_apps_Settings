@@ -116,6 +116,12 @@
             android:dependency="halo_enabled"
             android:defaultValue="true" />
 
+        <CheckBoxPreference
+            android:key="halo_pause"
+            android:title="@string/halo_pause_title"
+            android:dependency="halo_enabled"
+            android:summary="@string/halo_pause_summary" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
