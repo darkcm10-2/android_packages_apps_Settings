@@ -131,13 +131,19 @@
     <string name="nb_old_style">altes Verhalten</string>
 
     <!-- HALO -->
+    <string name="halo_enabled_title">HALO aktivieren</string>
+    <string name="halo_enabled_summary">HALO vollständig aktiveren bzw. deaktivieren</string>
     <string name="halo_hide_title">HALO nach Aktivität verstecken</string>
-    <string name="halo_hide_summary">HALO erscheint bei eingehenden Benachrichtigungen um nach einer Weile wieder zu verschwinden</string>
-    <string name="halo_reversed_title">HALO-Gesten umkehren</string>
-    <string name="halo_reversed_summary">Weißt das Ziehen oder Blättern der Doppel-Tap-Wisch-Geste zu</string>
-    <string name="halo_state_title">HALO Benachrichtugungs-Strategie</string>
-    <string name="halo_state_summary">Bestimmte HALO-Benachrichtigungen mittels einer Black- oder White-List beeinflussen</string>
+    <string name="halo_hide_summary">HALO wird sich für eingehende Tasks einmal bemerkbar machen und kurz darauf wieder verschwinden</string>
+    <string name="halo_reversed_title">Tauschen der HALO-Gesten</string>
+    <string name="halo_reversed_summary">Schaltet die Doppel-Tap-Wisch-Geste zwischen Positionierung und Aufgabemodus um</string>
+    <string name="halo_state_title">HALO Richtlinie</string>
+    <string name="halo_state_summary">Vorgehen nach Black-List bzw. White-List Verfahren?</string>
     <string name="halo_state_black">Black-List</string>
     <string name="halo_state_white">White-List</string>
+
+    <!-- We want popups -->
+    <string name="popups_title">überlagenrnde Fenster ermöglichen</string>
+    <string name="popups_summary">Legt fest, ob App-Fenster die von HALO geöffnet werden die aktuelle App überlagern oder bildschirmfüllend dargestellt werden.</string>
 
 </resources>
