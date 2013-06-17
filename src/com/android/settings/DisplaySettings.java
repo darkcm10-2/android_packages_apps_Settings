@@ -73,6 +73,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_LOCKSCREEN_ROTATION = "lockscreen_rotation";
     private static final String KEY_ADAPTIVE_BACKLIGHT = "adaptive_backlight";
     private static final String KEY_WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+    private static final String KEY_SCREEN_ON_NOTIFICATION_LED = "screen_on_notification_led";
 
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
@@ -94,6 +95,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private CheckBoxPreference mWakeWhenPluggedOrUnplugged;
     private Preference mCustomLabel;
+    private CheckBoxPreference mScreenOnNotificationLed;
     CheckBoxPreference mShowWifiName;
     private PreferenceScreen mDisplayRotationPreference;
     private WarnedListPreference mFontSizePref;
@@ -225,6 +227,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         PackageManager pm = getPackageManager();
         boolean isMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+
+        int statusScreenOnNotificationLed = Settings.System.getInt(resolver,
+                Settings.System.SCREEN_ON_NOTIFICATION_LED, 1);
+
+        mScreenOnNotificationLed = (CheckBoxPreference) findPreference(KEY_SCREEN_ON_NOTIFICATION_LED);
+        mScreenOnNotificationLed.setChecked(Settings.System.getInt(resolver,
+                Settings.System.SCREEN_ON_NOTIFICATION_LED, 0) == 1);
 
     }
 
@@ -547,6 +556,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
                     mShowWifiName.isChecked() ? 1 : 0);
             return true; 
+        } else if (preference == mScreenOnNotificationLed) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SCREEN_ON_NOTIFICATION_LED,
+                    mScreenOnNotificationLed.isChecked() ? 1 : 0);
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
