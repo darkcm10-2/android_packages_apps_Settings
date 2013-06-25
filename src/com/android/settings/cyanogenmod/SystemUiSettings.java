@@ -56,7 +56,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_WE_WANT_POPUPS = "show_popup";
     private static final String KEY_MMS_BREATH = "mms_breath";
     private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String KEY_HALO_COLORS = "halo_colors";
     private static final String KEY_HALO_CIRCLE_COLOR = "halo_circle_color";
+    private static final String KEY_HALO_EFFECT_COLOR = "halo_effect_color"; 
+
     private static final String KEY_HALO_BUBBLE_COLOR = "halo_bubble_color";
     private static final String KEY_HALO_BUBBLE_TEXT_COLOR = "halo_bubble_text_color";
 
@@ -67,14 +70,17 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private CheckBoxPreference mHaloHide;
     private CheckBoxPreference mHaloReversed;
     private CheckBoxPreference mHaloPause;
-    private ColorPickerPreference mHaloCircleColor;
-    private ColorPickerPreference mHaloBubbleColor;
-    private ColorPickerPreference mHaloBubbleTextColor;
+    private CheckBoxPreference mHaloColors;
     private CheckBoxPreference mWeWantPopups;
     private CheckBoxPreference mMMSBreath;
     private CheckBoxPreference mMissedCallBreath;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
+
+    ColorPickerPreference mHaloCircleColor;
+    ColorPickerPreference mHaloEffectColor;
+    ColorPickerPreference mHaloBubbleColor;
+    ColorPickerPreference mHaloBubbleTextColor;
 
     private INotificationManager mNotificationManager;
 
@@ -151,6 +157,13 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mHaloPause = (CheckBoxPreference) findPreference(KEY_HALO_PAUSE);
         mHaloPause.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.HALO_PAUSE, isLowRAM) == 1); 
+
+        mHaloColors = (CheckBoxPreference) prefSet.findPreference(KEY_HALO_COLORS);
+        mHaloColors.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HALO_COLORS, 0) == 1);
+
+        mHaloEffectColor = (ColorPickerPreference) findPreference(KEY_HALO_EFFECT_COLOR);
+        mHaloEffectColor.setOnPreferenceChangeListener(this);
 
         mHaloCircleColor = (ColorPickerPreference) findPreference(KEY_HALO_CIRCLE_COLOR);
         mHaloCircleColor.setOnPreferenceChangeListener(this);
@@ -243,6 +256,15 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_CIRCLE_COLOR, intHex);
             return true;
+        } else if (preference == mHaloEffectColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HALO_EFFECT_COLOR, intHex);
+            Helpers.restartSystemUI();
+            return true;
         } else if (preference == mHaloBubbleColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(objValue)));
@@ -269,19 +291,24 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         if  (preference == mHaloEnabled) {  
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_ENABLED, mHaloEnabled.isChecked()
-                    ? 1 : 0);  
+                    ? 1 : 0);
         } else if  (preference == mHaloHide) {  
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_HIDE, mHaloHide.isChecked()
-                    ? 1 : 0);  
+                    ? 1 : 0);
         } else if (preference == mHaloReversed) {  
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_REVERSED, mHaloReversed.isChecked()
-                    ? 1 : 0);  
+                    ? 1 : 0);
         } else if (preference == mHaloPause) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_PAUSE, mHaloPause.isChecked()
-                    ? 1 : 0); 
+                    ? 1 : 0);
+        } else if (preference == mHaloColors) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HALO_COLORS, mHaloColors.isChecked()
+                    ? 1 : 0);
+            Helpers.restartSystemUI();
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }

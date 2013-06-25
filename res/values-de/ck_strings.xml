@@ -146,6 +146,8 @@
     <string name="halo_pause_title">aktive Applikation pausieren</string>
     <string name="halo_pause_summary">Wenn mithilfe von HALO eine Applikation gestartet wird, wird das dann im Hintergrund befindliche Programm automatisch angehalten (standardmäßig aktiviert auf Geräten
 mit wenig Speicher)</string>
+    <string name="halo_colors_title">Benutzerdefinierte Farben</string>
+    <string name="halo_colors_summary">Eigene Farben für HALO verwenden, anstatt denen des aktiven Themes</string>
     <string name="halo_circle_color_title">Farbe des Kreises</string>
     <string name="halo_bubble_color_title">Farbe der Sprechblase</string>
     <string name="halo_bubble_text_color_title">Farbe des Sprechblasen-Textes</string>
