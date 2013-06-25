@@ -37,6 +37,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
+
 public class SystemUiSettings extends SettingsPreferenceFragment  implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "SystemSettings";
@@ -54,6 +56,9 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_WE_WANT_POPUPS = "show_popup";
     private static final String KEY_MMS_BREATH = "mms_breath";
     private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String KEY_HALO_CIRCLE_COLOR = "halo_circle_color";
+    private static final String KEY_HALO_BUBBLE_COLOR = "halo_bubble_color";
+    private static final String KEY_HALO_BUBBLE_TEXT_COLOR = "halo_bubble_text_color";
 
     private ListPreference mNavigationBarHeight;
     private PreferenceScreen mPieControl;
@@ -62,6 +67,9 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private CheckBoxPreference mHaloHide;
     private CheckBoxPreference mHaloReversed;
     private CheckBoxPreference mHaloPause;
+    private ColorPickerPreference mHaloCircleColor;
+    private ColorPickerPreference mHaloBubbleColor;
+    private ColorPickerPreference mHaloBubbleTextColor;
     private CheckBoxPreference mWeWantPopups;
     private CheckBoxPreference mMMSBreath;
     private CheckBoxPreference mMissedCallBreath;
@@ -144,6 +152,15 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mHaloPause.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.HALO_PAUSE, isLowRAM) == 1); 
 
+        mHaloCircleColor = (ColorPickerPreference) findPreference(KEY_HALO_CIRCLE_COLOR);
+        mHaloCircleColor.setOnPreferenceChangeListener(this);
+
+        mHaloBubbleColor = (ColorPickerPreference) findPreference(KEY_HALO_BUBBLE_COLOR);
+        mHaloBubbleColor.setOnPreferenceChangeListener(this);
+
+        mHaloBubbleTextColor = (ColorPickerPreference) findPreference(KEY_HALO_BUBBLE_TEXT_COLOR);
+        mHaloBubbleTextColor.setOnPreferenceChangeListener(this);
+
         int showPopups = Settings.System.getInt(getContentResolver(), Settings.System.WE_WANT_POPUPS, 1);
 
         mWeWantPopups = (CheckBoxPreference) findPreference(KEY_WE_WANT_POPUPS);
@@ -217,6 +234,30 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             boolean checked = (Boolean) objValue;
                     Settings.System.putBoolean(getActivity().getContentResolver(),
                     Settings.System.WE_WANT_POPUPS, checked);
+            return true;
+        } else if (preference == mHaloCircleColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HALO_CIRCLE_COLOR, intHex);
+            return true;
+        } else if (preference == mHaloBubbleColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HALO_BUBBLE_COLOR, intHex);
+            return true;
+        } else if (preference == mHaloBubbleTextColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HALO_BUBBLE_TEXT_COLOR, intHex);
             return true;
         }
 
