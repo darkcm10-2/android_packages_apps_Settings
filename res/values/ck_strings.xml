@@ -214,4 +214,8 @@ your apps faster.</string>
     <string name="alt_resolver_title">Use Alt Default App Picker</string>
     <string name="alt_resolver_summary">Use Alternate Default App Picker</string>
 
+    <!-- Flip Tiles -->
+    <string name="flip_qs_tiles_title">Flip tiles</string>
+    <string name="flip_qs_tiles_summary">Flips the tiles on touch</string>
+
 </resources>

@@ -203,4 +203,8 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <string name="alt_resolver_title">Alternativer App Picker</string>
     <string name="alt_resolver_summary">Alternativen App Picker verwenden</string>
 
+    <!-- Flip Tiles -->
+    <string name="flip_qs_tiles_title">Kacheln wenden</string>
+    <string name="flip_qs_tiles_summary">Wenden der Schnelleinstellungs-Kacheln beim Umschalten</string>
+
 </resources>
