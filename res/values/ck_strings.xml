@@ -171,4 +171,10 @@
     <string name="screen_on_notification_led_title">Screen-On Notification Light</string>
     <string name="screen_on_notification_led_summary">Enable Notification Light even when screen is on.</string>
 
+    <!-- Lockscreen widget options -->
+    <string name="lockscreen_disable_hints_title">Disable usability hints</string>
+    <string name="lockscreen_disable_hints_summary">Disables the glow that surrounds the widgets on lockscreen for portrait mode widget pager</string>
+    <string name="lockscreen_widgets_all_title">Enable all widgets</string>
+    <string name="lockscreen_widgets_all_summary">Ability to add widgets on lockscreen</string>
+
 </resources>

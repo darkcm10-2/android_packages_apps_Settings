@@ -158,4 +158,10 @@ mit wenig Speicher)</string>
     <string name="missed_call_breath">Verpasste Anrufe pulsieren</string>
     <string name="missed_call_breath_summary">Blendet die Benachrichtung für verpasste Anrufe in der Statusleiste langsam ein und aus und erzeugt so einen Pulsschlageffekt</string>
 
+    <!-- Lockscreen widget options -->
+    <string name="lockscreen_disable_hints_title">Leuchtende Rahmen verstecken</string>
+    <string name="lockscreen_disable_hints_summary">Schaltet das Leuchten ab, das links und rechts am Lockscreen zu sehen ist, um den Benutzer auf die weiteren Widget-Seiten hinzuweisen</string>
+    <string name="lockscreen_widgets_all_title">Alle Widgets erlauben</string>
+    <string name="lockscreen_widgets_all_summary">Erlaubt es Widgets, die nur für den Home-Bildschirm gedacht sind, auch auf dem Lockscreen zu verwenden.</string>
+
 </resources>
