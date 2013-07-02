@@ -76,6 +76,13 @@
 
     </PreferenceCategory>
 
+    <!-- Ram Bar -->
+    <PreferenceScreen
+        android:key="ram_bar"
+        android:fragment="com.android.settings.cyanogenmod.RamBar"
+        android:title="@string/ram_bar_title"
+        android:summary="@string/ram_bar_summary" />
+
     <!-- Halo Settings -->
     <PreferenceScreen
         android:key="pref_halo"

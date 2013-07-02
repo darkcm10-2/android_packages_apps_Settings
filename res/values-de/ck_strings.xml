@@ -171,4 +171,24 @@ mit wenig Speicher)</string>
     <string name="lockscreen_widgets_all_title">Alle Widgets erlauben</string>
     <string name="lockscreen_widgets_all_summary">Erlaubt es Widgets, die nur für den Home-Bildschirm gedacht sind, auch auf dem Lockscreen zu verwenden.</string>
 
++    <!-- Ram bar strings -->
++    <string name="ram_bar_title">Recents RAM-Leiste</string>
++    <string name="ram_bar_summary">Zeigt eine RAM-Auslastungs-Leiste in der Ansicht der letzten Apps</string>
++    <string name="ram_bar_note_title">Hinweis</string>
++    <string name="ram_bar_note_summary">Diese RAM-Leiste zeigt an, wie Android tatsächlich den verfügbaren RAM verwendet. Beachte bitte, das das Zwischengespeichern von Anwendungen im Hintergrund dabei 
++hilft, diese Anwendungen schneller zu öffnen.</string>
++    <string name="ram_bar_mode_title">Recents RAM-Leisten Modus</string>
++    <string name="ram_bar_mode_dialog_title">Auf der Recents RAM-Leiste anzeigen</string>
++    <string name="ram_bar_none">Keine</string>
++    <string name="ram_bar_apps">Anwendungen</string>
++    <string name="ram_bar_cache">Anwendungen und Cache</string>
++    <string name="ram_bar_other">Anwendungen, Cache und Andere</string>
++    <string name="ram_bar_style_cat">Recents RAM-Leisten Style</string>
++    <string name="ram_bar_color_app_mem_color">Farbe des Anwendungen RAMs</string>
++    <string name="ram_bar_color_cache_mem_color">Farbe des Cache RAMs</string>
++    <string name="ram_bar_color_total_mem_color">Farbe des Anderen RAMs</string>
++    <string name="ram_bar_color_enabled">Aktiviert</string>
++    <string name="ram_bar_color_disabled">Deaktiviert</string>
++    <string name="ram_bar_button_reset">Farben zurück setzen</string> 
+
 </resources>
