@@ -21,9 +21,6 @@
     <!-- Settings Group: Tweaks -->
     <string name="tweaks_category">Tweaks</string>
 
-    <!-- Settings Group: Halo -->
-    <string name="halo_category">HALO</string>
-
     <!--- Nav buttons height -->
     <string name="navigation_bar_height">NavigationBar height</string>
     <string name="navigation_bar_height_48">48dp (default)</string>
@@ -143,6 +140,9 @@
     <string name="nb_old_style">Old style</string>
 
     <!-- HALO -->
+    <string name="pref_halo_title">HALO</string>
+    <string name="pref_halo_summary">ParanoidAndroid's notification circle</string>
+
     <string name="halo_enabled_title">Enable HALO</string>
     <string name="halo_enabled_summary">Completely enable or disable HALO</string>
     <string name="halo_hide_title">Hide HALO after activity</string>

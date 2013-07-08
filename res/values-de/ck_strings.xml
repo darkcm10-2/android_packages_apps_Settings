@@ -133,6 +133,8 @@
     <string name="nb_old_style">altes Verhalten</string>
 
     <!-- HALO -->
+    <string name="pref_halo_summary">ParanoidAndroid's Benachrichtigungs-Kreis</string>
+
     <string name="halo_enabled_title">HALO aktivieren</string>
     <string name="halo_enabled_summary">HALO vollständig aktiveren bzw. deaktivieren</string>
     <string name="halo_hide_title">HALO nach Aktivität verstecken</string>
