@@ -21,6 +21,9 @@
     <!-- Settings Group: Tweaks -->
     <string name="tweaks_category">Tweaks</string>
 
+    <!-- Settings Group: Advanced -->
+    <string name="advanced_category_title">Advanced Features</string>
+
     <!--- Nav buttons height -->
     <string name="navigation_bar_height">NavigationBar height</string>
     <string name="navigation_bar_height_48">48dp (default)</string>
