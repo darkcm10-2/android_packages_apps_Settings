@@ -20,6 +20,8 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.PowerManager;
+import android.os.SystemClock;
 import android.provider.Settings;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -81,6 +83,8 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
     }
 
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        private PowerManager pm;
+
         if (mStateMachineEvent) {
             return;
         }
@@ -99,6 +103,8 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
                    }
                }
            }
+        pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+        pm.goToSleep(SystemClock.uptimeMillis());
     }
 
 }
