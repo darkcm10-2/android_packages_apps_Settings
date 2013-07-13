@@ -33,6 +33,7 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
     private final Context mContext;
     private Switch mSwitch;
     private boolean mStateMachineEvent;
+    private PowerManager pm;
 
     // list off apps which we restart just to be sure due that AOSP
     // does not every time reload all resources on onConfigurationChanged
@@ -83,8 +84,6 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
     }
 
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        private PowerManager pm;
-
         if (mStateMachineEvent) {
             return;
         }
