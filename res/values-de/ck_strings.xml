@@ -218,4 +218,8 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <!-- TRDS Settings -->
     <string name="trds_settings_title">Dark UI (TRDS)</string>
 
+    <!-- Network speed -->
+    <string name="show_network_speed">Anzeige des Datendurchsatzes</string>
+    <string name="show_network_speed_summary">Den aktuellen Datendurchsatz in der Statusleiste anzeigen</string>
+
 </resources>

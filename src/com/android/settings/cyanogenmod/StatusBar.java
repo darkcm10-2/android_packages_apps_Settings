@@ -49,6 +49,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String PREF_STATUS_BAR_CIRCLE_BATTERY_TEXT_COLOR = "circle_battery_text_color";
     private static final String PREF_STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED = "circle_battery_animation_speed";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+    private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
     private static final String PREF_ENABLE = "clock_style";
@@ -71,6 +72,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private PreferenceScreen mClockStyle;
     private CheckBoxPreference mBatteryBarChargingAnimation;
     private ColorPickerPreference mBatteryBarColor;
+    private CheckBoxPreference mStatusBarTraffic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -147,6 +149,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         if (Utils.isTablet(getActivity())) {
             generalCategory.removePreference(statusBarBrightnessControl);
         }
+
+        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
+        mStatusBarTraffic.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_TRAFFIC, 1) == 1));
 
         mBatteryBar = (ListPreference) findPreference(PREF_BATT_BAR);
         mBatteryBar.setOnPreferenceChangeListener(this);
@@ -277,6 +283,17 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mCircleColor.setSummary(hexColor);
         mCircleTextColor.setSummary(hexColor);
     }
+
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
+        if (preference == mStatusBarTraffic) {
+            value = mStatusBarTraffic.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+   }
 
     private void updateClockStyleDescription() {
         if (Settings.System.getInt(getActivity().getContentResolver(),

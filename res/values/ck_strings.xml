@@ -229,4 +229,8 @@ your apps faster.</string>
     <!-- TRDS Settings -->
     <string name="trds_settings_title">Dark UI (TRDS)</string>
 
+    <!-- Network speed -->
+    <string name="show_network_speed">Network speed indicator</string>
+    <string name="show_network_speed_summary">Show network speed in statusbar</string>
+
 </resources>
