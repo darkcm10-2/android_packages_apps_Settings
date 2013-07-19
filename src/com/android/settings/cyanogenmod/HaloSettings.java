@@ -51,6 +51,7 @@ public class HaloSettings extends SettingsPreferenceFragment
     private static final String KEY_HALO_STATE = "halo_state";
     private static final String KEY_HALO_HIDE = "halo_hide";
     private static final String KEY_HALO_REVERSED = "halo_reversed";
+    private static final String KEY_HALO_SIZE = "halo_size";
     private static final String KEY_HALO_PAUSE = "halo_pause";
     private static final String KEY_WE_WANT_POPUPS = "show_popup";
     private static final String KEY_HALO_COLORS = "halo_colors";
@@ -61,6 +62,7 @@ public class HaloSettings extends SettingsPreferenceFragment
 
     private CheckBoxPreference mHaloEnabled;
     private ListPreference mHaloState;
+    private ListPreference mHaloSize;
     private CheckBoxPreference mHaloHide;
     private CheckBoxPreference mHaloReversed;
     private CheckBoxPreference mHaloPause;
@@ -127,6 +129,17 @@ public class HaloSettings extends SettingsPreferenceFragment
         mWeWantPopups = (CheckBoxPreference) findPreference(KEY_WE_WANT_POPUPS);
         mWeWantPopups.setOnPreferenceChangeListener(this);
         mWeWantPopups.setChecked(showPopups > 0);
+
+        mHaloSize = (ListPreference) findPreference(KEY_HALO_SIZE);
+        try {
+            float haloSize = Settings.System.getFloat(getContentResolver(),
+                    Settings.System.HALO_SIZE, 1.0f);
+            mHaloSize.setValue(String.valueOf(haloSize));
+        } catch(Exception ex) {
+            // So what
+        }
+        mHaloSize.setOnPreferenceChangeListener(this);
+
     }
 
     private boolean isHaloPolicyBlack() {
@@ -212,6 +225,11 @@ public class HaloSettings extends SettingsPreferenceFragment
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_BUBBLE_TEXT_COLOR, intHex);
+            return true;
+        } else if (preference == mHaloSize) {
+            float haloSize = Float.valueOf((String) objValue);
+            Settings.System.putFloat(getActivity().getContentResolver(),
+                    Settings.System.HALO_SIZE, haloSize);
             return true;
         }
         return false;

@@ -156,6 +156,14 @@ mit wenig Speicher)</string>
     <string name="halo_circle_color_title">Farbe des Kreises</string>
     <string name="halo_bubble_color_title">Farbe der Sprechblase</string>
     <string name="halo_bubble_text_color_title">Farbe des Sprechblasen-Textes</string>
+    <string name="halo_size_title">HALO Größe</string>
+    <string name="halo_size_summary">Legt fest, wie groß HALO angezeigt wird</string>
+    <string name="halo_size_miniscule">winzig</string>
+    <string name="halo_size_small">klein</string>
+    <string name="halo_size_default">normal</string>
+    <string name="halo_size_large">groß</string>
+    <string name="halo_size_gigantic">gigantisch</string>
+    <string name="halo_size_monster">monster</string>
 
     <!-- We want popups -->
     <string name="popups_title">überlagenrnde Fenster ermöglichen</string>
