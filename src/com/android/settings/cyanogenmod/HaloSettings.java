@@ -31,6 +31,7 @@ import android.os.Handler;
 import android.os.ServiceManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
+import android.preference.SwitchPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
@@ -60,7 +61,7 @@ public class HaloSettings extends SettingsPreferenceFragment
     private static final String KEY_HALO_BUBBLE_COLOR = "halo_bubble_color";
     private static final String KEY_HALO_BUBBLE_TEXT_COLOR = "halo_bubble_text_color";
 
-    private CheckBoxPreference mHaloEnabled;
+    private SwitchPreference mHaloEnabled;
     private ListPreference mHaloState;
     private ListPreference mHaloSize;
     private CheckBoxPreference mHaloHide;
@@ -87,9 +88,10 @@ public class HaloSettings extends SettingsPreferenceFragment
         mNotificationManager = INotificationManager.Stub.asInterface(
                 ServiceManager.getService(Context.NOTIFICATION_SERVICE));
 
-        mHaloEnabled = (CheckBoxPreference) findPreference(KEY_HALO_ENABLED);
+        mHaloEnabled = (SwitchPreference) findPreference(KEY_HALO_ENABLED);
         mHaloEnabled.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.HALO_ENABLED, 0) == 1);
+        mHaloEnabled.setOnPreferenceChangeListener(this);
 
         mHaloState = (ListPreference) findPreference(KEY_HALO_STATE);
         mHaloState.setValue(String.valueOf((isHaloPolicyBlack() ? "1" : "0")));
@@ -153,11 +155,7 @@ public class HaloSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if  (preference == mHaloEnabled) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.HALO_ENABLED, mHaloEnabled.isChecked()
-                    ? 1 : 0);
-        } else if  (preference == mHaloHide) {
+        if  (preference == mHaloHide) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_HIDE, mHaloHide.isChecked()
                     ? 1 : 0);
@@ -181,7 +179,13 @@ public class HaloSettings extends SettingsPreferenceFragment
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mHaloState) {
+        if (preference == mHaloEnabled) {
+            boolean value = ((Boolean)objValue).booleanValue();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.HALO_ENABLED,
+                    value ? 1 : 0);
+            return true;
+        } else if (preference == mHaloState) {
             boolean state = Integer.valueOf((String) objValue) == 1;
             try {
                 mNotificationManager.setHaloPolicyBlack(state);
