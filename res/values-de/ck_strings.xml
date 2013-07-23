@@ -349,4 +349,41 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="listview_translate_left">Übersetzen (links)</string>
     <string name="listview_translate_right">Übersetzen (rechts)</string>
 
+    <!-- App sidebar -->
+    <string name="app_sidebar_title">Appbar</string>
+    <string name="app_sidebar_enable_title">Appbar einschalten</string>
+    <string name="app_sidebar_summary">App-Sidebar einrichten</string>
+    <string name="app_sidebar_enable_summaryOn">\@appbar ist eingeschaltet</string>
+    <string name="app_sidebar_enable_summaryOff">\@appbar ist ausgeschaltet</string>
+    <string name="app_sidebar_setup_items_title">Inhalt der Appbar festlegen</string>
+    <string name="app_sidebar_setup_items_summary">Elemente der @appbar hinzufügen, entfernen und positionieren</string>
+    <string name="app_sidebar_transparency_title">Transparenz der Appbar</string>
+    <string name="app_sidebar_transparency_summary">Die Transparenz der Appbar festlegen</string>
+    <string name="app_sidebar_position_title">Position der Appbar</string>
+    <string name="app_sidebar_position_summary">Position der Appbar am linken oder rechten Bildschirmrand</string>
+    <string name="app_sidebar_position_left">Links</string>
+    <string name="app_sidebar_position_right">Rechts</string>
+    <string name="app_sidebar_hide_labels_title">Icon-Beschriftungen verstecken</string>
+    <string name="app_sidebar_hide_labels_summary">Die Beschriftungen der einzelnen Icons anzeigen oder verstecken</string>
+    <string name="app_sidebar_top">Oben</string>
+    <string name="app_sidebar_middle">Mitte</string>
+    <string name="app_sidebar_bottom">Unten</string>
+    <string name="app_sidebar_small">Klein</string>
+    <string name="app_sidebar_medium">Mittel</string>
+    <string name="app_sidebar_large">Groß</string>
+    <string name="tab_category">Anfasser</string>
+    <string name="use_tab_title">Immer Sichtbarer Anfasser</string>
+    <string name="use_tab_summary">Einen Anfasser am Bildschirmrand zeigen, der ein Einblenden der @appbar erlaubt</string>
+    <string name="tab_position_title">Position des Anfassers</string>
+    <string name="tab_position_summary">Den Anfasser oben, unten oder mittig am Bildschirmrand darstellen</string>
+    <string name="tab_size_title">Anfasser-Größe</string>
+    <string name="tab_size_summary">Die Größe des Anfassers festlegen</string>
+    <string name="trigger_category">Auslöser-Bereich</string>
+    <string name="trigger_width_title">Breite des Auslösers</string>
+    <string name="trigger_width_summary">Die Breite des Auslöser-Bereichs festlegen</string>
+    <string name="trigger_top_title">Position des Auslösers</string>
+    <string name="trigger_top_summary">Die vertikale Position des Auslöser-Bereichs festlegen</string>
+    <string name="trigger_bottom_title">Höhe des Auslösers</string>
+    <string name="trigger_bottom_summary">Die Höhe des Auslöser-Bereichs festlegen</string>
+
 </resources>
