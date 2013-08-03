@@ -1714,11 +1714,13 @@
 
         <activity android:name=".cyanogenmod.NotificationDrawer" />
 
+        <activity android:name=".cyanogenmod.NotificationDrawerStyle" />
+
         <activity android:name=".cyanogenmod.MoreDeviceSettings" />
 
         <activity android:name=".cyanogenmod.KeyboardInputSettings" />
 
-        <activity android:name=".cyanogenmod.StatusBarTrafficColor" />  
+        <activity android:name=".cyanogenmod.StatusBarTrafficColor" />
 
         <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
         <activity android:name="Settings$BlacklistSettingsActivity"

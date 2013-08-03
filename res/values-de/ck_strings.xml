@@ -311,4 +311,19 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="fullscreen_statusbar_timeout_title">Timeout der Vollbild-Statusbar</string>
     <string name="fullscreen_statusbar_timeout_summary">Zeit, die die Statusbar nach dem Herunterwischen sichtbar bleibt</string>
 
+    <!-- Notification Drawer Settings -->
+    <string name="notification_style_grouptitle">Stil</string>
+    <string name="notification_style_title">Stil der Benachrichtigungsanzeige</string>
+    <string name="notification_style_summary">Ändere hier den Stil der Benachrichtigungsanzeige</string>
+
+    <!-- Notification drawer background -->
+    <string name="notification_wallpaper_title">Benachrichtigungsanzeigen-Hintergrund</string>
+    <string name="notification_wallpaper_landscape_title">Anderer Hintergrund im Querformat</string>
+    <string name="notification_background_color_fill">Farbfüllung</string>
+    <string name="notification_background_custom_image">Eigenes Bild definieren</string>
+    <string name="notification_background_default_wallpaper">Eigenen Hintergrund definieren</string>
+    <string name="notification_drawer_custom_background_dialog_title">Farbe wählen</string>
+    <string name="notif_wallpaper_alpha_title">Hintergrund-Transparenz</string> 
+    <string name="notif_alpha_title">Zeilen-Transparenz</string>
+
 </resources>
