@@ -28,7 +28,7 @@
     <string name="start_time_title">התחלה</string>
     <string name="end_time_title">סיום</string>
     <string name="device_hostname">שם המכשיר</string>
-    <string name="mod_version">גרסת CyanogenMod</string>
+    <string name="mod_version">גרסת CyanKang</string>
     <string name="mod_version_default">לא ידועה</string>
     <string name="build_date">תאריך Build</string>
     <string name="cpu_info">מעבד</string>

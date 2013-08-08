@@ -56,7 +56,7 @@
     <string name="notification_vibrate_during_calls_title">Δόνηση κατά την κλήση</string>
     <string name="notification_vibrate_during_calls_summary">Δόνηση στις εισερχόμενες ειδοποιήσεις κατά την διάρκεια μιας κλήσης</string>
     <string name="device_hostname">Hostname συσκευής</string>
-    <string name="mod_version">Έκδοση CyanogenMod</string>
+    <string name="mod_version">Έκδοση CyanKang</string>
     <string name="mod_version_default">Άγνωστη</string>
     <string name="build_date">Ημερομηνία έκδοσης</string>
     <string name="cpu_info">CPU</string>

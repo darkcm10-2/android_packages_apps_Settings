@@ -58,7 +58,7 @@
     <string name="notification_vibrate_during_calls_title">Vibrar durante llamadas</string>
     <string name="notification_vibrate_during_calls_summary">Las notificaciones entrantes vibrarán levemente durante una llamada</string>
     <string name="device_hostname">Nombre del dispositivo</string>
-    <string name="mod_version">Versión CyanogenMod</string>
+    <string name="mod_version">Versión CyanKang</string>
     <string name="mod_version_default">Desconocida</string>
     <string name="build_date">Fecha de compilación</string>
     <string name="cpu_info">CPU</string>

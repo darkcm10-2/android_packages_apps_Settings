@@ -39,7 +39,7 @@
     <string name="notification_convert_sound_to_vibration_title">Vibreer op kennisgewing</string>
     <string name="notification_convert_sound_to_vibration_summary">In vibrasie-modus sal alle kennisgewings, ongeag van individuele program instellings, vibreer</string>
     <string name="device_hostname">Toestel gasheernaam</string>
-    <string name="mod_version">CyanogenMod weergawe</string>
+    <string name="mod_version">CyanKang weergawe</string>
     <string name="mod_version_default">Onbekend</string>
     <string name="build_date">Bou datum</string>
     <string name="cpu_info">SVE</string>

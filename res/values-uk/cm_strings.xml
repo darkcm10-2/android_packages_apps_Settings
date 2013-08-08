@@ -29,7 +29,7 @@
     <string name="notification_convert_sound_to_vibration_title">Вібрація при сповіщеннях</string>
     <string name="notification_convert_sound_to_vibration_summary">В режимі \"Вібро\" вібрувати при сповіщеннях незалежно від налаштувань програм</string>
     <string name="device_hostname">Ім’я пристрою</string>
-    <string name="mod_version">Версія CyanogenMod</string>
+    <string name="mod_version">Версія CyanKang</string>
     <string name="mod_version_default">Невідомо</string>
     <string name="build_date">Дата збірки</string>
     <string name="cpu_info">Процесор</string>

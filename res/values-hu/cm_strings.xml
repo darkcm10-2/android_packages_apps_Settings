@@ -56,7 +56,7 @@
     <string name="notification_vibrate_during_calls_title">Rezgés hívás közben</string>
     <string name="notification_vibrate_during_calls_summary">Lágy rezgés engedélyezése hívás közben</string>
     <string name="device_hostname">Eszköz elérési neve</string>
-    <string name="mod_version">CyanogenMod verzió</string>
+    <string name="mod_version">CyanKang verzió</string>
     <string name="mod_version_default">Ismeretlen</string>
     <string name="build_date">Build dátuma</string>
     <string name="cpu_info">Processzor</string>

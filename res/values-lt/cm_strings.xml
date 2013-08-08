@@ -28,7 +28,7 @@
     <string name="start_time_title">Pradėti</string>
     <string name="end_time_title">Baigti</string>
     <string name="device_hostname">Įrenginio vardas tinkle</string>
-    <string name="mod_version">CyanogenMod versija</string>
+    <string name="mod_version">CyanKang versija</string>
     <string name="mod_version_default">Nežinoma</string>
     <string name="build_date">Surinkimo data</string>
     <string name="cpu_info">Procesorius</string>

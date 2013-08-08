@@ -37,7 +37,7 @@
     <string name="notification_vibrate_during_calls_title">Während Anruf vibrieren</string>
     <string name="notification_vibrate_during_calls_summary">Bei eingehenden Benachrichtigungen während eines Anrufs sanft vibrieren</string>
     <string name="device_hostname">Hostname des Geräts</string>
-    <string name="mod_version">CyanogenMod-Version</string>
+    <string name="mod_version">CyanKang-Version</string>
     <string name="mod_version_default">Unbekannt</string>
     <string name="build_date">Build-Datum</string>
     <string name="cpu_info">Prozessor</string>

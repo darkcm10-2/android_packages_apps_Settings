@@ -398,7 +398,7 @@
     <string name="preview_version_title">バージョン</string>
     <string name="preview_country_title">国</string>
     <string name="preview_carrier_title">キャリア</string>
-    <string name="mod_version">CyanogenMod バージョン</string>
+    <string name="mod_version">CyanKang バージョン</string>
     <string name="mod_version_default">不明</string>
     <string name="build_date">ビルド日時</string>
     <string name="adb_over_network">ADBオーバーネットワーク</string>

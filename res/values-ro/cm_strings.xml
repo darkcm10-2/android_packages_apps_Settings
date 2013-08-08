@@ -27,7 +27,7 @@
     <string name="start_time_title">"Început"</string>
     <string name="end_time_title">"Sfârşit"</string>
     <string name="device_hostname">"Nume host dispozitiv"</string>
-    <string name="mod_version">"Versiune CyanogenMod"</string>
+    <string name="mod_version">"Versiune CyanKang"</string>
     <string name="mod_version_default">"Necunoscută"</string>
     <string name="build_date">"Dată build"</string>
     <string name="cpu_info">"Procesor"</string>

@@ -54,7 +54,7 @@
     <string name="notification_convert_sound_to_vibration_title">Bildirimlerde titre</string>
     <string name="notification_convert_sound_to_vibration_summary">Titreşim modunda uygulama ayarlarından bağımsız olarak her bildirim titreyecektir</string>
     <string name="device_hostname">Cihaz hostname\'i</string>
-    <string name="mod_version">CyanogenMod sürümü</string>
+    <string name="mod_version">CyanKang sürümü</string>
     <string name="mod_version_default">Bilinmiyor</string>
     <string name="build_date">İnşa tarihi</string>
     <string name="cpu_info">İşlemci</string>

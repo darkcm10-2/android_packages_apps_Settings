@@ -74,7 +74,7 @@
 
     <string name="device_hostname">Hostitelské jméno zařízení</string>
 
-    <string name="mod_version">Verze CyanogenModu</string>
+    <string name="mod_version">Verze CyanKangu</string>
     <string name="mod_version_default">Neznámá</string>
     <string name="build_date">Datum sestavení</string>
     <string name="cpu_info">CPU</string>
