@@ -60,6 +60,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String PREF_BATT_BAR_COLOR = "battery_bar_color";
     private static final String PREF_BATT_BAR_WIDTH = "battery_bar_thickness";
     private static final String PREF_BATT_ANIMATE = "battery_bar_animate";
+    private static final String STATUS_BAR_AUTO_UNHIDE = "status_bar_auto_unhide";
 
     private ListPreference mStatusBarBattery;
     private ColorPickerPreference mCircleColor;
@@ -77,6 +78,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private CheckBoxPreference mStatusBarTraffic_enable;
     private CheckBoxPreference mStatusBarTraffic_hide;
     private ListPreference mFullScreenStatusBarTimeout;
+    private CheckBoxPreference mStatusBarAutoUnhide;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,6 +94,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         ContentResolver resolver = getActivity().getContentResolver();
 
         mStatusBarBattery = (ListPreference) prefSet.findPreference(STATUS_BAR_BATTERY);
+        mStatusBarAutoUnhide = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_AUTO_UNHIDE);
 
         mCircleColor = (ColorPickerPreference) findPreference(PREF_STATUS_BAR_CIRCLE_BATTERY_COLOR);
         mCircleColor.setOnPreferenceChangeListener(this);
@@ -142,6 +145,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCmSignal.setValue(String.valueOf(signalStyle));
         mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntry());
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
+
+        mStatusBarAutoUnhide.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_AUTO_UNHIDE, 0) == 1));
+        mStatusBarAutoUnhide.setOnPreferenceChangeListener(this);
 
         PreferenceCategory generalCategory =
                 (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
@@ -284,6 +291,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             int val = Integer.parseInt((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FULLSCREEN_STATUSBAR_TIMEOUT, val);
+            return true;
+        } else if (preference == mStatusBarAutoUnhide) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_AUTO_UNHIDE, value ? 1 : 0);
             return true;
         }
 
