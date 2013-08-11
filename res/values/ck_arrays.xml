@@ -347,6 +347,11 @@
         <item>3</item>
     </string-array>
 
+    <!-- Names of categories of app ops tabs -->
+    <string-array name="app_ops_categories_pa">
+        <item>Operations</item>
+    </string-array>
+
 </resources>
 
 
