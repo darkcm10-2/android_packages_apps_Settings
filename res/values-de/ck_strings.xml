@@ -259,4 +259,8 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <string name="brightness_slider_bottom">unten</string>
     <string name="brightness_slider_none">nicht anzeigen</string>
 
+    <!-- QS: Floating Window -->
+    <string name="title_floating_window">überlagenrnde Fenster</string>
+    <string name="summary_floating_window">Legt fest, ob Fenster die durch Quicksettings-Kacheln geöffnet werden die aktuelle App überlagern oder bildschirmfüllend dargestellt werden.</string>
+
 </resources>
