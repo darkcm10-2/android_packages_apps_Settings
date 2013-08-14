@@ -340,6 +340,10 @@ your apps faster.</string>
     <!-- Settings Group: Advanced -->
     <string name="advanced_category_title">Advanced Features</string>
 
+    <!-- QS: Floating Window -->
+    <string name="title_floating_window">Floating window</string>
+    <string name="summary_floating_window">Open Quick Settings tiles in floating window</string>
+
     <!-- Statusbar | Battery -->
     <string name="battery_icon">Battery icon style</string>
     <string name="battery_not_title">Battery icon in notifications</string>

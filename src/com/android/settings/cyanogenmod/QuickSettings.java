@@ -61,6 +61,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     private static final String STATIC_TILES = "static_tiles";
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
     private static final String PREF_FLIP_QS_TILES = "flip_qs_tiles";
+    private static final String FLOATING_WINDOW ="floating_window";
 
     MultiSelectListPreference mRingMode;
     ListPreference mNetworkMode;
@@ -73,6 +74,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     CheckBoxPreference mDynamicUsbTether;
     CheckBoxPreference mCollapsePanel;
     CheckBoxPreference mFlipQsTiles;
+    CheckBoxPreference mFloatingWindow;
     ListPreference mQuickPulldown;
     PreferenceCategory mGeneralSettings;
     PreferenceCategory mStaticTiles;
@@ -106,6 +108,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
 
         mCollapsePanel = (CheckBoxPreference) prefSet.findPreference(COLLAPSE_PANEL);
         mCollapsePanel.setChecked(Settings.System.getInt(resolver, Settings.System.QS_COLLAPSE_PANEL, 0) == 1);
+        
+        mFloatingWindow = (CheckBoxPreference) prefSet.findPreference(FLOATING_WINDOW);
+        mFloatingWindow.setChecked(Settings.System.getInt(resolver, Settings.System.QS_FLOATING_WINDOW, 0) == 1);
 
         // Add the sound mode
         mRingMode = (MultiSelectListPreference) prefSet.findPreference(EXP_RING_MODE);
@@ -226,6 +231,10 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
                     Settings.System.QUICK_SETTINGS_TILES_FLIP,
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
             return true; 
+        } else if (preference == mFloatingWindow) {
+            Settings.System.putInt(resolver, Settings.System.QS_FLOATING_WINDOW,
+                    mFloatingWindow.isChecked() ? 1 : 0);
+            return true;            
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
