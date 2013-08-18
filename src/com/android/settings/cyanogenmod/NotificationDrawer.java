@@ -71,14 +71,16 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     private static final String PREF_BRIGHTNESS_LOC = "brightness_location";
     public static final String FAST_CHARGE_DIR = "/sys/kernel/fast_charge";
     public static final String FAST_CHARGE_FILE = "force_fast_charge"; 
+    private static final String PREF_NOTIFICATION_QUICK_SETTINGS = "quick_settings_panel"; 
 
     private ListPreference mCollapseOnDismiss;
     private CheckBoxPreference mPowerWidget;
     private CheckBoxPreference mPowerWidgetHideOnChange;
     private CheckBoxPreference mPowerWidgetHideScrollBar;
     private ListPreference mPowerWidgetHapticFeedback;
-    ListPreference mNotificationsBehavior;
+    private ListPreference mNotificationsBehavior;
     private ListPreference mBrightnessLocation;
+    private Preference mQuickSettings;   
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -131,9 +133,30 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             mBrightnessLocation.setOnPreferenceChangeListener(this);
             mBrightnessLocation.setValue(Integer.toString(Settings.System.getInt(getActivity()
                     .getContentResolver(), Settings.System.STATUSBAR_TOGGLES_BRIGHTNESS_LOC, 3)));
-            mBrightnessLocation.setSummary(mBrightnessLocation.getEntry());
+
+            mBrightnessLocation.setSummary(mBrightnessLocation.getEntry()); 
+
+	    mQuickSettings = findPreference(PREF_NOTIFICATION_QUICK_SETTINGS);
+            if (mQuickSettings != null) {
+                 updateQuickSettingsDescription();
+            } 
         }
     }
+
+    private void updateQuickSettingsDescription() {
+        if (Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.QS_DISABLE_PANEL, 0) == 0) {
+            mQuickSettings.setSummary(getString(R.string.quick_settings_enabled));
+        } else {
+            mQuickSettings.setSummary(getString(R.string.quick_settings_disabled));
+        }
+    } 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateQuickSettingsDescription(); 
+    } 
 
     private void updateCollapseBehaviourSummary(int setting) {
         String[] summaries = getResources().getStringArray(
@@ -536,7 +559,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             setListAdapter(mButtonAdapter);
         }
 
-        @Override
+	@Override
         public void onDestroy() {
             ((TouchInterceptor) mButtonList).setDropListener(null);
             setListAdapter(null);
