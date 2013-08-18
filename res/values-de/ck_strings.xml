@@ -263,4 +263,10 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <string name="title_floating_window">überlagenrnde Fenster</string>
     <string name="summary_floating_window">Legt fest, ob Fenster die durch Quicksettings-Kacheln geöffnet werden die aktuelle App überlagern oder bildschirmfüllend dargestellt werden.</string>
 
+    <!-- Hide qicksettings panel -->
+    <string name="disable_quick_settings_panel">Schnelleinstellungen</string>
+    <string name="disable_quick_settings_panel_summary">Schnelleinstellungen ein- oder ausschalten</string>
+    <string name="quick_settings_enabled">Aktiviert</string>
+    <string name="quick_settings_disabled">Deaktiviert</string>
+
 </resources>
