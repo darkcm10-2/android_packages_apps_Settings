@@ -20,8 +20,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.PowerManager;
-import android.os.SystemClock;
 import android.provider.Settings;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -33,7 +31,6 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
     private final Context mContext;
     private Switch mSwitch;
     private boolean mStateMachineEvent;
-    private PowerManager pm;
 
     // list off apps which we restart just to be sure due that AOSP
     // does not every time reload all resources on onConfigurationChanged
@@ -94,16 +91,14 @@ public class TRDSEnabler implements CompoundButton.OnCheckedChangeListener {
 
         ActivityManager am = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> pids = am.getRunningAppProcesses();
-           for(int i = 0; i < pids.size(); i++) {
-               ActivityManager.RunningAppProcessInfo info = pids.get(i);
-               for (int j = 0; j < mTRDSApps.length; j++) {
-                   if(info.processName.equalsIgnoreCase(mTRDSApps[j])) {
-                        am.killBackgroundProcesses(mTRDSApps[j]);
-                   }
-               }
-           }
-        pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-        pm.goToSleep(SystemClock.uptimeMillis());
+        for(int i = 0; i < pids.size(); i++) {
+            ActivityManager.RunningAppProcessInfo info = pids.get(i);
+            for (int j = 0; j < mTRDSApps.length; j++) {
+                if(info.processName.equalsIgnoreCase(mTRDSApps[j])) {
+                    am.killBackgroundProcesses(mTRDSApps[j]);
+                }
+            }
+        }
     }
 
 }
