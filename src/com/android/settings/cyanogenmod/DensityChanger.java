@@ -1,5 +1,4 @@
-
-package com.android.settings.slim;
+package com.android.settings.cyanogenmod;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -214,10 +213,10 @@ public class DensityChanger extends SettingsPreferenceFragment implements
     }
 
     private void setLcdDensity(int newDensity) {
-        Helpers.getMount("rw");
+        CMDProcessor.getMount("rw");
         new CMDProcessor().su.runWaitFor("busybox sed -i 's|ro.sf.lcd_density=.*|"
                 + "ro.sf.lcd_density" + "=" + newDensity + "|' " + "/system/build.prop");
-        Helpers.getMount("ro");
+        CMDProcessor.getMount("ro");
     }
 
     class ClearUserDataObserver extends IPackageDataObserver.Stub {
@@ -251,4 +250,3 @@ public class DensityChanger extends SettingsPreferenceFragment implements
         }
     }
 }
-

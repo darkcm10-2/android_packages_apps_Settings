@@ -373,12 +373,10 @@ your apps faster.</string>
     <string name="ics_color">!!!</string>
     <string name="color_default">Default</string>
 
-    <!-- General UI -->
-    <string name="misc_short">Misc</string>
-    <string name="title_ui">General UI</string>
-
     <!-- LCD Density -->
     <string name="dpi">DPI</string>
+    <string name="su_dialog_error_title">Warning</string>
+    <string name="su_dialog_error_message">An error occurred.\n\nPlease check for root access. To activate go into superuser settings and enable root access.</string>
     <string name="lcd_density_title">LCD Density</string>
     <string name="lcd_density_summary">unknown</string>
     <string name="current_lcd_density">"Current LCD Density: "</string>
