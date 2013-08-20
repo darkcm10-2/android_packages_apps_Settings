@@ -47,6 +47,12 @@
         android:persistent="false" />
 
     <CheckBoxPreference
+        android:key="fullscreen_keyboard"
+        android:title="@string/fullscreen_keyboard"
+        android:summary="@string/fullscreen_keyboard_summary"
+        android:defaultValue="true" />
+
+    <CheckBoxPreference
         android:key="expanded_desktop_no_navbar"
         android:title="@string/power_menu_expanded_desktop"
         android:persistent="false" />
@@ -133,13 +139,6 @@
             android:fragment="com.android.settings.cyanogenmod.RamBar"
             android:title="@string/ram_bar_title"
             android:summary="@string/ram_bar_summary" />  
-
-        <!-- App Sidebar Settings -->
-        <PreferenceScreen
-            android:key="pref_interface_app_sidebar"
-            android:fragment="com.android.settings.cyanogenmod.InterfaceAppSidebar"
-            android:title="@string/pref_interface_app_sidebar_title"
-            android:summary="@string/pref_interface_app_sidebar_summary" />
 
         <!-- Halo Settings -->
         <PreferenceScreen
