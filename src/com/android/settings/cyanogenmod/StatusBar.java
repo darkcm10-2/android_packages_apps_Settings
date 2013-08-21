@@ -333,17 +333,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
          }
     }
 
-    private void updateStatusBarAutoHideSummary(int value) {
-        if (value == 0) {
-            /* StatusBar AutoHide deactivated */
-            mStatusBarAutoHide.setSummary(getResources().getString(R.string.auto_hide_statusbar_off));
-        } else {
-            mStatusBarAutoHide.setSummary(getResources().getString(value == 1
-                    ? R.string.auto_hide_statusbar_summary_nonperm
-                    : R.string.auto_hide_statusbar_summary_all));
-        }
-    }
-
     @Override
     public void onResume() {
         super.onResume();
