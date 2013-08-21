@@ -48,14 +48,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String PREF_STATUS_BAR_CIRCLE_BATTERY_TEXT_COLOR = "circle_battery_text_color";
     private static final String PREF_STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED = "circle_battery_animation_speed";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
-    private static final String STATUS_BAR_AUTO_HIDE = "status_bar_auto_hide"; 
     private static final String STATUS_BAR_TRAFFIC_ENABLE = "status_bar_traffic_enable";
     private static final String STATUS_BAR_TRAFFIC_HIDE = "status_bar_traffic_hide";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
-    private static final String PREF_FULLSCREEN_STATUSBAR = "fullscreen_statusbar";
-    private static final String FREF_FULLSCREEN_STATUSBAR_TIMEOUT = "fullscreen_statusbar_timeout"; 
     private static final String PREF_ENABLE = "clock_style";
     private static final String PREF_BATT_BAR = "battery_bar_list";
     private static final String PREF_BATT_BAR_STYLE = "battery_bar_style";
@@ -79,11 +76,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private CheckBoxPreference mBatteryBarChargingAnimation;
     private PreferenceCategory mPrefCategoryGeneral;
     private ColorPickerPreference mBatteryBarColor;
-    private ListPreference mStatusBarAutoHide; 
-    private CheckBoxPreference mFullScreenStatusBar;
     private CheckBoxPreference mStatusBarTraffic_enable;
     private CheckBoxPreference mStatusBarTraffic_hide;
-    ListPreference mFullScreenStatusBarTimeout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -179,19 +173,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mBatteryBarThickness = (ListPreference) findPreference(PREF_BATT_BAR_WIDTH);
         mBatteryBarThickness.setOnPreferenceChangeListener(this);
         mBatteryBarThickness.setValue((Settings.System.getInt(resolver, Settings.System.STATUSBAR_BATTERY_BAR_THICKNESS, 1)) + "");
-
-        mStatusBarAutoHide = (ListPreference) findPreference(STATUS_BAR_AUTO_HIDE);
-        int statusBarAutoHideValue = Settings.System.getInt(resolver, Settings.System.AUTO_HIDE_STATUSBAR, 0);
-        mStatusBarAutoHide.setValue(String.valueOf(statusBarAutoHideValue));
-        updateStatusBarAutoHideSummary(statusBarAutoHideValue);
-        mStatusBarAutoHide.setOnPreferenceChangeListener(this);
-
-        mFullScreenStatusBar = (CheckBoxPreference)findPreference(PREF_FULLSCREEN_STATUSBAR);
-        mFullScreenStatusBar.setChecked(Settings.System.getBoolean(resolver, Settings.System.FULLSCREEN_STATUSBAR, true)); 
-
-        mFullScreenStatusBarTimeout = (ListPreference) findPreference(FREF_FULLSCREEN_STATUSBAR_TIMEOUT);
-        mFullScreenStatusBarTimeout.setOnPreferenceChangeListener(this);
-        mFullScreenStatusBarTimeout.setValue(Settings.System.getInt(resolver, Settings.System.FULLSCREEN_STATUSBAR_TIMEOUT, 10000) + ""); 
 
         mCircleColorReset = (Preference) findPreference(PREF_CIRCLE_COLOR_RESET);
         if (Settings.System.getInt(resolver, Settings.System.STATUS_BAR_CIRCLE_BATTERY_RESET, 0) == 1) {
@@ -293,17 +274,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUS_BAR_CIRCLE_BATTERY_RESET, 1);
             circleColorReset();
             return true;
-        } else if (preference == mFullScreenStatusBarTimeout) {
-            int val = Integer.parseInt((String) newValue);
-            Settings.System.putInt(resolver,
-                    Settings.System.FULLSCREEN_STATUSBAR_TIMEOUT, val);
-            return true; 
-        } else if (preference == mStatusBarAutoHide) {
-            int statusBarAutoHideValue = Integer.valueOf((String) newValue);
-            Settings.System.putInt(resolver,
-                    Settings.System.AUTO_HIDE_STATUSBAR, statusBarAutoHideValue);
-            updateStatusBarAutoHideSummary(statusBarAutoHideValue);
-            return true;
         }
         return false;
     }
@@ -340,11 +310,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUSBAR_BATTERY_BAR_ANIMATE,
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
             return true;
-        } else if (preference == mFullScreenStatusBar) {
-            value = mFullScreenStatusBar.isChecked();
-            Settings.System.putInt(resolver,
-                    Settings.System.FULLSCREEN_STATUSBAR, value ? 1 : 0);
-            return true; 
         } else if (preference == mStatusBarTraffic_enable) {
             value = mStatusBarTraffic_enable.isChecked();
             Settings.System.putInt(resolver,

@@ -133,23 +133,9 @@
     <string name="wakeup_when_plugged_unplugged_title">Wake up on charger</string>
     <string name="wakeup_when_plugged_unplugged_summary">Wake up device if a charger is plugged/unplugged.</string> 
 
-    <!-- Auto-Hide Status Bar -->
-    <string name="auto_hide_statusbar">Auto Hide statusbar</string>
-    <string name="auto_hide_statusbar_summary_nonperm">Auto Hide statusbar if no non-permanent notifications are present</string>
-    <string name="auto_hide_statusbar_summary_all">Auto Hide statusbar if no notifications are present</string>
-    <string name="auto_hide_statusbar_off">Off</string>
-    <string name="auto_hide_statusbar_nonperm">Non-permanent only</string>
-    <string name="auto_hide_statusbar_all">All Notifications</string>
-
     <!-- Fullscreen Keyboard -->
     <string name="fullscreen_keyboard">Disable fullscreen keyboard</string>
     <string name="fullscreen_keyboard_summary">Will allow you to see the normal portrait input fields while in landscape mode.</string>
-
-    <!-- Fullscreen Status Bar -->
-    <string name="fullscreen_statusbar_title">Fullscreen Statusbar</string>
-    <string name="fullscreen_statusbar_summary">Swiping down from the top of full screen apps shows status bar for some seconds.</string> 
-    <string name="fullscreen_statusbar_timeout_title">Fullscreen Statusbar Timeout</string>
-    <string name="fullscreen_statusbar_timeout_summary">Timeout for Fullscreen Statusbar</string> 
 
     <string name="nfc_polling_mode_title">NFC polling mode</string>
     <string name="nfc_polling_mode_screen_off">Screen off</string>
