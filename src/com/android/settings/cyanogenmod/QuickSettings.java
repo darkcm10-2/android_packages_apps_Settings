@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The CyanogenMod Project
+ * Copyright (C) 2011 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,13 @@
 
 package com.android.settings.cyanogenmod;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -25,7 +32,6 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
@@ -37,14 +43,9 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
-
-public class QuickSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class QuickSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
+    private static final String TAG = "QuickSettingsPanel";
 
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
     private static final String EXP_RING_MODE = "pref_ring_mode";
@@ -57,20 +58,20 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     private static final String PREF_FLIP_QS_TILES = "flip_qs_tiles";
     private static final String FLOATING_WINDOW ="floating_window";
 
-    MultiSelectListPreference mRingMode;
-    ListPreference mNetworkMode;
-    ListPreference mScreenTimeoutMode;
+    private MultiSelectListPreference mRingMode;
+    private ListPreference mNetworkMode;
+    private ListPreference mScreenTimeoutMode;
     CheckBoxPreference mFlipQsTiles;
     CheckBoxPreference mFloatingWindow;
-    ListPreference mQuickPulldown;
-    PreferenceCategory mGeneralSettings;
-    PreferenceCategory mStaticTiles;
-    PreferenceCategory mDynamicTiles;
+    private ListPreference mQuickPulldown;
+    private PreferenceCategory mGeneralSettings;
+    private PreferenceCategory mStaticTiles;
+    private PreferenceCategory mDynamicTiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.quick_settings_panel_settings);
+        addPreferencesFromResource(R.xml.quick_settings_panel);
     }
 
     @Override
@@ -83,12 +84,15 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         mStaticTiles = (PreferenceCategory) prefSet.findPreference(STATIC_TILES);
         mDynamicTiles = (PreferenceCategory) prefSet.findPreference(DYNAMIC_TILES);
         mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
+
         if (!Utils.isPhone(getActivity())) {
-            if(mQuickPulldown != null)
+            if (mQuickPulldown != null) {
                 mGeneralSettings.removePreference(mQuickPulldown);
+            }
         } else {
             mQuickPulldown.setOnPreferenceChangeListener(this);
-            int quickPulldownValue = Settings.System.getInt(resolver, Settings.System.QS_QUICK_PULLDOWN, 0);
+            int quickPulldownValue = Settings.System.getInt(resolver,
+                    Settings.System.QS_QUICK_PULLDOWN, 0);
             mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
             updatePulldownSummary(quickPulldownValue);
         }
@@ -113,7 +117,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
 
         // Add the network mode preference
         mNetworkMode = (ListPreference) prefSet.findPreference(EXP_NETWORK_MODE);
-        if(mNetworkMode != null){
+        if (mNetworkMode != null) {
             mNetworkMode.setSummary(mNetworkMode.getEntry());
             mNetworkMode.setOnPreferenceChangeListener(this);
         }
@@ -219,13 +223,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
             final int length = values.length;
             final CharSequence[] entries = pref.getEntries();
             StringBuilder summary = new StringBuilder();
-            for (int i = 0; i < (length); i++) {
+            for (int i = 0; i < length; i++) {
                 CharSequence entry = entries[Integer.parseInt(values[i])];
-                if ((length - i) > 1) {
-                    summary.append(entry).append(" | ");
-                } else {
-                    summary.append(entry);
+                if (i != 0) {
+                    summary.append(" | ");
                 }
+                summary.append(entry);
             }
             pref.setSummary(summary);
         } else {
