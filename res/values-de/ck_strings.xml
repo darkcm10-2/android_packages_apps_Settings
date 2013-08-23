@@ -102,4 +102,9 @@
     <string name="circle_battery_reset_title">Farben zurücksetzen</string>
     <string name="circle_battery_reset_summary">Farben zurücksetzen um die des installierten Themes wiederherzustellen</string>
 
+    <!-- Fullscreen Keyboard -->
+    <string name="title_keyboard_input">Tastatur und Eingabemethoden</string>
+    <string name="fullscreen_keyboard">Deaktivieren der Vollbild-Tastatur</string>
+    <string name="fullscreen_keyboard_summary">Erlaubt es, bei querliegendem Gerät alle Eingabefelder wie im Porträtmodus sehen zu können, statt nur dem aktuell gewählten.</string>
+
 </resources>

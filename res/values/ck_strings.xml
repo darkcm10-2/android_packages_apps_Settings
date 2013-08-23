@@ -18,6 +18,9 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Settings Group: Tweaks -->
+    <string name="tweaks_category">Tweaks</string>
+
     <!--- Nav buttons height -->
     <string name="navigation_bar_height">NavigationBar height</string>
     <string name="navigation_bar_height_48">48dp (default)</string>
@@ -105,5 +108,10 @@
     <string name="circle_battery_animation_speed_fast">Fast</string>
     <string name="circle_battery_reset_title">Reset circle colors</string>
     <string name="circle_battery_reset_summary">Reset circle colors to apply installed theme engine colors</string>
+
+    <!-- Fullscreen Keyboard -->
+    <string name="title_keyboard_input">Keyboard and input methods</string>
+    <string name="fullscreen_keyboard">Disable fullscreen keyboard</string>
+    <string name="fullscreen_keyboard_summary">Will allow you to see the normal portrait input fields while in landscape mode.</string>
 
 </resources>
