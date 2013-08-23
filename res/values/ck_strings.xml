@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+     Copyright (C) 2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!--- Nav buttons height -->
+    <string name="navigation_bar_height">NavigationBar height</string>
+    <string name="navigation_bar_height_48">48dp (default)</string>
+    <string name="navigation_bar_height_47">47dp</string>
+    <string name="navigation_bar_height_46">46dp</string>
+    <string name="navigation_bar_height_45">45dp</string>
+    <string name="navigation_bar_height_44">44dp</string>
+    <string name="navigation_bar_height_43">43dp</string>
+    <string name="navigation_bar_height_42">42dp</string>
+    <string name="navigation_bar_height_41">41dp</string>
+    <string name="navigation_bar_height_40">40dp (small)</string>
+    <string name="navigation_bar_height_39">39dp</string>
+    <string name="navigation_bar_height_38">38dp (Schubi)</string>
+    <string name="navigation_bar_height_37">37dp</string>
+    <string name="navigation_bar_height_36">36dp</string>
+    <string name="navigation_bar_height_35">35dp</string> 
+    <string name="navigation_bar_height_34">34dp</string> 
+    <string name="navigation_bar_height_33">33dp</string> 
+    <string name="navigation_bar_height_32">32dp (very small)</string> 
+    <string name="navigation_bar_height_31">31dp</string> 
+    <string name="navigation_bar_height_30">30dp</string> 
+    <string name="navigation_bar_height_29">29dp</string> 
+    <string name="navigation_bar_height_28">28dp</string> 
+    <string name="navigation_bar_height_27">27dp</string> 
+    <string name="navigation_bar_height_26">26dp</string> 
+    <string name="navigation_bar_height_25">25dp</string> 
+    <string name="navigation_bar_height_24">24dp (tiny)</string> 
+    <string name="navigation_bar_height_23">23dp</string> 
+    <string name="navigation_bar_height_22">22dp</string> 
+    <string name="navigation_bar_height_21">21dp</string> 
+    <string name="navigation_bar_height_20">20dp</string> 
+
+</resources>

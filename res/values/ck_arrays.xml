@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!--- Nav buttons height -->
+    <string-array name="nav_buttons_height_entries" translatable="false">
+        <item>@string/navigation_bar_height_48</item>
+        <item>@string/navigation_bar_height_47</item>
+        <item>@string/navigation_bar_height_46</item>
+        <item>@string/navigation_bar_height_45</item>
+        <item>@string/navigation_bar_height_44</item>
+        <item>@string/navigation_bar_height_43</item>
+        <item>@string/navigation_bar_height_42</item>
+        <item>@string/navigation_bar_height_41</item>
+        <item>@string/navigation_bar_height_40</item>
+        <item>@string/navigation_bar_height_39</item>
+        <item>@string/navigation_bar_height_38</item>
+        <item>@string/navigation_bar_height_37</item>
+        <item>@string/navigation_bar_height_36</item>
+        <item>@string/navigation_bar_height_35</item>
+        <item>@string/navigation_bar_height_34</item>
+        <item>@string/navigation_bar_height_33</item>
+        <item>@string/navigation_bar_height_32</item>
+        <item>@string/navigation_bar_height_31</item>
+        <item>@string/navigation_bar_height_30</item>
+        <item>@string/navigation_bar_height_29</item>
+        <item>@string/navigation_bar_height_28</item>
+        <item>@string/navigation_bar_height_27</item>
+        <item>@string/navigation_bar_height_26</item>
+        <item>@string/navigation_bar_height_25</item>
+        <item>@string/navigation_bar_height_24</item>
+        <item>@string/navigation_bar_height_23</item>
+        <item>@string/navigation_bar_height_22</item>
+        <item>@string/navigation_bar_height_21</item>
+        <item>@string/navigation_bar_height_20</item>
+    </string-array>
+
+    <string-array name="nav_buttons_height_values" translatable="false">
+        <item>48</item>
+        <item>47</item>
+        <item>46</item>
+        <item>45</item>
+        <item>44</item>
+        <item>43</item>
+        <item>42</item>
+        <item>41</item>
+        <item>40</item>
+        <item>39</item>
+        <item>38</item>
+        <item>37</item>
+        <item>36</item>
+        <item>35</item>
+        <item>34</item>
+        <item>33</item>
+        <item>32</item>
+        <item>31</item>
+        <item>30</item>
+        <item>29</item>
+        <item>28</item>
+        <item>27</item>
+        <item>26</item>
+        <item>25</item>
+        <item>24</item>
+        <item>23</item>
+        <item>22</item>
+        <item>21</item>
+        <item>20</item>
+    </string-array>
+</resources>
+
+
