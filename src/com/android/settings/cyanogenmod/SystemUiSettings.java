@@ -18,9 +18,11 @@ package com.android.settings.cyanogenmod;
 
 import android.app.INotificationManager;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -122,7 +124,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         int statusNavigationBarHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                  Settings.System.NAVIGATION_BAR_HEIGHT, 48);
         mNavigationBarHeight.setValue(String.valueOf(statusNavigationBarHeight));
-        mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntry())
+        mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntry());
 
         int statusMMSBreath = Settings.System.getInt(getContentResolver(), Settings.System.MMS_BREATH, 1);
 

@@ -74,7 +74,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     public static final String FAST_CHARGE_DIR = "/sys/kernel/fast_charge";
     public static final String FAST_CHARGE_FILE = "force_fast_charge";
 
-    ListPreference mNotificationsBehavior;
     private ListPreference mBrightnessLocation;
     private Preference mQuickSettings;
     private ListPreference mNotificationsBehavior;
@@ -117,9 +116,8 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mBrightnessLocation.setSummary(mBrightnessLocation.getEntry());
 
         mQuickSettings = findPreference(PREF_NOTIFICATION_QUICK_SETTINGS);
-            if (mQuickSettings != null) {
-                 updateQuickSettingsDescription();
-            }
+        if (mQuickSettings != null) {
+             updateQuickSettingsDescription();     
         }
     }
 

@@ -136,7 +136,7 @@
     <string name="nb_old_style">altes Verhalten</string>
 
     <!-- HALO -->
-    <string name="pref_halo_summary">ParanoidAndroid's Benachrichtigungs-Kreis</string>
+    <string name="pref_halo_summary">ParanoidAndroid\'s Benachrichtigungs-Kreis</string>
 
     <string name="halo_enabled_title">HALO aktivieren</string>
     <string name="halo_enabled_summary">HALO vollständig aktiveren bzw. deaktivieren</string>
@@ -156,6 +156,8 @@ mit wenig Speicher)</string>
     <string name="halo_circle_color_title">Farbe des Kreises</string>
     <string name="halo_bubble_color_title">Farbe der Sprechblase</string>
     <string name="halo_bubble_text_color_title">Farbe des Sprechblasen-Textes</string>
+    <string name="halo_effect_color_title">Effekt-Farbe</string>
+    <string name="halo_effect_color_summary">Erfordert Neustart der SystemUI!</string>
     <string name="halo_size_title">HALO Größe</string>
     <string name="halo_size_summary">Legt fest, wie groß HALO angezeigt wird</string>
     <string name="halo_size_miniscule">winzig</string>
@@ -302,5 +304,21 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="custom_density_dialog_button_got">habs kappiert!</string>
     <string name="custom_density_dialog_button_reboot">Jetzt neustarten</string>
     <string name="select_custom_app_title">Eigene App wählen</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Farbauswahl</string>
+    <string name="press_color_to_apply">Farbe antippen</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Setzen</string>
+    <string name="ics_color">!!!</string>
+    <string name="color_default">Standard</string>
+
+    <!-- Shortcut picker -->
+    <string name="use_custom_app_title">Benutze eigene App</string>
+    <string name="use_custom_app_summary">Benutze benutzerdefinierte App statt dem \"Zuletzt genutzt\"-Dialog</string>
+    <string name="group_applications">Applikationen</string>
 
 </resources>

@@ -1342,7 +1342,7 @@ public class InstalledAppDetails extends Fragment
     private void setNotificationsEnabled(boolean enabled) {
         try {
             final boolean enable = mNotificationSwitch.isChecked();
-            mNotificationManager.setNotificationsEnabledForPackage(packageName, mAppEntry.info.uid, enabled);
+            mNotificationManager.setNotificationsEnabledForPackage(mAppEntry.info.packageName, mAppEntry.info.uid, enabled);
         } catch (android.os.RemoteException ex) {
             mNotificationSwitch.setChecked(!enabled); // revert
         }
@@ -1351,6 +1351,7 @@ public class InstalledAppDetails extends Fragment
     private void setPrivacyGuard(boolean enabled) {
         String packageName = mAppEntry.info.packageName;
         mPm.setPrivacyGuardSetting(packageName, enabled);
+    }
 
     private void setHaloState(boolean state) {
         try {

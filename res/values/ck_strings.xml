@@ -145,7 +145,7 @@
 
     <!-- HALO -->
     <string name="pref_halo_title">HALO</string>
-    <string name="pref_halo_summary">ParanoidAndroid's notification circle</string>
+    <string name="pref_halo_summary">ParanoidAndroid\'s notification circle</string>
 
     <string name="halo_enabled_title">Enable HALO</string>
     <string name="halo_enabled_summary">Completely enable or disable HALO</string>
@@ -164,6 +164,8 @@
     <string name="halo_circle_color_title">Circle color</string>
     <string name="halo_bubble_color_title">Speech bubble color</string>
     <string name="halo_bubble_text_color_title">Speech bubble text color</string>
+    <string name="halo_effect_color_title">Effect color</string>
+    <string name="halo_effect_color_summary">Requires a systemui restart</string>
     <string name="halo_size_title">HALO size</string>
     <string name="halo_size_summary">Defines how big HALO is going to be</string>
     <string name="halo_size_miniscule">Mini</string>
@@ -314,5 +316,21 @@ step 1."</string>
     <string name="custom_density_dialog_button_got">Got it!</string>
     <string name="custom_density_dialog_button_reboot">Reboot now</string>
     <string name="select_custom_app_title">Select custom application</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on Color to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#FF000000</string>
+    <string name="set">Set</string>
+    <string name="ics_color">!!!</string>
+    <string name="color_default">Default</string>
+
+    <!-- Shortcut picker -->
+    <string name="use_custom_app_title">Use custom application</string>
+    <string name="use_custom_app_summary">Use custom application instead of the recent applications dialog</string>
+    <string name="group_applications">Applications</string>
 
 </resources>

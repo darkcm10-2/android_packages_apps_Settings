@@ -152,7 +152,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         }
 
         if (Utils.isTablet(getActivity())) {
-            generalCategory.removePreference(statusBarBrightnessControl);
+            generalCategory.removePreference(mStatusBarBrightnessControl);
         }
 
         mStatusBarTraffic_enable = (CheckBoxPreference) findPreference(STATUS_BAR_TRAFFIC_ENABLE);
@@ -278,7 +278,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             return true;
         }
 
-        return super.onPreferenceChange(preference newValue);
+        return false;
     }
 
     private void circleColorReset() {
