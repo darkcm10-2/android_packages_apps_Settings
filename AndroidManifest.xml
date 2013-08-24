@@ -1709,6 +1709,8 @@
 
         <activity android:name=".cyanogenmod.KeyboardInputSettings" />
 
+        <activity android:name=".cyanogenmod.StatusBarTrafficColor" />  
+
         <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
         <activity android:name="Settings$BlacklistSettingsActivity"
                 android:theme="@android:style/Theme.Holo.DialogWhenLarge"
