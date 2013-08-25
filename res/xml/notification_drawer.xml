@@ -87,7 +87,7 @@
             android:entries="@array/brightness_location_entries"
             android:entryValues="@array/brightness_location_values"
             android:title="@string/brightness_location_title"
-            android:dependency="expanded_widget" />
+            android:dependency="expanded_view_widget" />
 
     </PreferenceCategory>
 
