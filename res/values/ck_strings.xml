@@ -332,4 +332,9 @@ step 1."</string>
     <string name="use_custom_app_summary">Use custom application instead of the recent applications dialog</string>
     <string name="group_applications">Applications</string>
 
+    <!-- Fullscreen Status Bar --> 
+    <string name="fullscreen_statusbar_summary">Swiping down from the top of full screen apps shows status bar for some seconds.</string> 
+    <string name="fullscreen_statusbar_timeout_title">Fullscreen Statusbar Timeout</string>
+    <string name="fullscreen_statusbar_timeout_summary">Timeout for Fullscreen Statusbar</string>
+
 </resources>

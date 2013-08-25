@@ -152,6 +152,14 @@
             android:summary="@string/status_bar_swipe_show_summary"
             android:defaultValue="false" />
 
+        <ListPreference
+            android:key="fullscreen_statusbar_timeout"
+            android:entries="@array/fullscreen_statusbar_timeout_entries"
+            android:entryValues="@array/fullscreen_statusbar_timeout_values"
+            android:title="@string/fullscreen_statusbar_timeout_title"
+            android:summary="@string/fullscreen_statusbar_timeout_summary"
+            android:dependency="status_bar_on_top_of_fullscreen" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

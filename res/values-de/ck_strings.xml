@@ -320,4 +320,8 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="use_custom_app_summary">Benutze benutzerdefinierte App statt dem \"Zuletzt genutzt\"-Dialog</string>
     <string name="group_applications">Applikationen</string>
 
+    <!-- Fullscreen Status Bar --> 
+    <string name="fullscreen_statusbar_timeout_title">Timeout der Vollbild-Statusbar</string>
+    <string name="fullscreen_statusbar_timeout_summary">Zeit, die die Statusbar nach dem Herunterwischen sichtbar bleibt</string>
+
 </resources>
