@@ -61,7 +61,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment {
         mFastbootEnabledPref = (CheckBoxPreference) prefSet.findPreference(FASTBOOT_ENABLED_PREF);
         mFastbootEnabledPref.setChecked(Settings.System.getInt(
                 getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.ENABLE_FAST_POWERON, 1) == 1);
+                Settings.System.ENABLE_FAST_POWERON, 0) == 1);
 
         /* Display the warning dialog */
         alertDialog = new AlertDialog.Builder(getActivity()).create();
