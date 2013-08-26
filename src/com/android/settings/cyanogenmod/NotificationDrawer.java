@@ -65,7 +65,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
     private static final String KEY_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
-    private static final String PREF_BRIGHTNESS_LOC = "brightness_location";
     private static final String PREF_NOTIFICATION_QUICK_SETTINGS = "quick_settings_panel";
 
     private ListPreference mCollapseOnDismiss;
@@ -74,7 +73,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     public static final String FAST_CHARGE_DIR = "/sys/kernel/fast_charge";
     public static final String FAST_CHARGE_FILE = "force_fast_charge";
 
-    private ListPreference mBrightnessLocation;
     private Preference mQuickSettings;
     private ListPreference mNotificationsBehavior;
 
@@ -108,12 +106,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mNotificationsBehavior.setValue(String.valueOf(CurrentBehavior));
         mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntry());
         mNotificationsBehavior.setOnPreferenceChangeListener(this); 
-
-        mBrightnessLocation = (ListPreference) findPreference(PREF_BRIGHTNESS_LOC);
-        mBrightnessLocation.setOnPreferenceChangeListener(this);
-        mBrightnessLocation.setValue(Integer.toString(Settings.System.getInt(getActivity()
-                .getContentResolver(), Settings.System.STATUSBAR_TOGGLES_BRIGHTNESS_LOC, 3)));
-        mBrightnessLocation.setSummary(mBrightnessLocation.getEntry());
 
         mQuickSettings = findPreference(PREF_NOTIFICATION_QUICK_SETTINGS);
         if (mQuickSettings != null) {
@@ -165,13 +157,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             Integer.valueOf(val));
             int index = mNotificationsBehavior.findIndexOfValue(val);
             mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntries()[index]);
-            return true;
-        } else if (preference == mBrightnessLocation) {
-            int val = Integer.parseInt((String) newValue);
-            int index = mBrightnessLocation.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-            Settings.System.STATUSBAR_TOGGLES_BRIGHTNESS_LOC, val);
-            mBrightnessLocation.setSummary(mBrightnessLocation.getEntries()[index]);
             return true;
         }
 
