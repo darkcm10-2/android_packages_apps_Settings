@@ -335,4 +335,18 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="lockscreen_background_default_wallpaper">Standard-Hintergrundbild</string>
     <string name="lockscreen_alpha_title">Hintergrund-Transparenz</string>
 
+    <!-- ListView animation -->
+    <string name="listview_animation_title">ListView Animation</string>
+    <string name="listview_off">Aus</string>
+    <string name="listview_wave_left">Welle (links)</string>
+    <string name="listview_wave_right">Welle (rechts)</string>
+    <string name="listview_alpha">Verblassen</string>
+    <string name="listview_scale">Skalieren</string>
+    <string name="listview_stack_top">Stapel (Oben)</string>
+    <string name="listview_stack_bottom">Stapel (Unten)</string>
+    <string name="listview_unfold">Entfalten</string>
+    <string name="listview_fold">Falten</string>
+    <string name="listview_translate_left">Übersetzen (links)</string>
+    <string name="listview_translate_right">Übersetzen (rechts)</string>
+
 </resources>

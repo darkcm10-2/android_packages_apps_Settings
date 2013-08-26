@@ -57,6 +57,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_MISSED_CALL_BREATH = "missed_call_breath";
     private static final String KEY_CLEAR_RECENTS_POSITION = "clear_recents_position";
     private static final String KEY_USE_ALT_RESOLVER = "use_alt_resolver";
+    private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+    private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
     private ListPreference mNavigationBarHeight;
     private PreferenceScreen mPieControl;
@@ -66,6 +68,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private CheckBoxPreference mUseAltResolver;
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
+    private ListPreference mListViewAnimation;
+    private ListPreference mListViewInterpolator;
 
     private INotificationManager mNotificationManager;
 
@@ -153,6 +157,21 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mUseAltResolver = (CheckBoxPreference) findPreference(KEY_USE_ALT_RESOLVER);
         mUseAltResolver.setChecked(Settings.System.getBoolean(getActivity().getContentResolver(),
                 Settings.System.ACTIVITY_RESOLVER_USE_ALT, false));
+                
+        //ListView Animations
+        mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
+        int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
+            Settings.System.LISTVIEW_ANIMATION, 1);
+        mListViewAnimation.setValue(String.valueOf(listviewanimation));
+        mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+        mListViewAnimation.setOnPreferenceChangeListener(this);
+
+        mListViewInterpolator = (ListPreference) findPreference(KEY_LISTVIEW_INTERPOLATOR);
+        int listviewinterpolator = Settings.System.getInt(getActivity().getContentResolver(),
+            Settings.System.LISTVIEW_INTERPOLATOR, 0);
+        mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
+        mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
+        mListViewInterpolator.setOnPreferenceChangeListener(this);
 
         mLcdDensity = findPreference("lcd_density_setup");
         String currentProperty = SystemProperties.get("ro.sf.lcd_density");
@@ -204,6 +223,22 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.CLEAR_RECENTS_POSITION, side);
             mClearPosition.setSummary(mClearPosition.getEntries()[index]);
+            return true;
+        } else if (preference == mListViewAnimation) {
+            int listviewanimation = Integer.valueOf((String) objValue);
+            int index = mListViewAnimation.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION,
+                    listviewanimation);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            return true;
+        } else if (preference == mListViewInterpolator) {
+            int listviewinterpolator = Integer.valueOf((String) objValue);
+            int index = mListViewInterpolator.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_INTERPOLATOR,
+                    listviewinterpolator);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
             return true;
         }
 
