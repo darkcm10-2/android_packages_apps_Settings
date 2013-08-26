@@ -64,7 +64,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment  implements
         mCollapseOnDismiss.setOnPreferenceChangeListener(this);
         updateCollapseBehaviourSummary(collapseBehaviour);
 
-        int CurrentBehavior = Settings.System.getInt(resolver,
+        int CurrentBehavior = Settings.System.getInt(getContentResolver(),
                 Settings.System.NOTIFICATIONS_BEHAVIOUR, 0);
         mNotificationsBehavior = (ListPreference) findPreference(KEY_NOTIFICATION_BEHAVIOUR);
         mNotificationsBehavior.setValue(String.valueOf(CurrentBehavior));
@@ -80,8 +80,8 @@ public class NotificationDrawer extends SettingsPreferenceFragment  implements
             updateCollapseBehaviourSummary(value);
             return true;
         } else if (preference == mNotificationsBehavior) {
-            String val = (String) newValue;
-            Settings.System.putInt(resolver, Settings.System.NOTIFICATIONS_BEHAVIOUR,
+            String val = (String) objValue;
+            Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATIONS_BEHAVIOUR,
             Integer.valueOf(val));
             int index = mNotificationsBehavior.findIndexOfValue(val);
             mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntries()[index]);
