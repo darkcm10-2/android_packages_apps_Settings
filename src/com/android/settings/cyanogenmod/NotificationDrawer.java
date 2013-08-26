@@ -65,15 +65,13 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
     private static final String UI_EXP_WIDGET_HAPTIC_FEEDBACK = "expanded_haptic_feedback";
     private static final String KEY_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
-    private static final String PREF_NOTIFICATION_QUICK_SETTINGS = "quick_settings_panel";
 
     private ListPreference mCollapseOnDismiss;
     private ListPreference mPowerWidgetHapticFeedback;
 
     public static final String FAST_CHARGE_DIR = "/sys/kernel/fast_charge";
-    public static final String FAST_CHARGE_FILE = "force_fast_charge";
+    public static final String FAST_CHARGE_FILE = "force_fast_charge"; 
 
-    private Preference mQuickSettings;
     private ListPreference mNotificationsBehavior;
 
     @Override
@@ -106,27 +104,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mNotificationsBehavior.setValue(String.valueOf(CurrentBehavior));
         mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntry());
         mNotificationsBehavior.setOnPreferenceChangeListener(this); 
-
-        mQuickSettings = findPreference(PREF_NOTIFICATION_QUICK_SETTINGS);
-        if (mQuickSettings != null) {
-             updateQuickSettingsDescription();     
-        }
     }
-
-    private void updateQuickSettingsDescription() {
-        if (Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.QS_DISABLE_PANEL, 0) == 0) {
-            mQuickSettings.setSummary(getString(R.string.quick_settings_enabled));
-        } else {
-            mQuickSettings.setSummary(getString(R.string.quick_settings_disabled));
-        }
-    } 
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateQuickSettingsDescription(); 
-    } 
 
     private void updateCollapseBehaviourSummary(int setting) {
         String[] summaries = getResources().getStringArray(

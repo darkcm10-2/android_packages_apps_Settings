@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.SwitchPreference;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
@@ -34,12 +33,9 @@ import android.text.TextUtils;
 
 import com.android.internal.util.cm.QSConstants;
 import com.android.internal.util.cm.QSUtils;
-import android.os.PowerManager;
-import android.os.SystemClock;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-import com.android.settings.util.Helpers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,7 +56,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
     private static final String PREF_FLIP_QS_TILES = "flip_qs_tiles";
     private static final String FLOATING_WINDOW ="floating_window";
-    private static final String DISABLE_PANEL = "disable_quick_settings";
 
     MultiSelectListPreference mRingMode;
     ListPreference mNetworkMode;
@@ -71,9 +66,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
     PreferenceCategory mGeneralSettings;
     PreferenceCategory mStaticTiles;
     PreferenceCategory mDynamicTiles;
-    SwitchPreference mDisablePanel;
-
-    private PowerManager pm;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,23 +83,14 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
         mStaticTiles = (PreferenceCategory) prefSet.findPreference(STATIC_TILES);
         mDynamicTiles = (PreferenceCategory) prefSet.findPreference(DYNAMIC_TILES);
         mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
-
-        mDisablePanel = (SwitchPreference) prefSet.findPreference(DISABLE_PANEL);
-        
         if (!Utils.isPhone(getActivity())) {
             if(mQuickPulldown != null)
                 mGeneralSettings.removePreference(mQuickPulldown);
-            if(mDisablePanel != null)
-                mGeneralSettings.removePreference(mDisablePanel);
         } else {
             mQuickPulldown.setOnPreferenceChangeListener(this);
             int quickPulldownValue = Settings.System.getInt(resolver, Settings.System.QS_QUICK_PULLDOWN, 0);
             mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
             updatePulldownSummary(quickPulldownValue);
-
-            int disable_panel = Settings.System.getInt(resolver, Settings.System.QS_DISABLE_PANEL, 0);
-            mDisablePanel.setOnPreferenceChangeListener(this);
-            mDisablePanel.setChecked(disable_panel == 0);
         }
 
         mFloatingWindow = (CheckBoxPreference) prefSet.findPreference(FLOATING_WINDOW);
@@ -224,13 +207,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements OnPrefe
             int index = mScreenTimeoutMode.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.EXPANDED_SCREENTIMEOUT_MODE, value);
             mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntries()[index]);
-            return true;
-        } else if (preference == mDisablePanel) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putBoolean(resolver, Settings.System.QS_DISABLE_PANEL, !value);
-            Helpers.restartSystemUI();
-            pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-            pm.goToSleep(SystemClock.uptimeMillis());
             return true;
         }
         return false;
