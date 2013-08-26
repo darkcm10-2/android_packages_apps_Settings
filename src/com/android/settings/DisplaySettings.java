@@ -98,7 +98,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mScreenOnNotificationLed;
     CheckBoxPreference mShowWifiName;
     private PreferenceScreen mDisplayRotationPreference;
-    private WarnedListPreference mFontSizePref;
+    private FontDialogPreference mFontSizePref;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -166,7 +166,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         updateTimeoutPreferenceDescription(currentTimeout);
         updateDisplayRotationPreferenceDescription();
 
-        mFontSizePref = (WarnedListPreference) findPreference(KEY_FONT_SIZE);
+        mFontSizePref = (FontDialogPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
         mFontSizePref.setOnPreferenceClickListener(this);
 
@@ -181,7 +181,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
 
         mAdaptiveBacklight = (CheckBoxPreference) findPreference(KEY_ADAPTIVE_BACKLIGHT);
-        if (!AdaptiveBacklight.isSupported()) {
+        if (!isAdaptiveBacklightSupported()) {
             getPreferenceScreen().removePreference(mAdaptiveBacklight);
             mAdaptiveBacklight = null;
         }
@@ -343,37 +343,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         screenTimeoutPreference.setEnabled(revisedEntries.size() > 0);
     }
 
-    int floatToIndex(float val) {
-        String[] indices = getResources().getStringArray(R.array.entryvalues_font_size);
-        float lastVal = Float.parseFloat(indices[0]);
-        for (int i = 1; i < indices.length; i++) {
-            float thisVal = Float.parseFloat(indices[i]);
-            if (val < (lastVal + (thisVal-lastVal)*.5f)) {
-                return i - 1;
-            }
-            lastVal = thisVal;
-        }
-        return indices.length - 1;
-    }
-    
-    public void readFontSizePreference(ListPreference pref) {
-        try {
-            mCurConfig.updateFrom(ActivityManagerNative.getDefault().getConfiguration());
-        } catch (RemoteException e) {
-            Log.w(TAG, "Unable to retrieve font size");
-        }
-
-        // mark the appropriate item in the preferences list
-        int index = floatToIndex(mCurConfig.fontScale);
-        pref.setValueIndex(index);
-
-        // report the current size in the summary text
-        final Resources res = getResources();
-        String[] fontSizeNames = res.getStringArray(R.array.entries_font_size);
-        pref.setSummary(String.format(res.getString(R.string.summary_font_size),
-                fontSizeNames[index]));
-    }
-
     private void updateCustomLabelTextSummary() {
         mCustomLabelText = Settings.System.getString(getActivity().getContentResolver(),
                 Settings.System.CUSTOM_CARRIER_LABEL);
@@ -503,6 +472,25 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    /**
+     * Reads the current font size and sets the value in the summary text
+     */
+    public void readFontSizePreference(Preference pref) {
+        try {
+            mCurConfig.updateFrom(ActivityManagerNative.getDefault().getConfiguration());
+        } catch (RemoteException e) {
+            Log.w(TAG, "Unable to retrieve font size");
+        }
+
+        // report the current size in the summary text
+        final Resources res = getResources();
+        String fontDesc = FontDialogPreference.getFontSizeDescription(res, mCurConfig.fontScale);
+        int scalePercent = (int) (100.0f * mCurConfig.fontScale);
+
+        pref.setSummary(String.format(res.getString(R.string.summary_font_size),
+                fontDesc, scalePercent));
+    }
+
     public void writeFontSizePreference(Object objValue) {
         try {
             mCurConfig.fontScale = Float.parseFloat(objValue.toString());
@@ -564,6 +552,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
         if (KEY_SCREEN_TIMEOUT.equals(key)) {
@@ -611,7 +600,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
      * @param ctx A valid context
      */
     public static void restore(Context ctx) {
-        if (AdaptiveBacklight.isSupported()) {
+        if (isAdaptiveBacklightSupported()) {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
             final boolean enabled = prefs.getBoolean(KEY_ADAPTIVE_BACKLIGHT, true);
             if (!AdaptiveBacklight.setEnabled(enabled)) {
@@ -619,6 +608,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             } else {
                 Log.d(TAG, "Adaptive backlight settings restored.");
             }
+        }
+    }
+
+    private static boolean isAdaptiveBacklightSupported() {
+        try {
+            return AdaptiveBacklight.isSupported();
+        } catch (NoClassDefFoundError e) {
+            // Hardware abstraction framework not installed
+            return false;
         }
     }
 }

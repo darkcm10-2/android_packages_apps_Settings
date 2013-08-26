@@ -55,10 +55,8 @@ public class NotificationDrawer extends SettingsPreferenceFragment  implements
         addPreferencesFromResource(R.xml.notification_drawer);
         PreferenceScreen prefScreen = getPreferenceScreen();
 
-        ContentResolver resolver = getActivity().getContentResolver();
-        PreferenceScreen prefSet = getPreferenceScreen();
-
-        int collapseBehaviour = Settings.System.getInt(resolver,
+        // Notification drawer
+        int collapseBehaviour = Settings.System.getInt(getContentResolver(),
                 Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS,
                 Settings.System.STATUS_BAR_COLLAPSE_IF_NO_CLEARABLE);
         mCollapseOnDismiss = (ListPreference) findPreference(UI_COLLAPSE_BEHAVIOUR);
@@ -93,5 +91,9 @@ public class NotificationDrawer extends SettingsPreferenceFragment  implements
         return false;
     }
 
+    private void updateCollapseBehaviourSummary(int setting) {
+        String[] summaries = getResources().getStringArray(
+                R.array.notification_drawer_collapse_on_dismiss_summaries);
+        mCollapseOnDismiss.setSummary(summaries[setting]);
     }
 }
