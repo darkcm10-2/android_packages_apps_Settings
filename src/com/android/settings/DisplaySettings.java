@@ -200,6 +200,13 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 com.android.internal.R.bool.config_intrusiveBatteryLed);
         PreferenceCategory lightPrefs = (PreferenceCategory) findPreference(CATEGORY_LIGHTS);
 
+        int statusScreenOnNotificationLed = Settings.System.getInt(resolver,
+                Settings.System.SCREEN_ON_NOTIFICATION_LED, 1);
+
+        mScreenOnNotificationLed = (CheckBoxPreference) findPreference(KEY_SCREEN_ON_NOTIFICATION_LED);
+        mScreenOnNotificationLed.setChecked(Settings.System.getInt(resolver,
+                Settings.System.SCREEN_ON_NOTIFICATION_LED, 0) == 1);
+
         if (hasNotificationLed || hasBatteryLed) {
             mBatteryPulse = (PreferenceScreen) findPreference(KEY_BATTERY_LIGHT);
             mNotificationPulse = (PreferenceScreen) findPreference(KEY_NOTIFICATION_PULSE);
@@ -227,13 +234,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         PackageManager pm = getPackageManager();
         boolean isMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
-
-        int statusScreenOnNotificationLed = Settings.System.getInt(resolver,
-                Settings.System.SCREEN_ON_NOTIFICATION_LED, 1);
-
-        mScreenOnNotificationLed = (CheckBoxPreference) findPreference(KEY_SCREEN_ON_NOTIFICATION_LED);
-        mScreenOnNotificationLed.setChecked(Settings.System.getInt(resolver,
-                Settings.System.SCREEN_ON_NOTIFICATION_LED, 0) == 1);
 
     }
 
