@@ -241,7 +241,7 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <string name="status_bar_transparency_title">Statusleisten-Transparenz</string>
     <string name="status_bar_color_title">Statusleisten-Farbe</string>
     <string name="status_bar_background_style">Hintergrund-Stil</string>
-    <string name="status_nav_bar_alpha_mode_dialog_text_title">Status- \& Navigationsleisten-Transparenz anzeigen</string>
+    <string name="status_nav_bar_alpha_mode_dialog_text_title">Status- usd Navigationsleisten-Transparenz anzeigen</string>
     <string name="status_nav_bar_alpha_mode_text_title">Transparenz-Modus</string>
     <string name="status_nav_bar_alpha_mode_home">im Launcher</string>
     <string name="status_nav_bar_alpha_mode_default">im Launcher und am Lockscreen</string>
