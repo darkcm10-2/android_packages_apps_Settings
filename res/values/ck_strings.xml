@@ -247,22 +247,16 @@ your apps faster.</string>
     <string name="nav_bar_transparency_title">Navigation bar transparency</string>
     <string name="nav_bar_color_title">Navigation bar color</string>
     <string name="nav_bar_background_style">Navigation bar background</string>
-    <string name="nav_bar_alpha_mode_dialog_text_title">Show navigation and status bar transparency</string>
-    <string name="nav_bar_alpha_mode_text_title">Transparency mode</string>
-    <string name="nav_bar_alpha_mode_home">on launcher</string>
-    <string name="nav_bar_alpha_mode_default">on launcher and lockscreen</string>
-    <string name="nav_bar_alpha_mode_always">always</string>
     <string name="nav_bar_style_reset">Reset</string>
 
     <!-- Status bar background style -->
     <string name="status_bar_transparency_title">Status bar transparency</string>
     <string name="status_bar_color_title">Status bar color</string>
     <string name="status_bar_background_style">Background style</string>
-    <string name="status_bar_alpha_mode_dialog_text_title">Show status bar transparency</string>
-    <string name="status_bar_alpha_mode_text_title">Transparency mode</string>
-    <string name="status_bar_alpha_mode_home">on launcher</string>
-    <string name="status_bar_alpha_mode_default">on launcher and keyguard</string>
-    <string name="status_bar_alpha_mode_always">always</string>
+    <string name="status_nav_bar_alpha_mode_dialog_text_title">Show navigation and status bar transparency</string>
+    <string name="status_nav_bar_alpha_mode_text_title">Transparency mode</string>
+    <string name="status_nav_bar_alpha_mode_home">on launcher</string>
+    <string name="status_nav_bar_alpha_mode_default">on launcher and keyguard</string>
     <string name="status_bar_style_reset">Reset</string>
 
     <!-- QS: Floating Window -->
