@@ -315,12 +315,24 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="notification_wallpaper_landscape_title">Anderes Hintergrundbild im Querformat</string>
     <string name="notification_background_color_fill">Farbfüllung</string>
     <string name="notification_background_custom_image">Hintergrundbild definieren</string>
-    <string name="notification_background_default_wallpaper">Standard-Hintergrundbild verwenden</string>
+    <string name="notification_background_default_wallpaper">Standard-Hintergrundbild</string>
     <string name="notification_drawer_custom_background_dialog_title">Farbe wählen</string>
     <string name="notif_wallpaper_alpha_title">Hintergrund-Transparenz</string> 
     <string name="notif_alpha_title">Zeilen-Transparenz</string>
 
     <!-- Always show notification drawer settings button -->
     <string name="notification_settings_btn_title">Einstellungsbutton immer zeigen</string>
+
+    <!-- Lock screen background -->
+    <string name="lockscreen_style_options_title">Stil des Sperrbildschirms</string>
+    <string name="lockscreen_custom_background_title">Sperrbildschirm-Hintergrund</string>
+    <string name="lockscreen_custom_background_dialog_title">Farbe wählen</string>
+    <string name="lockscreen_background_result_successful">Hintergrund geändert</string>
+    <string name="lockscreen_background_result_not_successful">Hintergrund nicht geändert</string>
+    <string name="lockscreen_background_color_fill">Farbfüllung</string>
+    <string name="lockscreen_background_custom_image">Hintergrundbild definieren</string>
+    <string name="lockscreen_background_full_transparent">Komplett Transparent</string>
+    <string name="lockscreen_background_default_wallpaper">Standard-Hintergrundbild</string>
+    <string name="lockscreen_alpha_title">Hintergrund-Transparenz</string>
 
 </resources>
