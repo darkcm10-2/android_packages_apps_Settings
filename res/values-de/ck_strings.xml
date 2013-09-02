@@ -167,7 +167,7 @@ mit wenig Speicher)</string>
     <string name="halo_size_monster">monster</string>
 
     <!-- We want popups -->
-    <string name="popups_title">überlagenrnde Fenster ermöglichen</string>
+    <string name="popups_title">überlagernde Fenster ermöglichen</string>
     <string name="popups_summary">Legt fest, ob App-Fenster die von HALO geöffnet werden die aktuelle App überlagern oder bildschirmfüllend dargestellt werden.</string>
 
     <!-- Breathing Notifications -->
