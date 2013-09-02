@@ -293,8 +293,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BACKGROUND, colorView.getColor());
-                        Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BACKGROUND_VALUE, 0);
+                        Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.LOCKSCREEN_BACKGROUND, colorView.getColor());
+                        Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.LOCKSCREEN_BACKGROUND_VALUE, 0);
                         updateCustomBackgroundSummary();
                     }
                 }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener(){
@@ -354,15 +356,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 return false;
             //Sets background color to default
             case 2:
-                Settings.System.putString(cr,
+                Settings.System.putString(getActivity().getContentResolver(),
                         Settings.System.LOCKSCREEN_BACKGROUND, null);
-                Settings.System.putInt(cr,
+                Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.LOCKSCREEN_BACKGROUND_VALUE, indexOf);
                 updateCustomBackgroundSummary();
                 return false;
             case 3:
-                Settings.System.putString(cr, Settings.System.LOCKSCREEN_BACKGROUND, null);
-                Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BACKGROUND_VALUE, indexOf);
+                Settings.System.putString(getActivity().getContentResolver(),
+                            Settings.System.LOCKSCREEN_BACKGROUND, null);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.LOCKSCREEN_BACKGROUND_VALUE, indexOf);
                 updateCustomBackgroundSummary();
                 break;
             }
