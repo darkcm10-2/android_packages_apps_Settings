@@ -72,7 +72,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_LOCK_CLOCK = "lock_clock";
     private static final String KEY_LOCKSCREEN_ALL_WIDGETS = "lockscreen_all_widgets";
     private static final String KEY_LOCKSCREEN_DISABLE_HINTS = "lockscreen_disable_hints";
-    private static final String KEY_BACKGROUND = "lockscreen_background";
     private static final String KEY_SCREEN_SECURITY = "screen_security";
 
     private static final String LOCKSCREEN_GENERAL_CATEGORY = "lockscreen_general_category";
@@ -204,7 +203,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
 
     private void updateCustomBackgroundSummary() {
         int resId;
-            int customBackground = Settings.System.getInt(mResolver,
+        int customBackground = Settings.System.getInt(mResolver,
                     Settings.System.LOCKSCREEN_BACKGROUND_VALUE, 3);
         if (customBackground == 3) {
             resId = R.string.lockscreen_background_default_wallpaper;
@@ -293,8 +292,10 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BACKGROUND, colorView.getColor());
-                        Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BACKGROUND_VALUE, 0);
+                        Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.LOCKSCREEN_BACKGROUND, colorView.getColor());
+                        Settings.System.putInt(getActivity().getContentResolver(),
+                                    Settings.System.LOCKSCREEN_BACKGROUND_VALUE, 0);
                         updateCustomBackgroundSummary();
                     }
                 }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener(){
@@ -354,15 +355,17 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
                 return false;
             //Sets background color to default
             case 2:
-                Settings.System.putString(cr,
+                Settings.System.putString(getActivity().getContentResolver(),
                         Settings.System.LOCKSCREEN_BACKGROUND, null);
-                Settings.System.putInt(cr,
+                Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.LOCKSCREEN_BACKGROUND_VALUE, indexOf);
                 updateCustomBackgroundSummary();
                 return false;
             case 3:
-                Settings.System.putString(cr, Settings.System.LOCKSCREEN_BACKGROUND, null);
-                Settings.System.putInt(cr, Settings.System.LOCKSCREEN_BACKGROUND_VALUE, indexOf);
+                Settings.System.putString(getActivity().getContentResolver(),
+                            Settings.System.LOCKSCREEN_BACKGROUND, null);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.LOCKSCREEN_BACKGROUND_VALUE, indexOf);
                 updateCustomBackgroundSummary();
                 break;
             }
