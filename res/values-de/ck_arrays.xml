@@ -39,6 +39,13 @@
         <item>Großbuchstaben</item>
     </string-array>
 
+<!-- Quick Settings Columns -->
+    <string-array name="quick_settings_columns_entries">
+        <item>3 Spalten (Standard)</item>
+        <item>4 Spalten</item>
+        <item>5 Spalten</item>
+    </string-array>
+
 </resources>
 
 

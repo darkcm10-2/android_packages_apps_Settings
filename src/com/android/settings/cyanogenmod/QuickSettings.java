@@ -57,6 +57,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String DYNAMIC_TILES = "pref_dynamic_tiles";
     private static final String PREF_FLIP_QS_TILES = "flip_qs_tiles";
     private static final String FLOATING_WINDOW ="floating_window";
+    private static final String QUICK_SETTINGS_COLUMNS = "quick_settings_columns";
 
     private MultiSelectListPreference mRingMode;
     private ListPreference mNetworkMode;
@@ -64,6 +65,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     CheckBoxPreference mFlipQsTiles;
     CheckBoxPreference mFloatingWindow;
     private ListPreference mQuickPulldown;
+    private ListPreference mQuickSettingsColumns;
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
     private PreferenceCategory mDynamicTiles;
@@ -84,6 +86,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mStaticTiles = (PreferenceCategory) prefSet.findPreference(STATIC_TILES);
         mDynamicTiles = (PreferenceCategory) prefSet.findPreference(DYNAMIC_TILES);
         mQuickPulldown = (ListPreference) prefSet.findPreference(QUICK_PULLDOWN);
+        mQuickSettingsColumns = (ListPreference) prefSet.findPreference(QUICK_SETTINGS_COLUMNS);
 
         if (!Utils.isPhone(getActivity())) {
             if (mQuickPulldown != null) {
@@ -140,6 +143,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         if (!QSUtils.deviceSupportsWifiDisplay(getActivity())) {
             mDynamicTiles.removePreference(findPreference(Settings.System.QS_DYNAMIC_WIFI));
         }
+
+        mQuickSettingsColumns.setOnPreferenceChangeListener(this);
+        int quickSettingsColumnsValue = Settings.System.getInt(resolver,
+        	Settings.System.QUICK_SETTINGS_COLUMNS, 3);
+        mQuickSettingsColumns.setValue(String.valueOf(quickSettingsColumnsValue));
     }
 
     @Override
@@ -211,6 +219,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int index = mScreenTimeoutMode.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.EXPANDED_SCREENTIMEOUT_MODE, value);
             mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntries()[index]);
+            return true;
+        } else if (preference == mQuickSettingsColumns) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mQuickSettingsColumns.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.QUICK_SETTINGS_COLUMNS, value);
+            mQuickSettingsColumns.setSummary(mQuickSettingsColumns.getEntries()[index]);
             return true;
         }
         return false;

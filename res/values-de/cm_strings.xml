@@ -395,6 +395,7 @@
     <string name="lockscreen_buttons_playpause">Medien: Play/Pause</string>
     <string name="lockscreen_buttons_toggle_sound">Klingelmodus</string>
     <string name="quick_settings_panel_title">Schnelleinstellungen</string>
+    <string name="quick_settings_columns_title">Anzahl den Spalten</string>
     <string name="title_static_tiles">Statische Kacheln</string>
     <string name="tile_picker_title">Kacheln anordnen</string>
     <string name="tile_picker_summary">Kacheln auswählen oder ihre Reihenfolge ändern</string>

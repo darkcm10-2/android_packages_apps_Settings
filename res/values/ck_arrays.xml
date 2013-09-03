@@ -457,7 +457,7 @@
      </string-array>
 
     <!-- App sidebar -->
-    <string-array name="app_sidebar_position_entries" translatable="false">
+    <string-array name="app_sidebar_position_entries">
         <item>@string/app_sidebar_position_left</item>
         <item>@string/app_sidebar_position_right</item>
     </string-array>
@@ -486,6 +486,19 @@
         <item>1.0</item>
         <item>1.5</item>
         <item>2.0</item>
+    </string-array>
+
+    <!-- Quick Settings Columns -->
+    <string-array name="quick_settings_columns_entries">
+        <item>3 Columns (default)</item>
+        <item>4 Columns</item>
+        <item>5 Columns</item>
+    </string-array>
+
+    <string-array name="quick_settings_columns_values" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 
 </resources>
