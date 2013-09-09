@@ -36,27 +36,27 @@
     <string name="navigation_bar_height_38">38dp (Schubi)</string>
     <string name="navigation_bar_height_37">37dp</string>
     <string name="navigation_bar_height_36">36dp</string>
-    <string name="navigation_bar_height_35">35dp</string> 
-    <string name="navigation_bar_height_34">34dp</string> 
-    <string name="navigation_bar_height_33">33dp</string> 
-    <string name="navigation_bar_height_32">32dp (heel klein)</string> 
-    <string name="navigation_bar_height_31">31dp</string> 
-    <string name="navigation_bar_height_30">30dp</string> 
-    <string name="navigation_bar_height_29">29dp</string> 
-    <string name="navigation_bar_height_28">28dp</string> 
-    <string name="navigation_bar_height_27">27dp</string> 
-    <string name="navigation_bar_height_26">26dp</string> 
-    <string name="navigation_bar_height_25">25dp</string> 
-    <string name="navigation_bar_height_24">24dp (minuscule)</string> 
-    <string name="navigation_bar_height_23">23dp</string> 
-    <string name="navigation_bar_height_22">22dp</string> 
-    <string name="navigation_bar_height_21">21dp</string> 
-    <string name="navigation_bar_height_20">20dp</string> 
+    <string name="navigation_bar_height_35">35dp</string>
+    <string name="navigation_bar_height_34">34dp</string>
+    <string name="navigation_bar_height_33">33dp</string>
+    <string name="navigation_bar_height_32">32dp (heel klein)</string>
+    <string name="navigation_bar_height_31">31dp</string>
+    <string name="navigation_bar_height_30">30dp</string>
+    <string name="navigation_bar_height_29">29dp</string>
+    <string name="navigation_bar_height_28">28dp</string>
+    <string name="navigation_bar_height_27">27dp</string>
+    <string name="navigation_bar_height_26">26dp</string>
+    <string name="navigation_bar_height_25">25dp</string>
+    <string name="navigation_bar_height_24">24dp (minuscule)</string>
+    <string name="navigation_bar_height_23">23dp</string>
+    <string name="navigation_bar_height_22">22dp</string>
+    <string name="navigation_bar_height_21">21dp</string>
+    <string name="navigation_bar_height_20">20dp</string>
 
     <!-- Statusbar | Battery -->
-	    <String  name = "battery_icon" > Batterij icoon stijl </ string>
-    <String  name = "battery_not_title" > batterij icoon in notificaties </ string>
-    <String  name = "battery_not_summary" >Batterij icoon in plaats van de "clear all button"</ string>
+    <string name="battery_icon">Batterij icoon stijl</string>
+    <string name="battery_not_title">batterij icoon in notificaties</string>
+    <string name="battery_not_summary">Batterij icoon in plaats van de "clear all button"</string>
     <string name="battery_bar">Batterijbalk Positie</string>
     <string name="battery_bar_color">Batterijbalk Kleur</string>
     <string name="battery_bar_cat">Batterijbalk opties</string>
@@ -230,12 +230,12 @@ your apps faster.</string>
     <string name="network_speed_color_reset">Herstel</string>
     <string name="network_speed_color_summary">Wijzig kleur download snelheid tekst</string>
 
-	<- Navigation bar background style ->
-    <String  name = "nav_bar_transparency_title" >Transpartantie Navigatiebalk</ string>
-    <String  name = "nav_bar_color_title" >Kleur Navigatiebalk></ string>
-    <String  name = "nav_bar_background_style" >Achtergrond Navigationbalk </ string>
-    <String  name = "nav_bar_style_reset" > Herstel </ string>
-	
+    <!-- Navigation bar background style -->
+    <string name="nav_bar_transparency_title">Transpartantie Navigatiebalk</string>
+    <string name="nav_bar_color_title">Kleur Navigatiebalk></string>
+    <string name="nav_bar_background_style">Achtergrond Navigationbalk</string>
+    <string name="nav_bar_style_reset">Herstel</string>
+
     <!-- Status bar background style -->
     <string name="status_bar_transparency_title">Transparantie statusbalk</string>
     <string name="status_bar_color_title">Statusbalk kleur</string>
@@ -284,7 +284,7 @@ your apps faster.</string>
     <string name="select_custom_app_title">Selecteer apllicatie</string>
 
     <!-- Color Picker -->
-	<string name="dialog_color_picker">Color Picker</string>
+    <string name="dialog_color_picker">Color Picker</string>
     <string name="press_color_to_apply">Tik op kleur om toe te passen</string>
     <string name="arrow_right">→</string>
     <string name="arrow_down">↓</string>
@@ -300,7 +300,7 @@ your apps faster.</string>
     <string name="group_applications">Applicaties</string>
 
     <!-- Fullscreen Status Bar --> 
-	<string name="fullscreen_statusbar_summary">Veeg vanuit boven het scherm om de statusbar enkele seconden weer te geven.</string>
+    <string name="fullscreen_statusbar_summary">Veeg vanuit boven het scherm om de statusbar enkele seconden weer te geven.</string>
     <string name="fullscreen_statusbar_timeout_title">Timeout verbergen statusbar</string>
     <string name="fullscreen_statusbar_timeout_summary">Stel in hoe snel de stautbar weer verdwijnt</string>
 
