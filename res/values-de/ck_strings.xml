@@ -425,4 +425,8 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <!-- Restart SystemUI -->
     <string name="restart_systemui">SystemUI neustarten</string>
 
+    <!-- Less Notification sounds -->
+    <string name="less_notification_sounds_title">Weniger Benachrichtigungstöne</string>
+    <string name="less_notification_sounds_summary">Erlaubt einer App nur ein mal im eingestellten Zeitrahmen einen Benachrichtigungston zu spielen</string>
+
 </resources>

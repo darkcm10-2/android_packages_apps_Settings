@@ -438,4 +438,8 @@ step 1."</string>
     <!-- Restart SystemUI -->
     <string name="restart_systemui">Restart SystemUI</string>
 
+    <!-- Less Notification sounds -->
+    <string name="less_notification_sounds_title">Less Frequent Notification Sounds</string>
+    <string name="less_notification_sounds_summary">Limit the notification sounds of each app to only play once per set time period</string>
+
 </resources>
