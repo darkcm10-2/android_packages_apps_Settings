@@ -400,4 +400,9 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="force_dualpanel_title">Zweiteilige Ansicht</string>
     <string name="force_dualpanel_summary">Die zweiteilige Ansicht der Einstellungen (Tablet-Ansicht) erzwingen</string>
 
+    <!-- QuickSettings style options -->
+    <string name="quick_tiles_bg_color_title">Kachel-Hintergrundfarbe</string>
+    <string name="quick_tiles_bg_pressed_color_title">Hintergrundfarbe wenn gedrückt</string>
+    <string name="quick_settings_style_reset">Farben zurücksetzen</string>
+
 </resources>

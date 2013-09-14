@@ -28,6 +28,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.os.SystemClock;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
@@ -36,12 +38,17 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.android.internal.util.cm.QSConstants;
 import com.android.internal.util.cm.QSUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class QuickSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -58,6 +65,11 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private static final String PREF_FLIP_QS_TILES = "flip_qs_tiles";
     private static final String FLOATING_WINDOW ="floating_window";
     private static final String QUICK_SETTINGS_COLUMNS = "quick_settings_columns";
+    private static final String PREF_QUICK_TILES_BG_COLOR = "quick_tiles_bg_color";
+    private static final String PREF_QUICK_TILES_BG_PRESSED_COLOR = "quick_tiles_bg_pressed_color";
+
+    private static final int DEFAULT_QUICK_TILES_BG_COLOR = 0xff161616;
+    private static final int DEFAULT_QUICK_TILES_BG_PRESSED_COLOR = 0xff212121;
 
     private MultiSelectListPreference mRingMode;
     private ListPreference mNetworkMode;
@@ -69,6 +81,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
     private PreferenceCategory mDynamicTiles;
+    private ColorPickerPreference mQuickTilesBgColor;
+    private ColorPickerPreference mQuickTilesBgPressedColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -148,6 +162,58 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         int quickSettingsColumnsValue = Settings.System.getInt(resolver,
         	Settings.System.QUICK_SETTINGS_COLUMNS, 3);
         mQuickSettingsColumns.setValue(String.valueOf(quickSettingsColumnsValue));
+
+        mQuickTilesBgColor = (ColorPickerPreference) findPreference(PREF_QUICK_TILES_BG_COLOR);
+        mQuickTilesBgColor.setNewPreviewColor(DEFAULT_QUICK_TILES_BG_COLOR);
+        mQuickTilesBgColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.QUICK_TILES_BG_COLOR, -2);
+        if (intColor == -2) {
+            mQuickTilesBgColor.setSummary(getResources().getString(R.string.none));
+        } else {
+            mQuickTilesBgColor.setNewPreviewColor(intColor);
+        }
+
+        mQuickTilesBgPressedColor = (ColorPickerPreference) findPreference(PREF_QUICK_TILES_BG_PRESSED_COLOR);
+        mQuickTilesBgPressedColor.setNewPreviewColor(DEFAULT_QUICK_TILES_BG_PRESSED_COLOR);
+        mQuickTilesBgPressedColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.QUICK_TILES_BG_PRESSED_COLOR, -2);
+        if (intColor == -2) {
+            mQuickTilesBgPressedColor.setSummary(getResources().getString(R.string.none));
+        } else {
+            mQuickTilesBgPressedColor.setNewPreviewColor(intColor);
+        }
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.quick_settings_tiles_style, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        private PowerManager pm; 
+        switch (item.getItemId()) {
+            case R.id.reset:
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.QUICK_TILES_BG_COLOR, -2);
+                Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.QUICK_TILES_BG_PRESSED_COLOR, -2);
+
+                //refreshSettings();
+		mQuickTilesBgColor.setNewPreviewColor(DEFAULT_QUICK_TILES_BG_COLOR);
+		mQuickTilesBgPressedColor.setNewPreviewColor(DEFAULT_QUICK_TILES_BG_PRESSED_COLOR);
+                Helpers.restartSystemUI();
+                pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+                pm.goToSleep(SystemClock.uptimeMillis());
+                return true;
+             default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     @Override
@@ -195,6 +261,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getContentResolver();
+        private PowerManager pm; 
         if (preference == mRingMode) {
             ArrayList<String> arrValue = new ArrayList<String>((Set<String>) newValue);
             Collections.sort(arrValue, new MultiSelectListPreferenceComparator(mRingMode));
@@ -225,6 +292,30 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             int index = mQuickSettingsColumns.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.QUICK_SETTINGS_COLUMNS, value);
             mQuickSettingsColumns.setSummary(mQuickSettingsColumns.getEntries()[index]);
+            return true;
+        } else if (preference == mQuickTilesBgColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QUICK_TILES_BG_COLOR,
+                    intHex);
+            Helpers.restartSystemUI();
+            pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+            pm.goToSleep(SystemClock.uptimeMillis());
+            return true;
+        } else if (preference == mQuickTilesBgPressedColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.QUICK_TILES_BG_PRESSED_COLOR,
+                    intHex);
+            Helpers.restartSystemUI();
+            pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+            pm.goToSleep(SystemClock.uptimeMillis());
             return true;
         }
         return false;
