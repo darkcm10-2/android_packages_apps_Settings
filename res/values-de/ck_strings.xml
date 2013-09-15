@@ -405,4 +405,7 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="quick_tiles_bg_pressed_color_title">Hintergrundfarbe wenn gedrückt</string>
     <string name="quick_settings_style_reset">Farben zurücksetzen</string>
 
+    <!-- Restart SystemUI -->
+    <string name="restart_systemui">SystemUI neustarten</string>
+
 </resources>
