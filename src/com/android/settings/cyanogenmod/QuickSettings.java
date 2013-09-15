@@ -302,9 +302,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.QUICK_TILES_BG_COLOR,
                     intHex);
-            Helpers.restartSystemUI();
-            pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-            pm.goToSleep(SystemClock.uptimeMillis());
+            //Helpers.restartSystemUI();
+            //pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+            //pm.goToSleep(SystemClock.uptimeMillis());
             return true;
         } else if (preference == mQuickTilesBgPressedColor) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -314,9 +314,9 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.QUICK_TILES_BG_PRESSED_COLOR,
                     intHex);
-            Helpers.restartSystemUI();
-            pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-            pm.goToSleep(SystemClock.uptimeMillis());
+            //Helpers.restartSystemUI();
+            //pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+            //pm.goToSleep(SystemClock.uptimeMillis());
             return true;
         }
         return false;
