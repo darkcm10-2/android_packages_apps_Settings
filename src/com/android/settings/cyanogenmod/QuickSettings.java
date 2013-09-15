@@ -47,6 +47,7 @@ import com.android.internal.util.cm.QSUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.util.Helpers;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -83,6 +84,8 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mDynamicTiles;
     private ColorPickerPreference mQuickTilesBgColor;
     private ColorPickerPreference mQuickTilesBgPressedColor;
+
+    private PowerManager pm;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -196,7 +199,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        private PowerManager pm; 
         switch (item.getItemId()) {
             case R.id.reset:
                 Settings.System.putInt(getActivity().getContentResolver(),
@@ -261,7 +263,6 @@ public class QuickSettings extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getContentResolver();
-        private PowerManager pm; 
         if (preference == mRingMode) {
             ArrayList<String> arrValue = new ArrayList<String>((Set<String>) newValue);
             Collections.sort(arrValue, new MultiSelectListPreferenceComparator(mRingMode));
