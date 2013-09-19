@@ -442,6 +442,8 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="ad_pocket_mode_title">Taschen-Modus</string>
     <string name="ad_pocket_mode_summary">Active-Display-Benachrichtigungen anzeigen, wenn das Gerät aus der Tasche gezogen wird</string>
     <string name="ad_redisplay_title">Benachrichtigungen erneut anzeigen</string>
+    <string name="ad_sunlight_mode_title">Sonnenlicht-Modus</string>
+    <string name="ad_sunlight_mode_summary">Invertiert die Farben wenn Sie sich in hellem Licht aufhalten</string>
     <string name="ad_customizations_title">Anpassungen</string>
     <string name="ad_brightness_title">Display-Helligkeit</string>
     <string name="ad_brightness_summary">Display-Helligkeit, die verwendet werden soll, falls die automatische Helligkeit deaktiviert ist</string>
