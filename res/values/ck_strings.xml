@@ -234,8 +234,11 @@ your apps faster.</string>
 
     <!-- Clear Recents position -->
     <string name="clear_recents_position_title">Clear recents position</string>
-    <string name="clear_recents_position_left">Left</string>
-    <string name="clear_recents_position_right">Right</string>
+    <string name="clear_recents_position_disabled">Disabled</string>
+    <string name="clear_recents_position_bottom_right">Bottom right</string>
+    <string name="clear_recents_position_bottom_left">Bottom left</string>
+    <string name="clear_recents_position_top_right">Top right</string>
+    <string name="clear_recents_position_top_left">Top left</string>
 
     <!-- Alternate default app picker -->
     <string name="alt_resolver_title">Use Alt Default App Picker</string>

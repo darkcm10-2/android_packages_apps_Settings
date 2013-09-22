@@ -222,8 +222,11 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
 
     <!-- Clear Recents position -->
     <string name="clear_recents_position_title">Position des Clear-Recents-Buttons</string>
-    <string name="clear_recents_position_left">links</string>
-    <string name="clear_recents_position_right">rechts</string>
+    <string name="clear_recents_position_disabled">Deaktiviert</string>
+    <string name="clear_recents_position_bottom_right">unten rechts</string>
+    <string name="clear_recents_position_bottom_left">unten links</string>
+    <string name="clear_recents_position_top_right">oben rechts</string>
+    <string name="clear_recents_position_top_left">oben links</string>
 
     <!-- Alternate default app picker -->
     <string name="alt_resolver_title">Alternativer App Picker</string>
@@ -436,9 +439,9 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="ad_enable_summary_on">Active-Display aktiviert</string>
     <string name="ad_enable_summary_off">Active-Display deaktiviert</string>
     <string name="ad_text_title">Benachrichtigungs-Text</string>
-    <string name="ad_text_summary">Den Benachrichtigungs-Text um den entsperr-Ring herum anzeigen</string>
+    <string name="ad_text_summary">Den Benachrichtigungs-Text um den Entsperr-Ring herum anzeigen</string>
     <string name="ad_all_notifications_title">Alle Benachrichtigungen</string>
-    <string name="ad_all_notifications_summary">Alle Benachrichtigunen anzeigen, auch nicht löschbare</string>
+    <string name="ad_all_notifications_summary">Alle Benachrichtigungen anzeigen, auch nicht löschbare</string>
     <string name="ad_pocket_mode_title">Taschen-Modus</string>
     <string name="ad_pocket_mode_summary">Active-Display-Benachrichtigungen anzeigen, wenn das Gerät aus der Tasche gezogen wird</string>
     <string name="ad_redisplay_title">Benachrichtigungen erneut anzeigen</string>
@@ -452,7 +455,7 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="ad_show_ampm_title">AM/PM anzeigen</string>
     <string name="ad_show_ampm_summary">AM/PM neben der Uhrzeit anzeigen, falls die 12-Stunden-Uhr aktiv ist</string>
     <string name="ad_redisplay_never">Nie</string>
-    <string name="ad_redisplay_1m">1 Minuten</string>
+    <string name="ad_redisplay_1m">1 Minute</string>
     <string name="ad_redisplay_5m">5 Minuten</string>
     <string name="ad_redisplay_15m">15 Minuten</string>
     <string name="ad_redisplay_30m">30 Minuten</string>

@@ -151,7 +151,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
 
         mClearPosition = (ListPreference) findPreference(KEY_CLEAR_RECENTS_POSITION);
         int ClearSide = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.CLEAR_RECENTS_POSITION, 0);
+                Settings.System.CLEAR_RECENTS_POSITION, 2);
         mClearPosition.setValue(String.valueOf(ClearSide));
         mClearPosition.setSummary(mClearPosition.getEntry());
         mClearPosition.setOnPreferenceChangeListener(this);
@@ -223,10 +223,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
                     Settings.System.MISSED_CALL_BREATH, value);
             return true;
         } else if (preference == mClearPosition) {
-            int side = Integer.valueOf((String) objValue);
+            int position = Integer.valueOf((String) objValue);
             int index = mClearPosition.findIndexOfValue((String) objValue);
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.CLEAR_RECENTS_POSITION, side);
+                    Settings.System.CLEAR_RECENTS_POSITION, position);
             mClearPosition.setSummary(mClearPosition.getEntries()[index]);
             return true;
         } else if (preference == mListViewAnimation) {
