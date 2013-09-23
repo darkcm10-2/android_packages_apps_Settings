@@ -29,6 +29,7 @@ import static com.android.internal.util.cm.QSConstants.TILE_GPS;
 import static com.android.internal.util.cm.QSConstants.TILE_LOCKSCREEN;
 import static com.android.internal.util.cm.QSConstants.TILE_LTE;
 import static com.android.internal.util.cm.QSConstants.TILE_MOBILEDATA;
+import static com.android.internal.util.cm.QSConstants.TILE_NETWORKADB;
 import static com.android.internal.util.cm.QSConstants.TILE_NETWORKMODE;
 import static com.android.internal.util.cm.QSConstants.TILE_NFC;
 import static com.android.internal.util.cm.QSConstants.TILE_FCHARGE;
@@ -149,6 +150,9 @@ public class QuickSettingsUtil {
         registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_FCHARGE, R.string.title_tile_fcharge,
                 "com.android.systemui:drawable/ic_qs_fcharge_off"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_NETWORKADB, R.string.title_tile_network_adb,
+                "com.android.systemui:drawable/ic_qs_network_adb_off"));
     }
 
     private static void registerTile(QuickSettingsUtil.TileInfo info) {
@@ -245,6 +249,13 @@ public class QuickSettingsUtil {
             enableTile(TILE_EXPANDEDDESKTOP);
         } else {
             disableTile(TILE_EXPANDEDDESKTOP);
+        }
+
+        // Don't show the Network ADB tile if adb debugging is disabled
+        if (QSUtils.adbEnabled(resolver)) {
+            enableTile(TILE_NETWORKADB);
+        } else {
+            disableTile(TILE_NETWORKADB);
         }
     }
 
