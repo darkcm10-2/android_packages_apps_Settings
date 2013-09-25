@@ -462,6 +462,13 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="ad_redisplay_1h">1 Stunde</string>
     <string name="ad_redisplay_2h">2 Stunden</string>
     <string name="ad_redisplay_5h">5 Stunden</string>
+    <string name="ad_timeout_title">Display timeout</string>
+    <string name="ad_timeout_3s">3 Sekunden</string>
+    <string name="ad_timeout_5s">5 Sekunden</string>
+    <string name="ad_timeout_8s">8 Sekunden</string>
+    <string name="ad_timeout_10s">10 Sekunden</string>
+    <string name="ad_timeout_15s">15 Sekunden</string>
+    <string name="ad_timeout_25s">25 Sekunden</string>
 
     <!-- CK Updater -->
     <string name="ckupdate_settings_title">CyanKang-Updates</string>
