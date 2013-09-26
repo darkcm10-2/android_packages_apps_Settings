@@ -476,4 +476,8 @@ step 1."</string>
     <string name="ad_redisplay_2h">2 hours</string>
     <string name="ad_redisplay_5h">5 hours</string>
 
+    <!-- CK Updater -->
+    <string name="ckupdate_settings_title">CyanKang updates</string>
+    <string name="ckupdate_settings_summary">Check for, view or install available updates</string>
+
 </resources>

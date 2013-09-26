@@ -463,4 +463,8 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="ad_redisplay_2h">2 Stunden</string>
     <string name="ad_redisplay_5h">5 Stunden</string>
 
+    <!-- CK Updater -->
+    <string name="ckupdate_settings_title">CyanKang-Updates</string>
+    <string name="ckupdate_settings_summary">Auf neue Versionen prüfen und diese installieren</string>
+
 </resources>

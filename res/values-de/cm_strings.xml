@@ -345,8 +345,6 @@
     <string name="power_menu_airplane_title">Flugmodus</string>
     <string name="power_menu_user_title">Benutzer</string>
     <string name="power_menu_sound_title">Lautlos</string>
-    <string name="cmupdate_settings_title">CyanogenMod-Updates</string>
-    <string name="cmupdate_settings_summary">Auf neue Versionen prüfen und diese installieren</string>
     <string name="advanced_settings_title">Erweitert</string>
     <string name="ime_switcher_notify">Auswahlbenachrichtigung</string>
     <string name="ime_switcher_notify_summary">Benachrichtigung zur Auswahl der Eingabemethode in der Statusleiste anzeigen</string>
