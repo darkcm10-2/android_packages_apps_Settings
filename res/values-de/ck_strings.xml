@@ -469,6 +469,8 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="ad_timeout_10s">10 Sekunden</string>
     <string name="ad_timeout_15s">15 Sekunden</string>
     <string name="ad_timeout_25s">25 Sekunden</string>
+    <string name="ad_hide_low_priority_title">Unwichtige Benachrichtigungen verstecken</string>
+    <string name="ad_hide_low_priority_summary">Benachrichtigungen mit niedriger Priorität, wie z.B. die von Google Now, verstecken</string>
 
     <!-- CK Updater -->
     <string name="ckupdate_settings_title">CyanKang-Updates</string>
