@@ -266,6 +266,7 @@
     <item>Wifi-Status ändern</item>
     <item>Bluetooth-Status ändern</item>
     <item>Daten-Status ändern</item>
+    <item>Aufwachen durch Alarm</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Standort"</item>
@@ -302,6 +303,7 @@
     <item>Wifi-Status ändern</item>
     <item>Bluetooth-Status ändern</item>
     <item>Daten-Status ändern</item>
+    <item>Aufwachen durch Alarm</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Kurz"</item>

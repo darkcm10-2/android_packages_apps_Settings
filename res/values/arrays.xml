@@ -628,6 +628,7 @@
         <item>wifi change</item>
         <item>bluetooth change</item>
         <item>data change</item>
+        <item>alarm wakeup</item>
     </string-array>
 
     <!-- User display names for app ops codes -->
@@ -666,6 +667,7 @@
         <item>Wifi change</item>
         <item>Bluetooth change</item>
         <item>Data change</item>
+        <item>Alarm wakeup</item>
     </string-array>
 
     <!-- Titles for the list of long press timeout options. -->
