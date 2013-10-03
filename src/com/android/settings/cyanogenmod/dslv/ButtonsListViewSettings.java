@@ -571,8 +571,8 @@ public class ButtonsListViewSettings extends ListFragment implements
             // of the app as value in ButtonConfig back
             // so we just need to call the normal method without
             // description
-            case LOCKSCREEN_SHORTCUT:
-                return ButtonsHelper.getLockscreenShortcutConfig(mActivity);
+            //case LOCKSCREEN_SHORTCUT:
+            //    return ButtonsHelper.getLockscreenShortcutConfig(mActivity);
             case NOTIFICATION_SHORTCUT:
                 return ButtonsHelper.getNotificationsShortcutConfig(mActivity);
         }
@@ -593,9 +593,9 @@ public class ButtonsListViewSettings extends ListFragment implements
             case NAV_RING:
                 ButtonsHelper.setNavRingConfig(mActivity, buttonConfigs, reset);
                 break;
-            case LOCKSCREEN_SHORTCUT:
-                ButtonsHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
-                break;
+            //case LOCKSCREEN_SHORTCUT:
+            //    ButtonsHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
+            //    break;
             case NOTIFICATION_SHORTCUT:
                 ButtonsHelper.setNotificationShortcutConfig(mActivity, buttonConfigs, reset);
                 break;

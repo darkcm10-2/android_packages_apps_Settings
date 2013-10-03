@@ -69,4 +69,8 @@
     <!-- Minimum width for the popup for updating a user's photo. -->
     <dimen name="update_user_photo_popup_min_width">300dip</dimen>
 
+
+    <!-- Notification Shortcuts -->
+    <dimen name="notification_shortcut_picker_left_padding">36dip</dimen>
+
 </resources>

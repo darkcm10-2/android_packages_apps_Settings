@@ -482,4 +482,12 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="media_scanner_on_boot_ask">Nachfragen (Benachrichtigung)</string>
     <string name="media_scanner_on_boot_disabled">Medien nicht scannen</string>
 
+    <!-- Notification Shortcuts -->
+    <string name="notification_shortcuts_settings_title">App-Shortcuts</string> 
+    <string name="notification_shortcuts_settings_summary">App-Shortcuts in der Benachrichtigungsanzeige anzeigen</string>
+    <string name="notification_shortcuts_color_title">Icon-Farbe</string>
+    <string name="notification_shortcuts_color_summary">Die Icon-Farbe der Shortcuts festlegen</string>
+    <string name="notification_shortcuts_color_mode_title">Icon-Farb-Modus</string>
+    <string name="notification_shortcuts_color_mode_summary">Den Icon-Farb-Modus der Shortcuts festlegen</string>
+
 </resources>
