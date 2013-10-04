@@ -96,7 +96,7 @@ public class AppOpsSummary extends Fragment {
         mContentContainer = container;
         mRootView = rootView;
 
-        mPageNames = getResources().getTextArray(R.array.app_ops_categories_pa);
+        mPageNames = getResources().getTextArray(R.array.app_ops_categories);
 
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
         MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
@@ -104,6 +104,12 @@ public class AppOpsSummary extends Fragment {
         mViewPager.setOnPageChangeListener(adapter);
         PagerTabStrip tabs = (PagerTabStrip) rootView.findViewById(R.id.tabs);
         tabs.setTabIndicatorColorResource(android.R.color.holo_blue_light);
+
+        // We have to do this now because PreferenceFrameLayout looks at it
+        // only when the view is added.
+        if (container instanceof PreferenceFrameLayout) {
+            ((PreferenceFrameLayout.LayoutParams) rootView.getLayoutParams()).removeBorders = true;
+        }
 
         return rootView;
     }
