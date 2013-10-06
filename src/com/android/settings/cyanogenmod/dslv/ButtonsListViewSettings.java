@@ -555,24 +555,6 @@ public class ButtonsListViewSettings extends ListFragment implements
 
     private ArrayList<ButtonConfig> getConfig() {
         switch (mButtonMode) {
-            case NAV_BAR:
-                return ButtonsHelper.getNavBarConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);
-            case PIE:
-                return ButtonsHelper.getPieConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);
-            case PIE_SECOND:
-                return ButtonsHelper.getPieSecondLayerConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);
-            case NAV_RING:
-                return ButtonsHelper.getNavRingConfigWithDescription(
-                    mActivity, mActionValuesKey, mActionEntriesKey);
-            // shortcuts with only app activity get always the name
-            // of the app as value in ButtonConfig back
-            // so we just need to call the normal method without
-            // description
-            //case LOCKSCREEN_SHORTCUT:
-            //    return ButtonsHelper.getLockscreenShortcutConfig(mActivity);
             case NOTIFICATION_SHORTCUT:
                 return ButtonsHelper.getNotificationsShortcutConfig(mActivity);
         }
@@ -581,21 +563,6 @@ public class ButtonsListViewSettings extends ListFragment implements
 
     private void setConfig(ArrayList<ButtonConfig> buttonConfigs, boolean reset) {
         switch (mButtonMode) {
-            case NAV_BAR:
-                ButtonsHelper.setNavBarConfig(mActivity, buttonConfigs, reset);
-                break;
-            case PIE:
-                ButtonsHelper.setPieConfig(mActivity, buttonConfigs, reset);
-                break;
-            case PIE_SECOND:
-                ButtonsHelper.setPieSecondLayerConfig(mActivity, buttonConfigs, reset);
-                break;
-            case NAV_RING:
-                ButtonsHelper.setNavRingConfig(mActivity, buttonConfigs, reset);
-                break;
-            //case LOCKSCREEN_SHORTCUT:
-            //    ButtonsHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
-            //    break;
             case NOTIFICATION_SHORTCUT:
                 ButtonsHelper.setNotificationShortcutConfig(mActivity, buttonConfigs, reset);
                 break;
