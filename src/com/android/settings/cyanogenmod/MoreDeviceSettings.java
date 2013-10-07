@@ -32,14 +32,12 @@ import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 public class MoreDeviceSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "MoreDeviceSettings";
 
-    private static final String KEY_DEVICE_PARTS = "advanced_settings";
     private static final String KEY_SENORS_MOTORS_CATEGORY = "sensors_motors_category";
     private static final String KEY_DISPLAY_CALIBRATION_CATEGORY = "display_calibration_category";
     private static final String KEY_DISPLAY_COLOR = "color_calibration";
@@ -81,9 +79,6 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment implements
         mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
         mLowBatteryWarning.setOnPreferenceChangeListener(this);
-
-        Utils.updatePreferenceToSpecificActivityFromMetaDataOrRemove(getActivity(),
-                getPreferenceScreen(), KEY_DEVICE_PARTS);
     }
 
     @Override
@@ -108,6 +103,7 @@ public class MoreDeviceSettings extends SettingsPreferenceFragment implements
             mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntries()[index]);
             return true;
         }
+
         return false;
     }
 
