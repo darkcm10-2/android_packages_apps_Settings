@@ -51,6 +51,8 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String STATUS_BAR_TRAFFIC_ENABLE = "status_bar_traffic_enable";
     private static final String STATUS_BAR_TRAFFIC_HIDE = "status_bar_traffic_hide";
+    private static final String STATUS_BAR_TRAFFIC_SUMMARY = "status_bar_traffic_summary";
+
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String STATUS_BAR_CATEGORY_GENERAL = "status_bar_general";
     private static final String FREF_FULLSCREEN_STATUSBAR_TIMEOUT = "fullscreen_statusbar_timeout";
@@ -77,6 +79,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ColorPickerPreference mBatteryBarColor;
     private CheckBoxPreference mStatusBarTraffic_enable;
     private CheckBoxPreference mStatusBarTraffic_hide;
+    private ListPreference mStatusBarTraffic_summary;
     private ListPreference mFullScreenStatusBarTimeout;
     private CheckBoxPreference mStatusBarAutoUnhide;
 
@@ -168,6 +171,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarTraffic_hide = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC_HIDE);
         mStatusBarTraffic_hide.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_TRAFFIC_HIDE, 1) == 1));
+
+        mStatusBarTraffic_summary = (ListPreference) findPreference(STATUS_BAR_TRAFFIC_SUMMARY);
+        mStatusBarTraffic_summary.setOnPreferenceChangeListener(this);
+        mStatusBarTraffic_summary.setValue((Settings.System.getInt(resolver,
+                        Settings.System.STATUS_BAR_TRAFFIC_SUMMARY, 3000)) + "");
 
         mBatteryBar = (ListPreference) findPreference(PREF_BATT_BAR);
         mBatteryBar.setOnPreferenceChangeListener(this);
@@ -295,6 +303,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         } else if (preference == mStatusBarAutoUnhide) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_AUTO_UNHIDE, value ? 1 : 0);
+            return true;
+        } else if (preference == mStatusBarTraffic_summary) {
+            int val = Integer.valueOf((String) newValue);
+            int index = mStatusBarTraffic_summary.findIndexOfValue((String) newValue);
+            Settings.System.putInt(resolver, Settings.System.STATUS_BAR_TRAFFIC_SUMMARY, val);
+            mStatusBarTraffic_summary.setSummary(mStatusBarTraffic_summary.getEntries()[index]);
             return true;
         }
 
