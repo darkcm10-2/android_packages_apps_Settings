@@ -613,6 +613,8 @@
 
     <string-array name="network_speed_summary_entries" translatable="false">
         <item>@string/traffic_timeout_0s</item>
+        <item>@string/traffic_timeout_1s</item>
+        <item>@string/traffic_timeout_2s</item>
         <item>@string/traffic_timeout_3s</item>
         <item>@string/traffic_timeout_5s</item>
         <item>@string/traffic_timeout_8s</item>
@@ -623,6 +625,8 @@
 
     <string-array name="network_speed_summary_values" translatable="false">
         <item>0</item>
+        <item>1000</item>
+        <item>2000</item>
         <item>3000</item>
         <item>5000</item>
         <item>8000</item>

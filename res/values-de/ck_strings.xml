@@ -246,6 +246,8 @@ hilft, diese Anwendungen schneller zu öffnen.</string>
     <string name="hide_network_speed_summary">Datendurchsatz-Anzeige ausblenden, solange keine Daten übertragen werden</string>
     <string name="network_speed_summary">Datenmenge anzeigen</string>
     <string name="traffic_timeout_0s">Nicht anzeigen</string>
+    <string name="traffic_timeout_1s">1 Sekunde</string>
+    <string name="traffic_timeout_2s">2 Sekunden</string>
     <string name="traffic_timeout_3s">3 Sekunden</string>
     <string name="traffic_timeout_5s">5 Sekunden</string>
     <string name="traffic_timeout_8s">8 Sekunden</string>

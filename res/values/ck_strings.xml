@@ -258,6 +258,8 @@ your apps faster.</string>
     <string name="hide_network_speed_summary">Hide network speed indicator when there is no traffic</string>
     <string name="network_speed_summary">Show summary of traffic</string>
     <string name="traffic_timeout_0s">Don\'t show</string>
+    <string name="traffic_timeout_1s">1 second</string>
+    <string name="traffic_timeout_2s">2 seconds</string>
     <string name="traffic_timeout_3s">3 seconds</string>
     <string name="traffic_timeout_5s">5 seconds</string>
     <string name="traffic_timeout_8s">8 seconds</string>
