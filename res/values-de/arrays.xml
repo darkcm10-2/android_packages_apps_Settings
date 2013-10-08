@@ -263,6 +263,9 @@
     <item msgid="5031552983987798163">"Audio wiedergeben"</item>
     <item msgid="8374996688066472414">"Zwischenablage lesen"</item>
     <item msgid="3045529469061083747">"Zwischenablage ändern"</item>
+    <item>Wifi-Status ändern</item>
+    <item>Bluetooth-Status ändern</item>
+    <item>Daten-Status ändern</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Standort"</item>
@@ -296,6 +299,9 @@
     <item msgid="3493046322001257041">"Audio wiedergeben"</item>
     <item msgid="136815868796597058">"Zwischenablage lesen"</item>
     <item msgid="5238692940326972503">"Zwischenablage ändern"</item>
+    <item>Wifi-Status ändern</item>
+    <item>Bluetooth-Status ändern</item>
+    <item>Daten-Status ändern</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Kurz"</item>
