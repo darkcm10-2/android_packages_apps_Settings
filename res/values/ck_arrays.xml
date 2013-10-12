@@ -635,11 +635,6 @@
         <item>25000</item>
     </string-array>
 
-    <string-array name="entries_screentimeout_widget">
-        <item>15s | 1m | 5m | Never</item>
-        <item>30s | 2m | 5m | Never</item>
-    </string-array>
-
     <string-array name="shortcut_action_entries">
         <item>@string/shortcut_action_back</item>
         <item>@string/shortcut_action_app</item>
