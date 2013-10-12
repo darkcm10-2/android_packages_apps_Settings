@@ -37,8 +37,8 @@
                 android:title="@string/screen_timeout"
                 android:summary="@string/screen_timeout_summary"
                 android:persistent="false"
-                android:entries="@array/screen_timeout_entries"
-                android:entryValues="@array/screen_timeout_values" />
+                android:entries="@array/ck_screen_timeout_entries"
+                android:entryValues="@array/ck_screen_timeout_values" />
 
         <PreferenceScreen
                 android:key="screensaver"

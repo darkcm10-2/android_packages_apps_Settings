@@ -59,4 +59,16 @@
         <item>5m</item>
     </string-array>
 
+    <string-array name="ck_screen_timeout_entries">
+        <item>"15 Sekunden"</item>
+        <item>"30 Sekunden"</item>
+        <item>"1 Minute"</item>
+        <item>"2 Minuten"</item>
+        <item>"5 Minuten"</item>
+        <item>"10 Minuten"</item>
+        <item>"30 Minuten"</item>
+        <item>"Nie"</item>
+    </string-array>
+
+
 </resources>

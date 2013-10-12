@@ -64,6 +64,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     // If there is no setting in the provider, use this
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
+    private static final int SCREEN_TIMEOUT_NEVER  = Integer.MAX_VALUE;
 
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
     private static final String KEY_FONT_SIZE = "font_size";
@@ -300,8 +301,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                         best = i;
                     }
                 }
-                summary = preference.getContext().getString(R.string.screen_timeout_summary,
-                        entries[best]);
+                if (best != 7)
+                    summary = preference.getContext().getString(R.string.screen_timeout_summary,
+                            entries[best]);
+                else
+                    summary = preference.getEntries()[7] + "";
+
             }
         }
         preference.setSummary(summary);
@@ -321,7 +326,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         ArrayList<CharSequence> revisedValues = new ArrayList<CharSequence>();
         for (int i = 0; i < values.length; i++) {
             long timeout = Long.parseLong(values[i].toString());
-            if (timeout <= maxTimeout) {
+            if (timeout <= maxTimeout || timeout == SCREEN_TIMEOUT_NEVER) {
                 revisedEntries.add(entries[i]);
                 revisedValues.add(values[i]);
             }
