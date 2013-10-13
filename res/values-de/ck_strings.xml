@@ -500,4 +500,6 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="notification_shortcuts_color_mode_title">Icon-Farb-Modus</string>
     <string name="notification_shortcuts_color_mode_summary">Den Icon-Farb-Modus der Shortcuts festlegen</string>
 
+    <string name="battery_around_lockscreen_ring">Batteriestand um den Entsperring anzeigen</string>
+
 </resources>

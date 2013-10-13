@@ -513,4 +513,6 @@ step 1."</string>
     <string name="notification_shortcuts_color_mode_title">Icon color mode</string>
     <string name="notification_shortcuts_color_mode_summary">Change the shorcuts icon color mode</string>
 
+    <string name="battery_around_lockscreen_ring">Battery level around lock ring</string>
+
 </resources>
