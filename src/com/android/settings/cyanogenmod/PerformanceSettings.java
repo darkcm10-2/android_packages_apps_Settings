@@ -57,11 +57,10 @@ public class PerformanceSettings extends SettingsPreferenceFragment {
 
         addPreferencesFromResource(R.xml.performance_settings);
 
-        final Resources res = getResources();
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mPerfProfilePref = prefSet.findPreference(PERF_PROFILE_PREF);
-        String perfProfileProp = getString(R.string.config_perf_profile_prop);
+        String perfProfileProp = getString(com.android.internal.R.string.config_perf_profile_prop);
         if (mPerfProfilePref != null && TextUtils.isEmpty(perfProfileProp)) {
             prefSet.removePreference(mPerfProfilePref);
         }

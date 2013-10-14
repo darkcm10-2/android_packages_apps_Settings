@@ -23,6 +23,8 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.SystemProperties;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.settings.DisplaySettings;
@@ -170,18 +172,21 @@ public class BootReceiver extends BroadcastReceiver {
             return;
         }
 
-        String perfProfileProp = res.getString(R.string.config_perf_profile_prop);
-        if (perfProfileProp == null) {
+        String perfProfileProp = res.getString(
+                com.android.internal.R.string.config_perf_profile_prop);
+        if (!TextUtils.isEmpty(perfProfileProp)) {
             Log.d(TAG, "Performance profiles are not supported by the device. Nothing to restore.");
         }
 
-        String perfProfile = prefs.getString(PerformanceProfile.PERF_PROFILE_PREF, null);
+        String perfProfile = Settings.System.getString(ctx.getContentResolver(),
+                Settings.System.PERFORMANCE_PROFILE);
         if (perfProfile == null) {
-            Log.d(TAG, "No performance profile settings saved. Nothing to restore.");
-        } else {
-            SystemProperties.set(perfProfileProp, perfProfile);
-            Log.d(TAG, "Performance profile settings restored.");
+            perfProfile = res.getString(
+                    com.android.internal.R.string.config_perf_profile_default_entry);
         }
+
+        SystemProperties.set(perfProfileProp, perfProfile);
+        Log.d(TAG, "Performance profile settings restored.");
     }
 
     private void configureKSM(Context ctx) {

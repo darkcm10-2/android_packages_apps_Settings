@@ -16,11 +16,16 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.content.ContentResolver;
+import android.database.ContentObserver;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.SystemProperties;
+import android.os.Handler;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
+import android.text.TextUtils;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -35,58 +40,102 @@ public class PerformanceProfile extends SettingsPreferenceFragment implements
 
     public static final String SOB_PREF = "pref_perf_profile_set_on_boot";
 
-    private String mPerfProfileProp;
-    private String mPerfProfileFormat;
+    private class PerformanceProfileObserver extends ContentObserver {
+        public PerformanceProfileObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            setCurrentValue();
+        }
+    }
+
+    private String mPerfProfileDefaultEntry;
 
     private ListPreference mPerfProfilePref;
 
     private String[] mPerfProfileEntries;
     private String[] mPerfProfileValues;
 
+    private ContentObserver mPerformanceProfileObserver;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mPerfProfileProp = getString(R.string.config_perf_profile_prop);
-        mPerfProfileFormat = getString(R.string.perf_profile_summary);
-
-        mPerfProfileEntries = getResources().getStringArray(R.array.perf_profile_entries);
-        mPerfProfileValues = getResources().getStringArray(R.array.perf_profile_values);
+        mPerfProfileDefaultEntry = getString(
+                com.android.internal.R.string.config_perf_profile_default_entry);
+        mPerfProfileEntries = getResources().getStringArray(
+                com.android.internal.R.array.perf_profile_entries);
+        mPerfProfileValues = getResources().getStringArray(
+                com.android.internal.R.array.perf_profile_values);
 
         addPreferencesFromResource(R.xml.perf_profile_settings);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
 
+        mPerformanceProfileObserver = new PerformanceProfileObserver(new Handler());
+
         mPerfProfilePref = (ListPreference) prefScreen.findPreference(PERF_PROFILE_PREF);
+        mPerfProfilePref.setEntries(mPerfProfileEntries);
+        mPerfProfilePref.setEntryValues(mPerfProfileValues);
+        setCurrentValue();
         mPerfProfilePref.setOnPreferenceChangeListener(this);
+    }
+
+    private void setCurrentValue() {
+        String value = getCurrentPerformanceProfile();
+        mPerfProfilePref.setValue(value);
         setCurrentPerfProfileSummary();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        setCurrentValue();
+        ContentResolver resolver = getActivity().getContentResolver();
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.PERFORMANCE_PROFILE), false, mPerformanceProfileObserver);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        ContentResolver resolver = getActivity().getContentResolver();
+        resolver.unregisterContentObserver(mPerformanceProfileObserver);
     }
 
     public void setCurrentPerfProfileSummary() {
-        String currentValue = SystemProperties.get(mPerfProfileProp);
+        String value = getCurrentPerformanceProfile();
         String summary = "";
         int count = mPerfProfileValues.length;
         for (int i = 0; i < count; i++) {
             try {
-                if (mPerfProfileValues[i].compareTo(currentValue) == 0) {
+                if (mPerfProfileValues[i].compareTo(value) == 0) {
                     summary = mPerfProfileEntries[i];
                 }
             } catch (IndexOutOfBoundsException ex) {
                 // Ignore
             }
         }
-        mPerfProfilePref.setSummary(String.format(mPerfProfileFormat, summary));
+        mPerfProfilePref.setSummary(String.format("%s", summary));
+    }
+
+    private String getCurrentPerformanceProfile() {
+        String value = Settings.System.getString(getActivity().getContentResolver(),
+                Settings.System.PERFORMANCE_PROFILE);
+        if (TextUtils.isEmpty(value)) {
+            value = mPerfProfileDefaultEntry;
+        }
+        return value;
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (newValue != null) {
             if (preference == mPerfProfilePref) {
-                SystemProperties.set(mPerfProfileProp, String.valueOf(newValue));
+                Settings.System.putString(getActivity().getContentResolver(),
+                        Settings.System.PERFORMANCE_PROFILE, String.valueOf(newValue));
                 setCurrentPerfProfileSummary();
                 return true;
             }
