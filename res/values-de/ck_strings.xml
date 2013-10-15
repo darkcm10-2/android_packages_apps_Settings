@@ -481,6 +481,8 @@ solltest, wiederhole diese Anleitung von Anfang an."</string>
     <string name="ad_timeout_25s">25 Sekunden</string>
     <string name="ad_hide_low_priority_title">Unwichtige Benachrichtigungen verstecken</string>
     <string name="ad_hide_low_priority_summary">Benachrichtigungen mit niedriger Priorität, wie z.B. die von Google Now, verstecken</string>
+    <string name="ad_excluded_apps_title">Ausgeschlossene Apps</string>            
+    <string name="ad_excluded_apps_summary">Benachrichtigungen ausgeschlossener Apps werden in Active-Display nicht angezeigt</string>
 
     <!-- CK Updater -->
     <string name="ckupdate_settings_title">CyanKang-Updates</string>
